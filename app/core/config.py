@@ -36,6 +36,7 @@ class Settings(BaseSettings):
     # AI检测账号列表 (email, password)
     AI_ACCOUNTS: List[Tuple[str, str]] = [
         ('960777365@qq.com', '960777365@qq.com'),
+        # ('1762389546@qq.com', '1762389546@qq.com'),
         # 可添加更多账号
     ]
     

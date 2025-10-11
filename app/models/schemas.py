@@ -27,6 +27,10 @@ class AIDetectorRequest(BaseModel):
             raise ValueError('文本内容不能为空')
         return v.strip()
 
+class AIRewrite(BaseModel):
+    """AI请求模型"""
+    text: str = Field(..., description="待检测的文本内容", min_length=1)
+    combination_id: str = Field(..., description="文本语言类型：zh(中文) 或 en(英文)")
 
 class QuotaInfo(BaseModel):
     """额度信息模型"""

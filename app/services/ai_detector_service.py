@@ -7,7 +7,7 @@ import re
 import json
 from typing import Optional, Dict, Any, Tuple
 from datetime import timedelta
-
+import time
 from app.core.config import settings
 from app.core.logger import logger
 from app.core.redis_client import get_redis_client
@@ -153,7 +153,7 @@ class AIDetectorService:
         logger.info(f"切换到下一个账号: {next_email}")
         return next_email, next_password
     
-    def detect(self, text: str, language: str) -> Dict[str, Any]:
+    def aigccheck(self, text: str, language: str) -> Dict[str, Any]:
         """
         执行AI检测
         
@@ -182,7 +182,7 @@ class AIDetectorService:
         
         # 执行检测请求
         try:
-            return self._do_detect_request(auth_info, text, id_str)
+            return self._do_aigccheck_request(auth_info, text, id_str)
         except Exception as e:
             logger.error(f"AI检测请求失败: {str(e)}")
             # 清除无效登录态
@@ -192,9 +192,9 @@ class AIDetectorService:
                 raise DetectionFailedException(str(e))
             # 再次执行检测
             auth_info = self._get_shared_auth()
-            return self._do_detect_request(auth_info, text, id_str)
+            return self._do_aigccheck_request(auth_info, text, id_str)
     
-    def _do_detect_request(
+    def _do_aigccheck_request(
         self, 
         auth_info: Dict[str, str], 
         text: str, 
@@ -243,3 +243,65 @@ class AIDetectorService:
             except LoginFailedException:
                 continue
 
+    def aigcrewrite(self, text: str, combination_id: str) -> Dict[str, Any]:
+        """
+        执行AI改写
+
+        Args:
+            text: 待改写文本
+            combination_id: 改写的组合
+
+        Returns:
+            检测结果字典
+        """
+
+        # 从Redis获取共享登录态
+        auth_info = self._get_shared_auth()
+
+        # 首次请求或登录态过期，尝试登录
+        if not auth_info:
+            logger.info("未找到共享登录态，尝试登录...")
+            if not self._try_all_accounts(text, combination_id):
+                raise AllAccountsFailedException()
+            # 重新获取登录态
+            auth_info = self._get_shared_auth()
+            if not auth_info:
+                raise AllAccountsFailedException()
+
+        # 执行检测请求
+        try:
+            return self._do_aigcrewrite_request(auth_info, text, combination_id)
+        except Exception as e:
+            logger.error(f"AI检测请求失败: {str(e)}")
+            # 清除无效登录态
+            self.redis_client.delete(self.redis_key)
+            # 尝试切换账号重试
+            if not self._try_all_accounts(text, combination_id):
+                raise DetectionFailedException(str(e))
+            # 再次执行检测
+            auth_info = self._get_shared_auth()
+            return self._do_aigcrewrite_request(auth_info, text, combination_id)
+
+    def _do_aigcrewrite_request(
+            self,
+            auth_info: Dict[str, str],
+            text: str,
+            combination_id: str
+    ) -> Dict[str, Any]:
+        """执行实际的检测请求"""
+        headers = self._update_header_cookie(auth_info)
+        headers["content-type"] = "application/json"
+
+        detector_url = f"{settings.AI_DETECTOR_BASE_URL}/index/index/ai"
+        json_data = {"text": text, "combination_id": combination_id,  "_ajax": True}
+        headers['page-timestamp'] = str(int(time.time()))
+        headers["content-length"] = str(len(str(json_data)))
+
+        response = requests.post(
+            url=detector_url,
+            headers=headers,
+            json=json_data,
+            timeout=settings.AI_DETECTOR_TIMEOUT
+        )
+        response.raise_for_status()
+        return response.json()

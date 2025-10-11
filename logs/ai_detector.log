@@ -67,3 +67,625 @@
 2025-10-11 23:35:17,324 - aigc_detector - INFO -    📊 扣除额度: 3
 2025-10-11 23:35:17,324 - aigc_detector - INFO -    💰 剩余额度: 86
 2025-10-11 23:35:17,324 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:39:24,348 - aigc_detector - INFO - 正在关闭应用...
+2025-10-11 23:39:24,349 - aigc_detector - INFO - Redis连接已关闭
+2025-10-11 23:39:24,349 - aigc_detector - INFO - 应用已关闭
+2025-10-11 23:39:27,957 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-11 23:39:27,971 - aigc_detector - INFO - ==================================================
+2025-10-11 23:39:27,971 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-11 23:39:27,971 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-11 23:39:27,971 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-11 23:39:27,971 - aigc_detector - INFO - ==================================================
+2025-10-11 23:39:33,031 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:39:33,031 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-11 23:39:33,031 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-11 23:39:33,031 - aigc_detector - INFO -    🌐 语言: zh
+2025-10-11 23:39:33,031 - aigc_detector - INFO -    📏 文本长度: 3 字符
+2025-10-11 23:39:33,031 - aigc_detector - INFO -    💰 剩余额度: 86
+2025-10-11 23:39:33,740 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 3, 剩余: 83/100
+2025-10-11 23:39:36,470 - aigc_detector - INFO - ✓ 检测完成
+2025-10-11 23:39:36,470 - aigc_detector - INFO -    📊 扣除额度: 3
+2025-10-11 23:39:36,470 - aigc_detector - INFO -    💰 剩余额度: 83
+2025-10-11 23:39:36,470 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:39:43,192 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:39:43,192 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-11 23:39:43,192 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-11 23:39:43,192 - aigc_detector - INFO -    🌐 语言: zh
+2025-10-11 23:39:43,192 - aigc_detector - INFO -    📏 文本长度: 3 字符
+2025-10-11 23:39:43,192 - aigc_detector - INFO -    💰 剩余额度: 83
+2025-10-11 23:39:44,124 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 3, 剩余: 80/100
+2025-10-11 23:39:47,056 - aigc_detector - INFO - ✓ 检测完成
+2025-10-11 23:39:47,056 - aigc_detector - INFO -    📊 扣除额度: 3
+2025-10-11 23:39:47,056 - aigc_detector - INFO -    💰 剩余额度: 80
+2025-10-11 23:39:47,056 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:47:22,317 - aigc_detector - INFO - 正在关闭应用...
+2025-10-11 23:47:22,317 - aigc_detector - INFO - Redis连接已关闭
+2025-10-11 23:47:22,317 - aigc_detector - INFO - 应用已关闭
+2025-10-11 23:47:26,427 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-11 23:47:26,443 - aigc_detector - INFO - ==================================================
+2025-10-11 23:47:26,443 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-11 23:47:26,443 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-11 23:47:26,443 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-11 23:47:26,443 - aigc_detector - INFO - ==================================================
+2025-10-11 23:47:47,899 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:47:47,899 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-11 23:47:47,899 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-11 23:47:47,900 - aigc_detector - INFO -    🌐 语言: zh
+2025-10-11 23:47:47,900 - aigc_detector - INFO -    📏 文本长度: 3 字符
+2025-10-11 23:47:47,900 - aigc_detector - INFO -    💰 剩余额度: 80
+2025-10-11 23:47:48,909 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 3, 剩余: 77/100
+2025-10-11 23:47:51,075 - aigc_detector - INFO - ✓ 检测完成
+2025-10-11 23:47:51,075 - aigc_detector - INFO -    📊 扣除额度: 3
+2025-10-11 23:47:51,076 - aigc_detector - INFO -    💰 剩余额度: 77
+2025-10-11 23:47:51,076 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:48:55,854 - aigc_detector - INFO - 正在关闭应用...
+2025-10-11 23:48:55,854 - aigc_detector - INFO - Redis连接已关闭
+2025-10-11 23:48:55,855 - aigc_detector - INFO - 应用已关闭
+2025-10-11 23:48:59,366 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-11 23:48:59,379 - aigc_detector - INFO - ==================================================
+2025-10-11 23:48:59,379 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-11 23:48:59,379 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-11 23:48:59,379 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-11 23:48:59,379 - aigc_detector - INFO - ==================================================
+2025-10-11 23:49:05,067 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:49:05,068 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-11 23:49:05,068 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-11 23:49:05,068 - aigc_detector - INFO -    🌐 语言: zh
+2025-10-11 23:49:05,068 - aigc_detector - INFO -    📏 文本长度: 3 字符
+2025-10-11 23:49:05,068 - aigc_detector - INFO -    💰 剩余额度: 77
+2025-10-11 23:49:06,526 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 3, 剩余: 74/100
+2025-10-11 23:49:06,867 - aigc_detector - INFO - 未找到共享登录态，尝试登录...
+2025-10-11 23:49:06,867 - aigc_detector - INFO - 正在登录账号: 9607773adad65@qq.com
+2025-10-11 23:49:08,861 - aigc_detector - ERROR - Cookie解析不完整，缺失字段: ['uid', 'token', 'uuid']
+2025-10-11 23:49:08,861 - aigc_detector - INFO - 切换到下一个账号: 9607773adad65@qq.com
+2025-10-11 23:49:08,861 - aigc_detector - ERROR - 所有账号均尝试失败
+2025-10-11 23:49:08,861 - aigc_detector - ERROR - 所有账号均登录失败: 所有账号均登录失败
+2025-10-11 23:51:17,426 - aigc_detector - INFO - 正在关闭应用...
+2025-10-11 23:51:17,426 - aigc_detector - INFO - Redis连接已关闭
+2025-10-11 23:51:17,426 - aigc_detector - INFO - 应用已关闭
+2025-10-11 23:51:21,610 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-11 23:51:21,627 - aigc_detector - INFO - ==================================================
+2025-10-11 23:51:21,627 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-11 23:51:21,627 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-11 23:51:21,627 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-11 23:51:21,627 - aigc_detector - INFO - ==================================================
+2025-10-11 23:51:25,456 - aigc_detector - INFO - ======================================================================
+2025-10-11 23:51:25,456 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-11 23:51:25,456 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-11 23:51:25,457 - aigc_detector - INFO -    🌐 语言: zh
+2025-10-11 23:51:25,457 - aigc_detector - INFO -    📏 文本长度: 3 字符
+2025-10-11 23:51:25,457 - aigc_detector - INFO -    💰 剩余额度: 74
+2025-10-11 23:51:26,118 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 3, 剩余: 71/100
+2025-10-11 23:51:26,809 - aigc_detector - INFO - 未找到共享登录态，尝试登录...
+2025-10-11 23:51:26,809 - aigc_detector - INFO - 正在登录账号: 960777123365@qq.com
+2025-10-11 23:51:28,426 - aigc_detector - ERROR - Cookie解析不完整，缺失字段: ['uid', 'token', 'uuid']
+2025-10-11 23:51:28,426 - aigc_detector - INFO - 切换到下一个账号: 960777361235@qq.com
+2025-10-11 23:51:28,426 - aigc_detector - INFO - 正在登录账号: 960777361235@qq.com
+2025-10-11 23:51:30,094 - aigc_detector - ERROR - Cookie解析不完整，缺失字段: ['uid', 'token', 'uuid']
+2025-10-11 23:51:30,094 - aigc_detector - INFO - 切换到下一个账号: 960777365@qq.com
+2025-10-11 23:51:30,094 - aigc_detector - INFO - 正在登录账号: 960777365@qq.com
+2025-10-11 23:51:32,436 - aigc_detector - INFO - 登录态已存入Redis
+2025-10-11 23:51:32,436 - aigc_detector - INFO - 账号 960777365@qq.com 登录成功
+2025-10-11 23:51:34,776 - aigc_detector - INFO - ✓ 检测完成
+2025-10-11 23:51:34,776 - aigc_detector - INFO -    📊 扣除额度: 3
+2025-10-11 23:51:34,776 - aigc_detector - INFO -    💰 剩余额度: 71
+2025-10-11 23:51:34,776 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:04:32,206 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:04:32,206 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:04:32,206 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:04:33,359 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:04:33,376 - aigc_detector - INFO - ==================================================
+2025-10-12 00:04:33,376 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:04:33,376 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:04:33,376 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:04:33,376 - aigc_detector - INFO - ==================================================
+2025-10-12 00:05:37,266 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:05:37,266 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:05:37,266 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:05:37,266 - aigc_detector - ERROR - 未知错误: 'AIRewrite' object has no attribute 'language'
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 205, in ai_rewrite
+    logger.info(f"   🌐 语言: {request.language}")
+                               ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AIRewrite' object has no attribute 'language'
+2025-10-12 00:06:03,947 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:06:03,947 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:06:03,947 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:06:05,246 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:06:05,262 - aigc_detector - INFO - ==================================================
+2025-10-12 00:06:05,263 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:06:05,263 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:06:05,263 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:06:05,263 - aigc_detector - INFO - ==================================================
+2025-10-12 00:06:07,732 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:06:07,732 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:06:07,732 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:06:07,732 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:06:07,732 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:06:07,732 - aigc_detector - INFO -    💰 剩余额度: 71
+2025-10-12 00:06:07,761 - aigc_detector - WARNING - ⚠️ API Key 额度不足: 测试, 剩余: 71, 需要: 183
+2025-10-12 00:06:07,761 - aigc_detector - ERROR - ✗ 额度验证失败: 额度不足，剩余: 71, 需要: 183
+2025-10-12 00:06:07,761 - aigc_detector - ERROR - 未知错误: 
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 214, in ai_rewrite
+    raise HTTPException(
+    ...<2 lines>...
+    )
+fastapi.exceptions.HTTPException
+2025-10-12 00:06:38,290 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:06:38,290 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:06:38,290 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:06:39,613 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:06:39,629 - aigc_detector - INFO - ==================================================
+2025-10-12 00:06:39,629 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:06:39,629 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:06:39,629 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:06:39,629 - aigc_detector - INFO - ==================================================
+2025-10-12 00:06:41,399 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:06:41,399 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:06:41,399 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:06:41,399 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:06:41,399 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:06:41,399 - aigc_detector - INFO -    💰 剩余额度: 71
+2025-10-12 00:06:41,438 - aigc_detector - WARNING - ⚠️ API Key 额度不足: 测试, 剩余: 71, 需要: 183
+2025-10-12 00:06:41,438 - aigc_detector - ERROR - ✗ 额度验证失败: 额度不足，剩余: 71, 需要: 183
+2025-10-12 00:06:41,438 - aigc_detector - ERROR - 未知错误: 
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 214, in ai_rewrite
+    raise HTTPException(
+    ...<2 lines>...
+    )
+fastapi.exceptions.HTTPException
+2025-10-12 00:07:40,984 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:07:40,984 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:07:40,984 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:07:40,984 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:07:40,984 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:07:40,984 - aigc_detector - INFO -    💰 剩余额度: 10000
+2025-10-12 00:07:41,045 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 183, 剩余: 9817/10000
+2025-10-12 00:07:41,045 - aigc_detector - ERROR - 未知错误: 'AIRewrite' object has no attribute 'language'
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 222, in ai_rewrite
+    combination_id=request.language
+                   ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'AIRewrite' object has no attribute 'language'
+2025-10-12 00:08:08,723 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:08:08,723 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:08:08,723 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:08:10,079 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:08:10,095 - aigc_detector - INFO - ==================================================
+2025-10-12 00:08:10,095 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:08:10,095 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:08:10,095 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:08:10,095 - aigc_detector - INFO - ==================================================
+2025-10-12 00:08:12,508 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:08:12,508 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:08:12,508 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:08:12,508 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:08:12,508 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:08:12,508 - aigc_detector - INFO -    💰 剩余额度: 9817
+2025-10-12 00:08:12,559 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 183, 剩余: 9634/10000
+2025-10-12 00:08:12,906 - aigc_detector - INFO - ✓ 检测完成
+2025-10-12 00:08:12,906 - aigc_detector - INFO -    📊 扣除额度: 183
+2025-10-12 00:08:12,906 - aigc_detector - INFO -    💰 剩余额度: 9634
+2025-10-12 00:08:12,906 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:10:08,581 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:10:08,581 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:10:08,581 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:10:09,888 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:10:09,906 - aigc_detector - INFO - ==================================================
+2025-10-12 00:10:09,906 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:10:09,906 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:10:09,906 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:10:09,906 - aigc_detector - INFO - ==================================================
+2025-10-12 00:10:20,444 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:10:20,444 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:10:20,444 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:10:20,444 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:10:20,444 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:10:20,444 - aigc_detector - INFO -    💰 剩余额度: 9634
+2025-10-12 00:10:20,496 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 183, 剩余: 9451/10000
+2025-10-12 00:10:36,455 - aigc_detector - ERROR - AI检测请求失败: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+2025-10-12 00:10:36,482 - aigc_detector - INFO - 正在登录账号: 960777123365@qq.com
+2025-10-12 00:10:37,863 - aigc_detector - ERROR - Cookie解析不完整，缺失字段: ['uid', 'token', 'uuid']
+2025-10-12 00:10:37,863 - aigc_detector - INFO - 切换到下一个账号: 960777361235@qq.com
+2025-10-12 00:10:37,863 - aigc_detector - INFO - 正在登录账号: 960777361235@qq.com
+2025-10-12 00:10:38,179 - aigc_detector - ERROR - Cookie解析不完整，缺失字段: ['uid', 'token', 'uuid']
+2025-10-12 00:10:38,180 - aigc_detector - INFO - 切换到下一个账号: 960777365@qq.com
+2025-10-12 00:10:38,180 - aigc_detector - INFO - 正在登录账号: 960777365@qq.com
+2025-10-12 00:10:39,243 - aigc_detector - INFO - 登录态已存入Redis
+2025-10-12 00:10:39,244 - aigc_detector - INFO - 账号 960777365@qq.com 登录成功
+2025-10-12 00:10:54,539 - aigc_detector - ERROR - 未知错误: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 273, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 300, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 220, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 283, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 300, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+2025-10-12 00:11:29,139 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:11:29,140 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:11:29,140 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:11:30,484 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:11:30,501 - aigc_detector - INFO - ==================================================
+2025-10-12 00:11:30,501 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:11:30,501 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:11:30,502 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:11:30,502 - aigc_detector - INFO - ==================================================
+2025-10-12 00:11:33,608 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:11:33,608 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:11:33,608 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:11:33,609 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:11:33,609 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:11:33,609 - aigc_detector - INFO -    💰 剩余额度: 9451
+2025-10-12 00:11:33,658 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 183, 剩余: 9268/10000
+2025-10-12 00:11:49,228 - aigc_detector - ERROR - AI检测请求失败: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+2025-10-12 00:11:49,250 - aigc_detector - INFO - 正在登录账号: 960777365@qq.com
+2025-10-12 00:11:49,597 - aigc_detector - INFO - 登录态已存入Redis
+2025-10-12 00:11:49,597 - aigc_detector - INFO - 账号 960777365@qq.com 登录成功
+2025-10-12 00:12:04,303 - aigc_detector - INFO - ✓ 检测完成
+2025-10-12 00:12:04,304 - aigc_detector - INFO -    📊 扣除额度: 183
+2025-10-12 00:12:04,304 - aigc_detector - INFO -    💰 剩余额度: 9268
+2025-10-12 00:12:04,304 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:13:14,717 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:13:14,717 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:13:14,717 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:13:15,830 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:13:15,847 - aigc_detector - INFO - ==================================================
+2025-10-12 00:13:15,847 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:13:15,847 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:13:15,847 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:13:15,847 - aigc_detector - INFO - ==================================================
+2025-10-12 00:13:21,659 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:13:21,660 - aigc_detector - INFO - 📥 收到检测请求
+2025-10-12 00:13:21,660 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:13:21,660 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:13:21,660 - aigc_detector - INFO -    📏 文本长度: 183 字符
+2025-10-12 00:13:21,660 - aigc_detector - INFO -    💰 剩余额度: 9268
+2025-10-12 00:13:21,707 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 183, 剩余: 9085/10000
+2025-10-12 00:13:37,024 - aigc_detector - ERROR - AI检测请求失败: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+2025-10-12 00:13:37,048 - aigc_detector - INFO - 正在登录账号: 960777365@qq.com
+2025-10-12 00:13:37,391 - aigc_detector - INFO - 登录态已存入Redis
+2025-10-12 00:13:37,391 - aigc_detector - INFO - 账号 960777365@qq.com 登录成功
+2025-10-12 00:13:52,686 - aigc_detector - ERROR - 未知错误: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 273, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 300, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 220, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 283, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 300, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ai.lanbeike.online', port=443): Read timed out. (read timeout=15)

@@ -35,14 +35,14 @@ class Settings(BaseSettings):
     
     # AI检测账号列表 (email, password)
     AI_ACCOUNTS: List[Tuple[str, str]] = [
-        ('960777365@qq.com', '960777365@qq.com'),
-        # ('1762389546@qq.com', '1762389546@qq.com'),
+        # ('960777365@qq.com', '960777365@qq.com'),
+        ('1762389546@qq.com', '1762389546@qq.com'),
         # 可添加更多账号
     ]
     
     # AI检测服务配置
     AI_DETECTOR_BASE_URL: str = "https://ai.lanbeike.online"
-    AI_DETECTOR_TIMEOUT: int = 15
+    AI_DETECTOR_TIMEOUT: int = 1500
     LOGIN_TIMEOUT: int = 10
     
     # 日志配置

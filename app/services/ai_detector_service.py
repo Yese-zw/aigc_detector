@@ -26,6 +26,14 @@ class AIDetectorService:
         self.current_account_idx = 0
         self.redis_key = settings.REDIS_AUTH_KEY
         self.redis_client = get_redis_client()
+        
+        # 启动时记录账号信息
+        logger.info("=" * 60)
+        logger.info("AI检测服务初始化")
+        logger.info(f"可用账号数量: {len(self.account_list)}")
+        for idx, (email, _) in enumerate(self.account_list, 1):
+            logger.info(f"  账号 {idx}: {email}")
+        logger.info("=" * 60)
     
     def _init_base_headers(self) -> Dict[str, str]:
         """初始化基础请求头"""
@@ -58,23 +66,36 @@ class AIDetectorService:
         try:
             auth_str = self.redis_client.get(self.redis_key)
             if auth_str:
-                return json.loads(auth_str)
+                auth_data = json.loads(auth_str)
+                # 获取当前使用的账号
+                current_account = self.redis_client.get(f"{self.redis_key}_account")
+                if current_account:
+                    logger.debug(f"从Redis获取登录态成功 - 当前账号: {current_account}")
+                return auth_data
         except Exception as e:
             logger.error(f"从Redis获取登录态失败: {str(e)}")
         return None
     
-    def _set_shared_auth(self, auth_info: Dict[str, str]) -> None:
+    def _set_shared_auth(self, auth_info: Dict[str, str], account_email: str) -> None:
         """将登录态存入Redis（共享给所有进程）"""
         try:
             if auth_info:
+                # 存储登录态
                 self.redis_client.setex(
                     self.redis_key,
                     timedelta(seconds=settings.AUTH_EXPIRE_SECONDS),
                     json.dumps(auth_info)
                 )
-                logger.info("登录态已存入Redis")
+                # 存储当前使用的账号邮箱
+                self.redis_client.setex(
+                    f"{self.redis_key}_account",
+                    timedelta(seconds=settings.AUTH_EXPIRE_SECONDS),
+                    account_email
+                )
+                logger.info(f"✓ 登录态已存入Redis - 账号: {account_email}, UID: {auth_info.get('uid', 'N/A')}")
+                logger.info(f"  登录态有效期: {settings.AUTH_EXPIRE_SECONDS}秒 ({settings.AUTH_EXPIRE_SECONDS // 3600}小时)")
         except Exception as e:
-            logger.error(f"存储登录态到Redis失败: {str(e)}")
+            logger.error(f"✗ 存储登录态到Redis失败: {str(e)}")
     
     def _update_header_cookie(self, auth_info: Optional[Dict[str, str]]) -> Dict[str, str]:
         """用登录态更新请求头"""
@@ -132,25 +153,29 @@ class AIDetectorService:
         if email is None or password is None:
             email, password = self.account_list[self.current_account_idx]
         
-        logger.info(f"正在登录账号: {email}")
+        logger.info(f"🔐 正在登录账号: {email}")
         cookie = self._get_cookie(email, password)
         
         if not cookie:
+            logger.error(f"✗ 账号 {email} 登录失败 - 无法获取Cookie")
             raise LoginFailedException(email)
         
         auth_info = self._parse_auth(cookie)
         if not auth_info:
+            logger.error(f"✗ 账号 {email} 登录失败 - Cookie解析失败")
             raise LoginFailedException(email)
         
-        self._set_shared_auth(auth_info)
-        logger.info(f"账号 {email} 登录成功")
+        # 存储登录态（包含账号信息）
+        self._set_shared_auth(auth_info, email)
+        logger.info(f"✓ 账号 {email} 登录成功")
         return True
     
     def _switch_next_account(self) -> Tuple[str, str]:
         """切换到下一个账号"""
+        old_idx = self.current_account_idx
         self.current_account_idx = (self.current_account_idx + 1) % len(self.account_list)
         next_email, next_password = self.account_list[self.current_account_idx]
-        logger.info(f"切换到下一个账号: {next_email}")
+        logger.warning(f"🔄 切换账号: 第{old_idx + 1}个账号 -> 第{self.current_account_idx + 1}个账号 ({next_email})")
         return next_email, next_password
     
     def aigccheck(self, text: str, language: str) -> Dict[str, Any]:

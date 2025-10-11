@@ -1777,3 +1777,192 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ai.lanbeike.online', 
 2025-10-12 00:45:40,919 - aigc_detector - INFO -    📊 扣除额度: 255
 2025-10-12 00:45:40,919 - aigc_detector - INFO -    💰 剩余额度: 76636
 2025-10-12 00:45:40,919 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:49:30,938 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:49:30,938 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:49:30,938 - aigc_detector - INFO - 应用已关闭
+2025-10-12 00:49:32,507 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:49:32,507 - aigc_detector - INFO - ============================================================
+2025-10-12 00:49:32,507 - aigc_detector - INFO - AI检测服务初始化
+2025-10-12 00:49:32,507 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-12 00:49:32,507 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-12 00:49:32,507 - aigc_detector - INFO - ============================================================
+2025-10-12 00:49:32,528 - aigc_detector - INFO - ==================================================
+2025-10-12 00:49:32,528 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:49:32,529 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:49:32,529 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:49:32,529 - aigc_detector - INFO - ==================================================
+2025-10-12 00:49:47,955 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:49:47,955 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:49:47,956 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:49:47,956 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:49:47,956 - aigc_detector - INFO -    📏 文本长度: 255 字符
+2025-10-12 00:49:47,956 - aigc_detector - INFO -    💰 剩余额度: 76636
+2025-10-12 00:49:47,980 - aigc_detector - INFO - ⚠ 未找到共享登录态，尝试登录...
+2025-10-12 00:49:47,980 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-12 00:49:47,980 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-12 00:49:47,980 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-12 00:49:49,372 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-12 00:49:49,372 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-12 00:49:49,372 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-12 00:49:49,445 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 255
+2025-10-12 00:50:17,638 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-12 00:50:17,687 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 255, 剩余: 76381/10000
+2025-10-12 00:50:17,688 - aigc_detector - INFO - ✓ 改写完成
+2025-10-12 00:50:17,688 - aigc_detector - INFO -    📊 扣除额度: 255
+2025-10-12 00:50:17,688 - aigc_detector - INFO -    💰 剩余额度: 76381
+2025-10-12 00:50:17,688 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:50:40,147 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:50:40,147 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:50:40,147 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:50:40,147 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:50:40,147 - aigc_detector - INFO -    📏 文本长度: 255 字符
+2025-10-12 00:50:40,147 - aigc_detector - INFO -    💰 剩余额度: 76381
+2025-10-12 00:50:40,220 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 255
+2025-10-12 00:51:09,679 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-12 00:51:09,728 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 255, 剩余: 76126/10000
+2025-10-12 00:51:09,728 - aigc_detector - INFO - ✓ 改写完成
+2025-10-12 00:51:09,728 - aigc_detector - INFO -    📊 扣除额度: 255
+2025-10-12 00:51:09,728 - aigc_detector - INFO -    💰 剩余额度: 76126
+2025-10-12 00:51:09,728 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:51:36,238 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:51:36,238 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:51:36,238 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:51:36,238 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:51:36,238 - aigc_detector - INFO -    📏 文本长度: 1142 字符
+2025-10-12 00:51:36,238 - aigc_detector - INFO -    💰 剩余额度: 76126
+2025-10-12 00:51:36,311 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 1142
+2025-10-12 00:52:36,683 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-12 00:52:36,731 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-12 00:52:36,731 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-12 00:52:36,731 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-12 00:52:36,731 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-12 00:52:37,107 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-12 00:52:37,107 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-12 00:52:37,107 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-12 00:52:37,179 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-12 00:53:37,491 - aigc_detector - ERROR - 未知错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 325, in aigcrewrite
+    result = self._do_aigcrewrite_request(auth_info, text, combination_id)
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 364, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 223, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 341, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 364, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-12 00:54:22,837 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:54:22,837 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:54:22,837 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:54:22,837 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:54:22,837 - aigc_detector - INFO -    📏 文本长度: 134 字符
+2025-10-12 00:54:22,837 - aigc_detector - INFO -    💰 剩余额度: 76126
+2025-10-12 00:54:22,910 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 134
+2025-10-12 00:54:39,009 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-12 00:54:39,057 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 134, 剩余: 75992/10000
+2025-10-12 00:54:39,057 - aigc_detector - INFO - ✓ 改写完成
+2025-10-12 00:54:39,058 - aigc_detector - INFO -    📊 扣除额度: 134
+2025-10-12 00:54:39,058 - aigc_detector - INFO -    💰 剩余额度: 75992
+2025-10-12 00:54:39,058 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:54:50,252 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:54:50,253 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:54:50,253 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:54:50,253 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:54:50,253 - aigc_detector - INFO -    📏 文本长度: 1142 字符
+2025-10-12 00:54:50,253 - aigc_detector - INFO -    💰 剩余额度: 75992
+2025-10-12 00:54:50,325 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 1142
+2025-10-12 00:55:50,689 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-12 00:55:50,738 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-12 00:55:50,738 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-12 00:55:50,738 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-12 00:55:50,738 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-12 00:55:51,230 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-12 00:55:51,231 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-12 00:55:51,231 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-12 00:55:51,303 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-12 00:56:10,938 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:56:10,938 - aigc_detector - INFO - ============================================================
+2025-10-12 00:56:10,938 - aigc_detector - INFO - AI检测服务初始化
+2025-10-12 00:56:10,938 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-12 00:56:10,938 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-12 00:56:10,938 - aigc_detector - INFO - ============================================================
+2025-10-12 00:56:10,960 - aigc_detector - INFO - ==================================================
+2025-10-12 00:56:10,960 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:56:10,960 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:56:10,961 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:56:10,961 - aigc_detector - INFO - ==================================================
+2025-10-12 00:56:12,383 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-12 00:56:12,383 - aigc_detector - INFO - ============================================================
+2025-10-12 00:56:12,383 - aigc_detector - INFO - AI检测服务初始化
+2025-10-12 00:56:12,383 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-12 00:56:12,383 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-12 00:56:12,383 - aigc_detector - INFO - ============================================================
+2025-10-12 00:56:12,404 - aigc_detector - INFO - ==================================================
+2025-10-12 00:56:12,404 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-12 00:56:12,404 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-12 00:56:12,404 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-12 00:56:12,404 - aigc_detector - INFO - ==================================================
+2025-10-12 00:56:15,370 - aigc_detector - INFO - ======================================================================
+2025-10-12 00:56:15,370 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-12 00:56:15,370 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-12 00:56:15,370 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-12 00:56:15,370 - aigc_detector - INFO -    📏 文本长度: 1142 字符
+2025-10-12 00:56:15,370 - aigc_detector - INFO -    💰 剩余额度: 75992
+2025-10-12 00:56:15,456 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 1142
+2025-10-12 00:57:16,286 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-12 00:57:16,333 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-12 00:57:16,334 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-12 00:57:16,334 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-12 00:57:16,334 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-12 00:57:16,697 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-12 00:57:16,697 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-12 00:57:16,697 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-12 00:57:16,768 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-12 00:58:17,417 - aigc_detector - ERROR - 未知错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 325, in aigcrewrite
+    result = self._do_aigcrewrite_request(auth_info, text, combination_id)
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 364, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 223, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 341, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 364, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-12 00:58:25,366 - aigc_detector - INFO - 正在关闭应用...
+2025-10-12 00:58:25,367 - aigc_detector - INFO - Redis连接已关闭
+2025-10-12 00:58:25,367 - aigc_detector - INFO - 应用已关闭

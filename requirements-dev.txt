@@ -1,0 +1,18 @@
+# 开发环境额外依赖
+
+# 测试
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# 代码质量
+black==23.12.1
+flake8==7.0.0
+isort==5.13.2
+mypy==1.8.0
+
+# 调试
+ipython==8.19.0
+ipdb==0.13.13
+

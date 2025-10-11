@@ -4,7 +4,7 @@ Logging configuration
 """
 import logging
 import os
-from logging.handlers import RotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler
 from app.core.config import settings
 
 
@@ -33,13 +33,17 @@ def setup_logger() -> logging.Logger:
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
     
-    # 文件处理器（带日志轮转）
-    file_handler = RotatingFileHandler(
+    # 文件处理器（按天轮转）
+    file_handler = TimedRotatingFileHandler(
         settings.LOG_FILE,
-        maxBytes=settings.LOG_MAX_BYTES,
-        backupCount=settings.LOG_BACKUP_COUNT,
-        encoding='utf-8'
+        when='midnight',  # 每天午夜轮转
+        interval=1,  # 间隔1天
+        backupCount=settings.LOG_BACKUP_COUNT,  # 保留最近N天的日志
+        encoding='utf-8',
+        utc=False  # 使用本地时间
     )
+    # 设置日志文件名后缀格式（例如：ai_detector.log.2024-10-12）
+    file_handler.suffix = "%Y-%m-%d"
     file_handler.setLevel(getattr(logging, settings.LOG_LEVEL))
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)

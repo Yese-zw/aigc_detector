@@ -49,8 +49,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
     LOG_FILE: str = "logs/ai_detector.log"
     LOG_FORMAT: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    LOG_MAX_BYTES: int = 10 * 1024 * 1024  # 10MB
-    LOG_BACKUP_COUNT: int = 5
+    LOG_BACKUP_COUNT: int = 30  # 保留最近30天的日志
     
     # CORS配置
     CORS_ORIGINS: List[str] = ["*"]

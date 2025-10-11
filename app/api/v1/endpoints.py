@@ -96,25 +96,30 @@ async def ai_detector(
         logger.info(f"   📏 文本长度: {text_length} 字符")
         logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
         
-        # 验证并扣减额度
-        verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
-        
-        if not verification_result["valid"]:
-            logger.error(f"✗ 额度验证失败: {verification_result['message']}")
+        # 先检查额度是否足够（不扣除）
+        if not key_data or key_data.quota < text_length:
+            logger.error(f"✗ 额度不足: 剩余 {key_data.quota if key_data else 0}, 需要 {text_length}")
             raise HTTPException(
                 status_code=status.HTTP_402_PAYMENT_REQUIRED,
-                detail=verification_result["message"]
+                detail=f"额度不足，剩余: {key_data.quota if key_data else 0} 字符，需要: {text_length} 字符"
             )
         
-        # 执行检测
+        # 先执行检测（在扣除额度之前）
         result = ai_detector_service.aigccheck(
             text=request.text,
             language=request.language
         )
         
+        # 检测成功后才扣除额度
+        verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
+        
+        if not verification_result["valid"]:
+            # 理论上不应该到这里，因为前面已经检查过了
+            logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
+        
         logger.info(f"✓ 检测完成")
         logger.info(f"   📊 扣除额度: {text_length}")
-        logger.info(f"   💰 剩余额度: {verification_result['remaining_quota']}")
+        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
         logger.info("=" * 70)
         
         # 返回响应，包含额度信息
@@ -124,7 +129,7 @@ async def ai_detector(
             message=None,
             quota_info=QuotaInfo(
                 used=text_length,
-                remaining=verification_result["remaining_quota"]
+                remaining=verification_result.get("remaining_quota", key_data.quota - text_length)
             )
         )
     
@@ -200,31 +205,36 @@ async def ai_rewrite(
         key_data = apikey_service.get_apikey(api_key)
 
         logger.info("=" * 70)
-        logger.info(f"📥 收到检测请求")
+        logger.info(f"📥 收到改写请求")
         logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
         logger.info(f"   🌐 组合: {request.combination_id}")
         logger.info(f"   📏 文本长度: {text_length} 字符")
         logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
 
-        # 验证并扣减额度
-        verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
-        print(verification_result)
-        if not verification_result["valid"]:
-            logger.error(f"✗ 额度验证失败: {verification_result['message']}")
+        # 先检查额度是否足够（不扣除）
+        if not key_data or key_data.quota < text_length:
+            logger.error(f"✗ 额度不足: 剩余 {key_data.quota if key_data else 0}, 需要 {text_length}")
             raise HTTPException(
                 status_code=status.HTTP_402_PAYMENT_REQUIRED,
-                detail=verification_result["message"]
+                detail=f"额度不足，剩余: {key_data.quota if key_data else 0} 字符，需要: {text_length} 字符"
             )
 
-        # 执行检测
+        # 先执行改写（在扣除额度之前）
         result = ai_detector_service.aigcrewrite(
             text=request.text,
             combination_id=request.combination_id
         )
 
-        logger.info(f"✓ 检测完成")
+        # 改写成功后才扣除额度
+        verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
+
+        if not verification_result["valid"]:
+            # 理论上不应该到这里，因为前面已经检查过了
+            logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
+
+        logger.info(f"✓ 改写完成")
         logger.info(f"   📊 扣除额度: {text_length}")
-        logger.info(f"   💰 剩余额度: {verification_result['remaining_quota']}")
+        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
         logger.info("=" * 70)
 
         # 返回响应，包含额度信息
@@ -234,7 +244,7 @@ async def ai_rewrite(
             message=None,
             quota_info=QuotaInfo(
                 used=text_length,
-                remaining=verification_result["remaining_quota"]
+                remaining=verification_result.get("remaining_quota", key_data.quota - text_length)
             )
         )
 

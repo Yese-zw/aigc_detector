@@ -1,0 +1,4 @@
+
+
+print({'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Not;A=Brand";v="99", "Microsoft Edge";v="139", "Chromium";v="139"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'cookie': 'SESSION_ID=b2a1b4b0413bda41b403d8abda6500c8; uid=41; token=b98483603e29cc28fe5554381b80801f; uuid=1a1484e9db41bb0250f68df34080f736', 'page-timestamp': '1760364622', 'content-length': '54'}
+)

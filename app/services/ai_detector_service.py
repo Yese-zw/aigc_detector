@@ -57,7 +57,7 @@ class AIDetectorService:
             "user-agent": (
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+                "Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0"
             )
         }
     
@@ -104,6 +104,7 @@ class AIDetectorService:
             headers["cookie"] = (
                 f"SESSION_ID={auth_info['SESSION_ID']}; "
                 f"uid={auth_info['uid']}; "
+                f"email=1762389546@qq.com; "
                 f"token={auth_info['token']}; "
                 f"uuid={auth_info['uuid']}"
             )
@@ -354,7 +355,7 @@ class AIDetectorService:
         json_data = {"text": text, "combination_id": combination_id,  "_ajax": True}
         headers['page-timestamp'] = str(int(time.time()))
         headers["content-length"] = str(len(str(json_data)))
-
+        logger.info(headers)
         response = requests.post(
             url=detector_url,
             headers=headers,

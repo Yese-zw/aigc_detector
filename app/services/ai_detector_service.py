@@ -48,7 +48,7 @@ class AIDetectorService:
             "origin": settings.AI_DETECTOR_BASE_URL,
             "priority": "u=1, i",
             "referer": f"{settings.AI_DETECTOR_BASE_URL}/index/index/editor?history_id=150751",
-            "sec-ch-ua": '"Not;A=Brand";v="99", "Microsoft Edge";v="139", "Chromium";v="139"',
+            "sec-ch-ua": '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Windows"',
             "sec-fetch-dest": "empty",
@@ -58,7 +58,8 @@ class AIDetectorService:
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0"
-            )
+            ),
+            "x-requested-with": "XMLHttpRequest",
         }
     
     def _get_shared_auth(self) -> Optional[Dict[str, str]]:
@@ -353,7 +354,7 @@ class AIDetectorService:
 
         detector_url = f"{settings.AI_DETECTOR_BASE_URL}/index/index/ai"
         json_data = {"text": text, "combination_id": combination_id,  "_ajax": True}
-        headers['page-timestamp'] = str(int(time.time()))
+        headers['page-timestamp'] = str(int(time.time()*1000))
         headers["content-length"] = str(len(str(json_data)))
         logger.info(headers)
         response = requests.post(
@@ -441,7 +442,7 @@ class AIDetectorService:
         # 移除 content-type，让 requests 自动设置
         if "content-type" in headers:
             del headers["content-type"]
-        headers['page-timestamp'] = str(int(time.time()))
+        headers['page-timestamp'] = str(int(time.time()*1000))
         upload_url = f"{settings.AI_DETECTOR_BASE_URL}/api/upload"
         
         # 构建文件上传数据

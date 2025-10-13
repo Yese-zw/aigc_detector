@@ -80,11 +80,9 @@ if __name__ == "__main__":
     import uvicorn
     
     uvicorn.run(
-        app="app.main:app",
+        app,
         host=settings.HOST,
         port=settings.PORT,
-        workers=settings.WORKERS,
-        reload=settings.RELOAD,
         log_level=settings.LOG_LEVEL.lower()
     )
 

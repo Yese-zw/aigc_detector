@@ -188,3 +188,577 @@
 2025-10-13 22:10:25,647 - aigc_detector - INFO -    📊 扣除额度: 3
 2025-10-13 22:10:25,647 - aigc_detector - INFO -    💰 剩余额度: 119756
 2025-10-13 22:10:25,647 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:04:39,790 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:04:39,790 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:04:39,790 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:04:39,791 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:04:39,791 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:04:39,791 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:04:50,020 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:04:50,020 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,021 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:04:50,021 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:04:50,021 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:04:50,021 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,028 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:04:50,028 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,028 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:04:50,028 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:04:50,028 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:04:50,028 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,038 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:04:50,038 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,038 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:04:50,038 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:04:50,038 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:04:50,038 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,043 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,043 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:04:50,043 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:04:50,043 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:04:50,043 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,050 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,050 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:04:50,051 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:04:50,051 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:04:50,051 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,057 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:04:50,057 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,057 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:04:50,057 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:04:50,057 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:04:50,057 - aigc_detector - INFO - ============================================================
+2025-10-13 23:04:50,062 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,062 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:04:50,062 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:04:50,062 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:04:50,062 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,081 - aigc_detector - INFO - ==================================================
+2025-10-13 23:04:50,082 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:04:50,082 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:04:50,082 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:04:50,082 - aigc_detector - INFO - ==================================================
+2025-10-13 23:05:12,293 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:05:12,293 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:05:12,293 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:05:12,293 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:05:12,293 - aigc_detector - INFO -    📏 文本长度: 62 字符
+2025-10-13 23:05:12,293 - aigc_detector - INFO -    💰 剩余额度: 119035
+2025-10-13 23:05:12,366 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 62
+2025-10-13 23:05:12,366 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=60cb60ae433bda412210b43a5bf9424d; uid=41; email=1762389546@qq.com; token=75d5d60484bcb2351c8202541f4733b1; uuid=0e466e844541cc79a9f4a6e2c9a23296', 'page-timestamp': '1760367912366', 'content-length': '118'}
+2025-10-13 23:05:21,780 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-13 23:05:21,829 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 62, 剩余: 118973/120000
+2025-10-13 23:05:21,829 - aigc_detector - INFO - ✓ 改写完成
+2025-10-13 23:05:21,830 - aigc_detector - INFO -    📊 扣除额度: 62
+2025-10-13 23:05:21,830 - aigc_detector - INFO -    💰 剩余额度: 118973
+2025-10-13 23:05:21,830 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:05:55,797 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:05:55,797 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:05:55,797 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:05:55,797 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:05:55,797 - aigc_detector - INFO -    📏 文本长度: 620 字符
+2025-10-13 23:05:55,797 - aigc_detector - INFO -    💰 剩余额度: 118973
+2025-10-13 23:05:55,865 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 620
+2025-10-13 23:05:55,866 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=60cb60ae433bda412210b43a5bf9424d; uid=41; email=1762389546@qq.com; token=75d5d60484bcb2351c8202541f4733b1; uuid=0e466e844541cc79a9f4a6e2c9a23296', 'page-timestamp': '1760367955865', 'content-length': '701'}
+2025-10-13 23:06:54,621 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-13 23:06:54,667 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 620, 剩余: 118353/120000
+2025-10-13 23:06:54,668 - aigc_detector - INFO - ✓ 改写完成
+2025-10-13 23:06:54,668 - aigc_detector - INFO -    📊 扣除额度: 620
+2025-10-13 23:06:54,668 - aigc_detector - INFO -    💰 剩余额度: 118353
+2025-10-13 23:06:54,668 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:08:07,710 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:08:07,711 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:08:07,711 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:08:07,711 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:08:07,711 - aigc_detector - INFO -    📏 文本长度: 320 字符
+2025-10-13 23:08:07,711 - aigc_detector - INFO -    💰 剩余额度: 118353
+2025-10-13 23:08:07,788 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 320
+2025-10-13 23:08:07,789 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=60cb60ae433bda412210b43a5bf9424d; uid=41; email=1762389546@qq.com; token=75d5d60484bcb2351c8202541f4733b1; uuid=0e466e844541cc79a9f4a6e2c9a23296', 'page-timestamp': '1760368087789', 'content-length': '371'}
+2025-10-13 23:08:48,374 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-13 23:08:48,425 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 320, 剩余: 118033/120000
+2025-10-13 23:08:48,426 - aigc_detector - INFO - ✓ 改写完成
+2025-10-13 23:08:48,426 - aigc_detector - INFO -    📊 扣除额度: 320
+2025-10-13 23:08:48,426 - aigc_detector - INFO -    💰 剩余额度: 118033
+2025-10-13 23:08:48,426 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:11:01,158 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:11:01,158 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:11:01,158 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:11:01,158 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:11:01,159 - aigc_detector - INFO -    📏 文本长度: 3711 字符
+2025-10-13 23:11:01,159 - aigc_detector - INFO -    💰 剩余额度: 118033
+2025-10-13 23:11:01,234 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 3711
+2025-10-13 23:11:01,235 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=60cb60ae433bda412210b43a5bf9424d; uid=41; email=1762389546@qq.com; token=75d5d60484bcb2351c8202541f4733b1; uuid=0e466e844541cc79a9f4a6e2c9a23296', 'page-timestamp': '1760368261235', 'content-length': '3762'}
+2025-10-13 23:12:04,249 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-13 23:12:04,300 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-13 23:12:04,301 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-13 23:12:04,301 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-13 23:12:04,301 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-13 23:12:05,683 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-13 23:12:05,683 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-13 23:12:05,683 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-13 23:12:05,759 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-13 23:12:05,760 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=a35781b1453bda41a84f2565d8463a25; uid=41; email=1762389546@qq.com; token=e8bbbd607cb0e27f49ff44a3fcaca976; uuid=0399fabc782ebc09b719b834dab0f6b2', 'page-timestamp': '1760368325760', 'content-length': '3762'}
+2025-10-13 23:13:06,975 - aigc_detector - ERROR - 未知错误: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 327, in aigcrewrite
+    result = self._do_aigcrewrite_request(auth_info, text, combination_id)
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 366, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 223, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 343, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 366, in _do_aigcrewrite_request
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 504 Server Error: Gateway Time-out for url: https://ai.lanbeike.online/index/index/ai
+2025-10-13 23:19:50,713 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:19:50,713 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:19:50,713 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:19:50,713 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:19:50,713 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:19:50,713 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:19:57,461 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:19:57,461 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:57,461 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:19:57,461 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:19:57,461 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:19:57,461 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:57,486 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:57,486 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:19:57,486 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:19:57,486 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:19:57,486 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:58,216 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:19:58,217 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:58,217 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:19:58,217 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:19:58,217 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:19:58,217 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:58,242 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:58,243 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:19:58,243 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:19:58,243 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:19:58,243 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:58,247 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:19:58,247 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:58,247 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:19:58,247 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:19:58,247 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:19:58,247 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:58,269 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:58,269 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:19:58,269 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:19:58,269 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:19:58,269 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:59,280 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:19:59,280 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:59,280 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:19:59,280 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:19:59,280 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:19:59,280 - aigc_detector - INFO - ============================================================
+2025-10-13 23:19:59,303 - aigc_detector - INFO - ==================================================
+2025-10-13 23:19:59,303 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:19:59,303 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:19:59,303 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:19:59,303 - aigc_detector - INFO - ==================================================
+2025-10-13 23:20:10,815 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:20:10,815 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:20:10,815 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:20:10,815 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:20:10,815 - aigc_detector - INFO -    📏 文本长度: 3711 字符
+2025-10-13 23:20:10,815 - aigc_detector - INFO -    💰 剩余额度: 118033
+2025-10-13 23:20:11,848 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 3711
+2025-10-13 23:20:11,849 - aigc_detector - INFO - 📤 发送改写请求到目标服务器...
+2025-10-13 23:21:13,318 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-10-13 23:21:16,600 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-13 23:21:16,600 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-13 23:21:16,600 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-13 23:21:16,600 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-13 23:21:18,778 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-13 23:21:18,779 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-13 23:21:18,779 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-13 23:21:19,889 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-13 23:21:19,889 - aigc_detector - INFO - 📤 发送改写请求到目标服务器...
+2025-10-13 23:22:15,800 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:22:15,800 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:22:15,800 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:22:57,867 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:22:57,868 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:57,868 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:22:57,868 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:22:57,868 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:22:57,868 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:57,889 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:57,889 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:22:57,889 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:22:57,889 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:22:57,889 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,069 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:22:58,069 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,069 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:22:58,069 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:22:58,069 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:22:58,069 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,092 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,092 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:22:58,092 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:22:58,092 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:22:58,092 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,150 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:22:58,151 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,151 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:22:58,151 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:22:58,151 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:22:58,151 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,176 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,176 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:22:58,176 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:22:58,176 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:22:58,176 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,824 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:22:58,825 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,825 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:22:58,825 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:22:58,826 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:22:58,826 - aigc_detector - INFO - ============================================================
+2025-10-13 23:22:58,852 - aigc_detector - INFO - ==================================================
+2025-10-13 23:22:58,852 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:22:58,852 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:22:58,852 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:22:58,852 - aigc_detector - INFO - ==================================================
+2025-10-13 23:23:04,188 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:23:04,188 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:23:04,188 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:23:04,188 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:23:04,188 - aigc_detector - INFO -    📏 文本长度: 1793 字符
+2025-10-13 23:23:04,188 - aigc_detector - INFO -    💰 剩余额度: 118033
+2025-10-13 23:23:05,188 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 1793
+2025-10-13 23:23:05,189 - aigc_detector - INFO - 📤 发送改写请求到目标服务器...
+2025-10-13 23:24:05,669 - aigc_detector - ERROR - ✗ AI改写请求失败 - 账号: 1762389546@qq.com, 错误: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-10-13 23:24:09,243 - aigc_detector - WARNING - ⚠ 已清除无效登录态，准备重试...
+2025-10-13 23:24:09,244 - aigc_detector - INFO - 🔄 开始尝试账号登录 - 当前账号索引: 1/1
+2025-10-13 23:24:09,244 - aigc_detector - INFO -   尝试第 1 个账号: 1762389546@qq.com
+2025-10-13 23:24:09,244 - aigc_detector - INFO - 🔐 正在登录账号: 1762389546@qq.com
+2025-10-13 23:24:11,865 - aigc_detector - INFO - ✓ 登录态已存入Redis - 账号: 1762389546@qq.com, UID: 41
+2025-10-13 23:24:11,866 - aigc_detector - INFO -   登录态有效期: 21600秒 (6小时)
+2025-10-13 23:24:11,866 - aigc_detector - INFO - ✓ 账号 1762389546@qq.com 登录成功
+2025-10-13 23:24:13,858 - aigc_detector - INFO - 🔄 使用新账号重试 - 账号: 1762389546@qq.com
+2025-10-13 23:24:13,858 - aigc_detector - INFO - 📤 发送改写请求到目标服务器...
+2025-10-13 23:25:14,310 - aigc_detector - ERROR - 未知错误: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 368, in aigcrewrite
+    result = self._do_aigcrewrite_request(auth_info, text, combination_id)
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 411, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\Software\Work\Python313\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\http\client.py", line 300, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\data\aigc_detector\app\api\v1\endpoints.py", line 223, in ai_rewrite
+    result = ai_detector_service.aigcrewrite(
+        text=request.text,
+        combination_id=request.combination_id
+    )
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 384, in aigcrewrite
+    return self._do_aigcrewrite_request(auth_info, text, combination_id)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\aigc_detector\app\services\ai_detector_service.py", line 411, in _do_aigcrewrite_request
+    response = requests.post(
+        url=detector_url,
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-10-13 23:25:35,572 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:25:35,572 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:25:35,572 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:25:35,635 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:25:35,635 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:25:35,635 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:25:35,667 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:25:35,667 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:25:35,667 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:25:35,667 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:25:35,667 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:25:35,667 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:25:41,099 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:25:41,099 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,099 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:25:41,099 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:25:41,099 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:25:41,100 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,123 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,124 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:25:41,124 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:25:41,124 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:25:41,124 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,313 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:25:41,313 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,313 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:25:41,313 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:25:41,313 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:25:41,314 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,338 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,338 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:25:41,338 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:25:41,338 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:25:41,338 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,395 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:25:41,396 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,396 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:25:41,396 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:25:41,396 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:25:41,396 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,419 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,419 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:25:41,419 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:25:41,420 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:25:41,420 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,749 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:25:41,749 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,750 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:25:41,750 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:25:41,750 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:25:41,750 - aigc_detector - INFO - ============================================================
+2025-10-13 23:25:41,774 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:41,774 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:25:41,774 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:25:41,774 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:25:41,774 - aigc_detector - INFO - ==================================================
+2025-10-13 23:25:50,784 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:25:50,784 - aigc_detector - INFO - 📥 收到改写请求
+2025-10-13 23:25:50,784 - aigc_detector - INFO -    🔑 API Key: 测试
+2025-10-13 23:25:50,784 - aigc_detector - INFO -    🌐 组合: 20
+2025-10-13 23:25:50,785 - aigc_detector - INFO -    📏 文本长度: 67 字符
+2025-10-13 23:25:50,785 - aigc_detector - INFO -    💰 剩余额度: 118033
+2025-10-13 23:25:52,570 - aigc_detector - INFO - 📝 执行改写 - 使用账号: 1762389546@qq.com, 组合: 20, 文本长度: 67
+2025-10-13 23:25:52,570 - aigc_detector - INFO - {'authority': 'ai.lanbeike.online', 'method': 'POST', 'scheme': 'https', 'accept': '*/*', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6', 'content-type': 'application/json', 'origin': 'https://ai.lanbeike.online', 'priority': 'u=1, i', 'referer': 'https://ai.lanbeike.online/index/index/editor?history_id=150751', 'sec-ch-ua': '"Microsoft Edge";v="141", "Not?A_Brand";v="8", "Chromium";v="141"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', 'sec-fetch-dest': 'empty', 'sec-fetch-mode': 'cors', 'sec-fetch-site': 'same-origin', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 'x-requested-with': 'XMLHttpRequest', 'cookie': 'SESSION_ID=b0e4b366463bda41d050e10643fb6f91; uid=41; email=1762389546@qq.com; token=c720e01c80b77cbdbb0751d442efd3fd; uuid=760b82bef9b343226edabe3b060a6891', 'page-timestamp': '1760369152570', 'content-length': '118'}
+2025-10-13 23:26:05,061 - aigc_detector - INFO - ✓ 改写完成 - 账号: 1762389546@qq.com
+2025-10-13 23:26:06,045 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 67, 剩余: 117966/120000
+2025-10-13 23:26:06,045 - aigc_detector - INFO - ✓ 改写完成
+2025-10-13 23:26:06,045 - aigc_detector - INFO -    📊 扣除额度: 67
+2025-10-13 23:26:06,045 - aigc_detector - INFO -    💰 剩余额度: 117966
+2025-10-13 23:26:06,045 - aigc_detector - INFO - ======================================================================
+2025-10-13 23:32:08,768 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:32:08,769 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,769 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:32:08,769 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:32:08,769 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:32:08,769 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,787 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:32:08,787 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,787 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:32:08,787 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:32:08,787 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:32:08,787 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,792 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,792 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:32:08,792 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:32:08,792 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:32:08,792 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,796 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:32:08,796 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,796 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:32:08,796 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:32:08,796 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:32:08,796 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,796 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2025-10-13 23:32:08,796 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,797 - aigc_detector - INFO - AI检测服务初始化
+2025-10-13 23:32:08,797 - aigc_detector - INFO - 可用账号数量: 1
+2025-10-13 23:32:08,797 - aigc_detector - INFO -   账号 1: 1762389546@qq.com
+2025-10-13 23:32:08,797 - aigc_detector - INFO - ============================================================
+2025-10-13 23:32:08,811 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,811 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:32:08,811 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:32:08,811 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:32:08,811 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,821 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,821 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:32:08,821 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:32:08,821 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:32:08,821 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,823 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:08,823 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2025-10-13 23:32:08,823 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2025-10-13 23:32:08,823 - aigc_detector - INFO - API文档: http://0.0.0.0:8001/docs
+2025-10-13 23:32:08,823 - aigc_detector - INFO - ==================================================
+2025-10-13 23:32:09,823 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:32:09,824 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:32:09,824 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:32:09,838 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:32:09,838 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:32:09,839 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:32:09,839 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:32:09,839 - aigc_detector - INFO - 应用已关闭
+2025-10-13 23:32:09,854 - aigc_detector - INFO - 正在关闭应用...
+2025-10-13 23:32:09,854 - aigc_detector - INFO - Redis连接已关闭
+2025-10-13 23:32:09,854 - aigc_detector - INFO - 应用已关闭

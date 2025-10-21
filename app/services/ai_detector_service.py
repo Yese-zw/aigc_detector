@@ -466,4 +466,75 @@ class AIDetectorService:
         )
         response.raise_for_status()
         return response.json()
+
+    def file_status(
+            self,
+            uuid: str
+    ) -> Dict[str, Any]:
+        """
+        上传文件到AI检测服务-查询
+
+        Args:
+
+            uuid: UUID
+        Returns:
+            上传结果字典
+        """
+        # 从Redis获取共享登录态
+        auth_info = self._get_shared_auth()
+
+        # 首次请求或登录态过期，尝试登录
+        if not auth_info:
+            logger.info("⚠ 未找到共享登录态，尝试登录...")
+            if not self._try_all_accounts():
+                raise AllAccountsFailedException()
+            # 重新获取登录态
+            auth_info = self._get_shared_auth()
+            if not auth_info:
+                raise AllAccountsFailedException()
+
+        # 获取当前使用的账号
+        current_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+
+        # 执行上传请求
+        try:
+            logger.info(f"📤 执行文件查询 - 使用账号: {current_account}, 文件uuid: {uuid}")
+            result = self._do_upload_status_request(auth_info, uuid)
+            logger.info(f"✓ 上传完成 - 账号: {current_account}")
+            return result
+        except Exception as e:
+            logger.error(f"✗ 文件查询失败 - 账号: {current_account}, 错误: {str(e)}")
+            # 清除无效登录态
+            self.redis_client.delete(self.redis_key)
+            self.redis_client.delete(f"{self.redis_key}_account")
+            logger.warning("⚠ 已清除无效登录态，准备重试...")
+            # 尝试切换账号重试
+            if not self._try_all_accounts():
+                raise DetectionFailedException(str(e))
+            # 再次执行上传
+            auth_info = self._get_shared_auth()
+            new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+            logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
+            return self._do_upload_status_request(auth_info, uuid)
+
+
+    def _do_upload_status_request(self, auth_info: Dict[str, str], uuid: str) -> Dict[str, Any]:
+        """执行实际的文件上传请求"""
+        # 构建请求头（上传文件时不需要 content-type）
+        headers = self._update_header_cookie(auth_info)
+        # 移除 content-type，让 requests 自动设置
+        if "content-type" in headers:
+            del headers["content-type"]
+        headers['page-timestamp'] = str(int(time.time() * 1000))
+        upload_url = f"{settings.AI_DETECTOR_BASE_URL}/index/upload/status?uuid={uuid}"
+
+
+
+        response = requests.get(
+            url=upload_url,
+            headers=headers,
+            timeout=settings.AI_DETECTOR_TIMEOUT
+        )
+        response.raise_for_status()
+        return response.json()
     

@@ -428,10 +428,10 @@ async def upload_file(
 @router.post(
     "/status_file",
     response_model=AIDetectorResponse,
-    summary="文件上传查询",
+    summary="文件状态查询",
     description="上传文件到AI服务（需要 API Key 认证）",
     responses={
-        200: {"description": "上传成功"},
+        200: {"description": "查询成功"},
         400: {"description": "请求参数错误", "model": ErrorResponse},
         401: {"description": "未授权，缺少或无效的 API Key", "model": ErrorResponse},
         402: {"description": "额度不足", "model": ErrorResponse},
@@ -456,17 +456,13 @@ async def upload_file(
     try:
 
         logger.info("=" * 70)
-        logger.info(f"📤 收到文件查询上传请求")
+        logger.info(f"📤 收到文件查询请求")
         logger.info(f"   🆔 UUID: {uuid}")
-
-
 
         # 先执行上传（在扣除额度之前）
         result = ai_detector_service.file_status(
             uuid=uuid,
-
         )
-
         logger.info(f"✓ 查询完成")
         logger.info("=" * 70)
 
@@ -492,13 +488,6 @@ async def upload_file(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="所有账号均登录失败，请稍后重试"
-        )
-
-    except DetectionFailedException as e:
-        logger.error(f"上传请求失败: {str(e)}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"文件上传失败: {str(e)}"
         )
 
     except RedisConnectionException as e:

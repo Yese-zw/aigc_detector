@@ -423,3 +423,94 @@ async def upload_file(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="服务器内部错误"
         )
+
+
+@router.post(
+    "/status_file",
+    response_model=AIDetectorResponse,
+    summary="文件上传查询",
+    description="上传文件到AI服务（需要 API Key 认证）",
+    responses={
+        200: {"description": "上传成功"},
+        400: {"description": "请求参数错误", "model": ErrorResponse},
+        401: {"description": "未授权，缺少或无效的 API Key", "model": ErrorResponse},
+        402: {"description": "额度不足", "model": ErrorResponse},
+        500: {"description": "服务器内部错误", "model": ErrorResponse}
+    }
+)
+async def upload_file(
+        uuid: str = Form(..., description="UUID"),
+        api_key: str = Depends(get_current_api_key)
+):
+    """
+    文件上传接口（需要 API Key）
+
+    - **uuid**: UUID（必需）
+
+    **认证方式：**
+    在请求头中添加 `X-API-Key: your_api_key`
+
+    **额度消耗：**
+    每次请求会消耗文件大小对应的额度（按 KB 计算，1KB = 1000 额度）
+    """
+    try:
+
+        logger.info("=" * 70)
+        logger.info(f"📤 收到文件查询上传请求")
+        logger.info(f"   🆔 UUID: {uuid}")
+
+
+
+        # 先执行上传（在扣除额度之前）
+        result = ai_detector_service.file_status(
+            uuid=uuid,
+
+        )
+
+        logger.info(f"✓ 查询完成")
+        logger.info("=" * 70)
+
+        # 返回响应，包含额度信息
+        return AIDetectorResponse(
+            status="success",
+            result=result,
+            message=None,
+        )
+
+    except HTTPException:
+        raise
+
+    except InvalidLanguageException as e:
+        logger.warning(f"语言类型错误: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+
+    except AllAccountsFailedException as e:
+        logger.error(f"所有账号均登录失败: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="所有账号均登录失败，请稍后重试"
+        )
+
+    except DetectionFailedException as e:
+        logger.error(f"上传请求失败: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"文件上传失败: {str(e)}"
+        )
+
+    except RedisConnectionException as e:
+        logger.error(f"Redis连接失败: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="缓存服务连接失败，请稍后重试"
+        )
+
+    except Exception as e:
+        logger.error(f"未知错误: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="服务器内部错误"
+        )

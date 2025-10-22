@@ -23,6 +23,10 @@ from app.core.exceptions import (
 )
 from app.core.redis_client import get_redis_client
 from app import __version__
+import re
+import io
+from docx import Document
+
 
 router = APIRouter()
 
@@ -321,21 +325,51 @@ async def upload_file(
     每次请求会消耗文件大小对应的额度（按 KB 计算，1KB = 1000 额度）
     """
     try:
-        # 读取文件内容
+        # 读取文件内容（二进制）
         file_content = await file.read()
-        file_size_kb = len(file_content) / 1024  # 转换为 KB
+        text_content = ""
 
-        try:
-            text_content = file_content.decode("utf-8")  # 解码为字符串
-        except UnicodeDecodeError:
+        # 根据文件后缀判断类型并提取文本
+        filename = file.filename.lower()  # 转为小写便于判断后缀
+        if filename.endswith(".txt"):
+            # 处理txt文件（UTF-8编码）
+            try:
+                text_content = file_content.decode("utf-8")
+            except UnicodeDecodeError:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="TXT文件编码错误，仅支持UTF-8编码"
+                )
+
+        elif filename.endswith(".docx"):
+            # 处理docx文件（python-docx自动解析）
+            try:
+                # 将二进制内容转为文件流
+                doc = Document(io.BytesIO(file_content))
+                # 提取所有段落文本
+                text_content = "\n".join([para.text for para in doc.paragraphs])
+                # 提取表格中的文本（如果有表格）
+                for table in doc.tables:
+                    for row in table.rows:
+                        for cell in row.cells:
+                            text_content += "\n" + cell.text
+            except Exception as e:
+                logger.error(f"解析docx文件失败: {str(e)}")
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="docx文件解析失败，可能是损坏的文件或非docx格式"
+                )
+
+        else:
+            # 不支持的文件格式
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="文件编码错误，仅支持UTF-8编码的文本文件"
+                detail="仅支持txt或docx格式的文件"
             )
 
-        import re
-        # 正则匹配所有Unicode文字（包括中文、英文、数字等，排除空格和标点）
-        words = re.findall(r'\w', text_content)  # \w 匹配 [a-zA-Z0-9_]，如需保留中文可调整为 [\u4e00-\u9fa5a-zA-Z0-9]
+        # 统计文字数量（过滤空白字符，保留中文字、英文、数字等）
+        # 正则说明：[\u4e00-\u9fa5]匹配中文，[a-zA-Z0-9]匹配英文和数字，可根据需求调整
+        words = re.findall(r'[\u4e00-\u9fa5a-zA-Z0-9]', text_content)
         quota_cost = len(words)
 
 
@@ -347,7 +381,6 @@ async def upload_file(
         logger.info(f"📤 收到文件上传请求")
         logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
         logger.info(f"   📁 文件名: {file.filename}")
-        logger.info(f"   📏 文件大小: {file_size_kb:.2f} KB")
         logger.info(f"   💰 需要额度: {quota_cost}")
         logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
         logger.info(f"   🌐 语言: {language}")

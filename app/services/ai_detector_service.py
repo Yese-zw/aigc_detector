@@ -364,6 +364,7 @@ class AIDetectorService:
             timeout=settings.AI_DETECTOR_TIMEOUT
         )
         response.raise_for_status()
+        logger.info(response.json())
         return response.json()
     
     def upload_file(

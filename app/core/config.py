@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     # 应用信息
     APP_NAME: str = "AIGC Detector API"
     APP_VERSION: str = "1.0.0"
-    APP_DESCRIPTION: str = "支持多进程共享登录态的AI检测服务"
+    APP_DESCRIPTION: str = "AI检测服务"
     
     # 服务器配置
     HOST: str = "0.0.0.0"

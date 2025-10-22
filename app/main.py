@@ -64,8 +64,6 @@ async def root():
         content={
             "message": f"欢迎使用 {settings.APP_NAME}",
             "version": __version__,
-            "docs": "/docs",
-            "health": "/ai/health"
         }
     )
 

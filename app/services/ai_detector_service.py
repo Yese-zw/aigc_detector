@@ -216,20 +216,38 @@ class AIDetectorService:
             result = self._do_aigccheck_request(auth_info, text, id_str)
             logger.info(f"✓ 检测完成 - 账号: {current_account}")
             return result
-        except Exception as e:
-            logger.error(f"✗ AI检测请求失败 - 账号: {current_account}, 错误: {str(e)}")
-            # 清除无效登录态
-            self.redis_client.delete(self.redis_key)
-            self.redis_client.delete(f"{self.redis_key}_account")
-            logger.warning("⚠ 已清除无效登录态，准备重试...")
-            # 尝试切换账号重试
-            if not self._try_all_accounts():
+        except requests.exceptions.HTTPError as e:
+            # HTTP错误 - 检查状态码
+            if e.response is not None and e.response.status_code in [401, 403]:
+                # 认证错误 - 清除登录态并重试
+                logger.error(f"✗ AI检测认证失败 - 账号: {current_account}, 错误: {str(e)}")
+                self.redis_client.delete(self.redis_key)
+                self.redis_client.delete(f"{self.redis_key}_account")
+                logger.warning("⚠ 已清除无效登录态，准备重试...")
+                # 尝试切换账号重试
+                if not self._try_all_accounts():
+                    raise DetectionFailedException(str(e))
+                # 再次执行检测
+                auth_info = self._get_shared_auth()
+                new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+                logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
+                return self._do_aigccheck_request(auth_info, text, id_str)
+            elif e.response is not None and e.response.status_code in [502, 503, 504]:
+                # 网关错误/服务不可用/超时 - 不清除登录态，直接抛出异常
+                logger.error(f"✗ 上游服务器错误 ({e.response.status_code}) - 账号: {current_account}")
+                raise DetectionFailedException(f"上游服务器暂时不可用 ({e.response.status_code}): {str(e)}")
+            else:
+                # 其他HTTP错误
+                logger.error(f"✗ AI检测请求失败 - 账号: {current_account}, 状态码: {e.response.status_code if e.response else 'N/A'}, 错误: {str(e)}")
                 raise DetectionFailedException(str(e))
-            # 再次执行检测
-            auth_info = self._get_shared_auth()
-            new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
-            logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
-            return self._do_aigccheck_request(auth_info, text, id_str)
+        except requests.exceptions.Timeout as e:
+            # 请求超时 - 不清除登录态
+            logger.error(f"✗ AI检测请求超时 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(f"请求超时: {str(e)}")
+        except Exception as e:
+            # 其他未知错误
+            logger.error(f"✗ AI检测未知错误 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(str(e))
     
     def _do_aigccheck_request(
         self, 
@@ -326,21 +344,40 @@ class AIDetectorService:
             logger.info(f"📝 执行改写 - 使用账号: {current_account}, 组合: {combination_id}, 文本长度: {len(text)}")
             result = self._do_aigcrewrite_request(auth_info, text, combination_id)
             logger.info(f"✓ 改写完成 - 账号: {current_account}")
+            logger.info(f"✓ 改写完成 - 内容: {result}")
             return result
-        except Exception as e:
-            logger.error(f"✗ AI改写请求失败 - 账号: {current_account}, 错误: {str(e)}")
-            # 清除无效登录态
-            self.redis_client.delete(self.redis_key)
-            self.redis_client.delete(f"{self.redis_key}_account")
-            logger.warning("⚠ 已清除无效登录态，准备重试...")
-            # 尝试切换账号重试
-            if not self._try_all_accounts():
+        except requests.exceptions.HTTPError as e:
+            # HTTP错误 - 检查状态码
+            if e.response is not None and e.response.status_code in [401, 403]:
+                # 认证错误 - 清除登录态并重试
+                logger.error(f"✗ AI改写认证失败 - 账号: {current_account}, 错误: {str(e)}")
+                self.redis_client.delete(self.redis_key)
+                self.redis_client.delete(f"{self.redis_key}_account")
+                logger.warning("⚠ 已清除无效登录态，准备重试...")
+                # 尝试切换账号重试
+                if not self._try_all_accounts():
+                    raise DetectionFailedException(str(e))
+                # 再次执行检测
+                auth_info = self._get_shared_auth()
+                new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+                logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
+                return self._do_aigcrewrite_request(auth_info, text, combination_id)
+            elif e.response is not None and e.response.status_code in [502, 503, 504]:
+                # 网关错误/服务不可用/超时 - 不清除登录态，直接抛出异常
+                logger.error(f"✗ 上游服务器错误 ({e.response.status_code}) - 账号: {current_account}")
+                raise DetectionFailedException(f"服务器暂时不可用 ({e.response.status_code}): {str(e)}")
+            else:
+                # 其他HTTP错误
+                logger.error(f"✗ AI改写请求失败 - 账号: {current_account}, 状态码: {e.response.status_code if e.response else 'N/A'}, 错误: {str(e)}")
                 raise DetectionFailedException(str(e))
-            # 再次执行检测
-            auth_info = self._get_shared_auth()
-            new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
-            logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
-            return self._do_aigcrewrite_request(auth_info, text, combination_id)
+        except requests.exceptions.Timeout as e:
+            # 请求超时 - 不清除登录态
+            logger.error(f"✗ AI改写请求超时 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(f"请求超时: {str(e)}")
+        except Exception as e:
+            # 其他未知错误
+            logger.error(f"✗ AI改写未知错误 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(str(e))
 
     def _do_aigcrewrite_request(
             self,
@@ -364,7 +401,6 @@ class AIDetectorService:
             timeout=settings.AI_DETECTOR_TIMEOUT
         )
         response.raise_for_status()
-        logger.info(response.json())
         return response.json()
     
     def upload_file(
@@ -412,20 +448,38 @@ class AIDetectorService:
             result = self._do_upload_request(auth_info, file_content, filename, uuid, language, mode, platform)
             logger.info(f"✓ 上传完成 - 账号: {current_account}")
             return result
-        except Exception as e:
-            logger.error(f"✗ 文件上传失败 - 账号: {current_account}, 错误: {str(e)}")
-            # 清除无效登录态
-            self.redis_client.delete(self.redis_key)
-            self.redis_client.delete(f"{self.redis_key}_account")
-            logger.warning("⚠ 已清除无效登录态，准备重试...")
-            # 尝试切换账号重试
-            if not self._try_all_accounts():
+        except requests.exceptions.HTTPError as e:
+            # HTTP错误 - 检查状态码
+            if e.response is not None and e.response.status_code in [401, 403]:
+                # 认证错误 - 清除登录态并重试
+                logger.error(f"✗ 文件上传认证失败 - 账号: {current_account}, 错误: {str(e)}")
+                self.redis_client.delete(self.redis_key)
+                self.redis_client.delete(f"{self.redis_key}_account")
+                logger.warning("⚠ 已清除无效登录态，准备重试...")
+                # 尝试切换账号重试
+                if not self._try_all_accounts():
+                    raise DetectionFailedException(str(e))
+                # 再次执行上传
+                auth_info = self._get_shared_auth()
+                new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+                logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
+                return self._do_upload_request(auth_info, file_content, filename, uuid, language, mode, platform)
+            elif e.response is not None and e.response.status_code in [502, 503, 504]:
+                # 网关错误/服务不可用/超时 - 不清除登录态，直接抛出异常
+                logger.error(f"✗ 上游服务器错误 ({e.response.status_code}) - 账号: {current_account}")
+                raise DetectionFailedException(f"服务器暂时不可用 ({e.response.status_code}): {str(e)}")
+            else:
+                # 其他HTTP错误
+                logger.error(f"✗ 文件上传失败 - 账号: {current_account}, 状态码: {e.response.status_code if e.response else 'N/A'}, 错误: {str(e)}")
                 raise DetectionFailedException(str(e))
-            # 再次执行上传
-            auth_info = self._get_shared_auth()
-            new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
-            logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
-            return self._do_upload_request(auth_info, file_content, filename, uuid, language, mode, platform)
+        except requests.exceptions.Timeout as e:
+            # 请求超时 - 不清除登录态
+            logger.error(f"✗ 文件上传请求超时 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(f"请求超时: {str(e)}")
+        except Exception as e:
+            # 其他未知错误
+            logger.error(f"✗ 文件上传未知错误 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(str(e))
     
     def _do_upload_request(
         self,
@@ -503,20 +557,38 @@ class AIDetectorService:
             result = self._do_upload_status_request(auth_info, uuid)
             logger.info(f"✓ 上传完成 - 账号: {current_account}")
             return result
-        except Exception as e:
-            logger.error(f"✗ 文件查询失败 - 账号: {current_account}, 错误: {str(e)}")
-            # 清除无效登录态
-            self.redis_client.delete(self.redis_key)
-            self.redis_client.delete(f"{self.redis_key}_account")
-            logger.warning("⚠ 已清除无效登录态，准备重试...")
-            # 尝试切换账号重试
-            if not self._try_all_accounts():
+        except requests.exceptions.HTTPError as e:
+            # HTTP错误 - 检查状态码
+            if e.response is not None and e.response.status_code in [401, 403]:
+                # 认证错误 - 清除登录态并重试
+                logger.error(f"✗ 文件查询认证失败 - 账号: {current_account}, 错误: {str(e)}")
+                self.redis_client.delete(self.redis_key)
+                self.redis_client.delete(f"{self.redis_key}_account")
+                logger.warning("⚠ 已清除无效登录态，准备重试...")
+                # 尝试切换账号重试
+                if not self._try_all_accounts():
+                    raise DetectionFailedException(str(e))
+                # 再次执行上传
+                auth_info = self._get_shared_auth()
+                new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
+                logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
+                return self._do_upload_status_request(auth_info, uuid)
+            elif e.response is not None and e.response.status_code in [502, 503, 504]:
+                # 网关错误/服务不可用/超时 - 不清除登录态，直接抛出异常
+                logger.error(f"✗ 上游服务器错误 ({e.response.status_code}) - 账号: {current_account}")
+                raise DetectionFailedException(f"服务器暂时不可用 ({e.response.status_code}): {str(e)}")
+            else:
+                # 其他HTTP错误
+                logger.error(f"✗ 文件查询失败 - 账号: {current_account}, 状态码: {e.response.status_code if e.response else 'N/A'}, 错误: {str(e)}")
                 raise DetectionFailedException(str(e))
-            # 再次执行上传
-            auth_info = self._get_shared_auth()
-            new_account = self.redis_client.get(f"{self.redis_key}_account") or "未知账号"
-            logger.info(f"🔄 使用新账号重试 - 账号: {new_account}")
-            return self._do_upload_status_request(auth_info, uuid)
+        except requests.exceptions.Timeout as e:
+            # 请求超时 - 不清除登录态
+            logger.error(f"✗ 文件查询请求超时 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(f"请求超时: {str(e)}")
+        except Exception as e:
+            # 其他未知错误
+            logger.error(f"✗ 文件查询未知错误 - 账号: {current_account}, 错误: {str(e)}")
+            raise DetectionFailedException(str(e))
 
 
     def _do_upload_status_request(self, auth_info: Dict[str, str], uuid: str) -> Dict[str, Any]:

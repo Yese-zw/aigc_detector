@@ -324,11 +324,21 @@ async def upload_file(
         # 读取文件内容
         file_content = await file.read()
         file_size_kb = len(file_content) / 1024  # 转换为 KB
+
+        try:
+            text_content = file_content.decode("utf-8")  # 解码为字符串
+        except UnicodeDecodeError:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="文件编码错误，仅支持UTF-8编码的文本文件"
+            )
+
+        import re
+        # 正则匹配所有Unicode文字（包括中文、英文、数字等，排除空格和标点）
+        words = re.findall(r'\w', text_content)  # \w 匹配 [a-zA-Z0-9_]，如需保留中文可调整为 [\u4e00-\u9fa5a-zA-Z0-9]
+        quota_cost = len(words)
         
-        # 计算额度消耗（1KB = 1000额度）
-        quota_cost = int(file_size_kb * 1000)
-        if quota_cost < 100:  # 最小消耗100额度
-            quota_cost = 100
+
         
         # 获取 API Key 信息
         key_data = apikey_service.get_apikey(api_key)

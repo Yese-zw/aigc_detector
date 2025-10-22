@@ -395,29 +395,28 @@ async def upload_file(
                 status_code=status.HTTP_402_PAYMENT_REQUIRED,
                 detail=f"额度不足，剩余: {key_data.quota if key_data else 0}，需要: {quota_cost}"
             )
-        result = ''
-        
+
         # 先执行上传（在扣除额度之前）
-        # result = ai_detector_service.upload_file(
-        #     file_content=file_content,
-        #     filename=file.filename,
-        #     uuid=uuid,
-        #     language=language,
-        #     mode=mode,
-        #     platform=platform
-        # )
-        #
-        # # 上传成功后才扣除额度
+        result = ai_detector_service.upload_file(
+            file_content=file_content,
+            filename=file.filename,
+            uuid=uuid,
+            language=language,
+            mode=mode,
+            platform=platform
+        )
+
+        # 上传成功后才扣除额度
         verification_result = apikey_service.verify_and_consume_quota(api_key, quota_cost)
-        #
-        # if not verification_result["valid"]:
-        #     # 理论上不应该到这里，因为前面已经检查过了
-        #     logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
-        #
-        # logger.info(f"✓ 上传完成")
-        # logger.info(f"   📊 扣除额度: {quota_cost}")
-        # logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - quota_cost)}")
-        # logger.info("=" * 70)
+
+        if not verification_result["valid"]:
+            # 理论上不应该到这里，因为前面已经检查过了
+            logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
+
+        logger.info(f"✓ 上传完成")
+        logger.info(f"   📊 扣除额度: {quota_cost}")
+        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - quota_cost)}")
+        logger.info("=" * 70)
         
         # 返回响应，包含额度信息
         return AIDetectorResponse(

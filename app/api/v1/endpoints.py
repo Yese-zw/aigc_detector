@@ -207,6 +207,8 @@ async def ai_rewrite(
 
         # 获取 API Key 信息
         key_data = apikey_service.get_apikey(api_key)
+        if request.combination_id in [30,31,32,33,34,35,36,37,38,39,60,61,62,'30','31','32','33','34','35','36','37','38','39','60','61','62']:
+            text_length *=2
 
         logger.info("=" * 70)
         logger.info(f"📥 收到改写请求")
@@ -370,8 +372,10 @@ async def upload_file(
         # 统计文字数量（过滤空白字符，保留中文字、英文、数字等）
         # 正则说明：[\u4e00-\u9fa5]匹配中文，[a-zA-Z0-9]匹配英文和数字，可根据需求调整
         words = re.findall(r'[\u4e00-\u9fa5a-zA-Z0-9]', text_content)
-        quota_cost = len(words)
-
+        word_count = len(words)
+        quota_cost = word_count
+        if mode == '3' or mode == 3:
+            quota_cost *= 2
 
         
         # 获取 API Key 信息
@@ -381,6 +385,7 @@ async def upload_file(
         logger.info(f"📤 收到文件上传请求")
         logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
         logger.info(f"   📁 文件名: {file.filename}")
+        logger.info(f"   💰 字数: {word_count}")
         logger.info(f"   💰 需要额度: {quota_cost}")
         logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
         logger.info(f"   🌐 语言: {language}")

@@ -38,7 +38,7 @@ class AIDetectorService:
     def _init_base_headers(self) -> Dict[str, str]:
         """初始化基础请求头"""
         return {
-            "authority": "ai.lanbeike.online",
+            "authority": "oldxrz.lanbeike.online",
             "method": "POST",
             "scheme": "https",
             "accept": "*/*",

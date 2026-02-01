@@ -5,6 +5,8 @@ from app.core.config import settings
 from app.core.redis_client import get_redis_client
 from app.core.logger import logger
 import os
+import jwt
+import datetime
 from app.services.apikey_service import APIKeyService
 from app.models.apikey import APIKeyCreate
 
@@ -447,10 +449,32 @@ HTML_TEMPLATE_ADMIN = """
         <!-- Token Tab -->
         <div id="token-card" class="card active">
             <h2>更新认证 Token</h2>
+            
+            <div id="token-status-box" style="background:#0f172a; padding:1.5rem; border-radius:1rem; margin-bottom:2rem; border:1px solid var(--border-color)">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem">
+                    <span style="color:var(--text-secondary); font-weight:500">Token 状态</span>
+                    <span id="ts-status" class="tag" style="background:#334155; color:#94a3b8">检测中...</span>
+                </div>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-bottom:1.5rem">
+                     <div>
+                        <div style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:0.4rem">过期时间</div>
+                        <div id="ts-expire" style="font-family:monospace; font-size:1.1rem">--</div>
+                     </div>
+                     <div>
+                        <div style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:0.4rem">剩余有效期</div>
+                        <div id="ts-remaining" style="font-family:monospace; font-size:1.1rem; color:#4ade80">--</div>
+                     </div>
+                </div>
+                <div style="background:#1e293b; padding:1rem; border-radius:0.5rem; font-size:0.8rem; color:var(--text-secondary); word-break:break-all; border:1px solid rgba(255,255,255,0.05)">
+                    <div style="margin-bottom:0.5rem; opacity:0.7">Payload Preview:</div>
+                    <span id="ts-payload" style="font-family:monospace">--</span>
+                </div>
+            </div>
+
             <div id="token-msg" class="alert alert-success" style="display:none;"></div>
             
             <div class="form-group">
-                <label for="token">Bearer Token (不包含 "Bearer " 前缀)</label>
+                <label for="token">更新 Token (Bearer Token)</label>
                 <textarea id="token-input" name="token" placeholder="eyJhbGciOiJIUzM4NCJ9..." required></textarea>
             </div>
             <button class="action-btn" onclick="updateToken()">更新 Token</button>
@@ -649,7 +673,13 @@ HTML_TEMPLATE_ADMIN = """
             // Auto-load data
             if(tabName === 'logs') loadLogs();
             if(tabName === 'keys') loadKeys();
+            if(tabName === 'token') loadTokenInfo();
         }
+        
+        // Load initial data
+        window.addEventListener('DOMContentLoaded', () => {
+             loadTokenInfo();
+        });
         
         // File input logic
         var fileInput = document.getElementById('file-input');
@@ -693,6 +723,63 @@ HTML_TEMPLATE_ADMIN = """
                 }
             } catch (e) {
                 alert('更新失败: ' + e);
+            }
+        }
+        
+        async function loadTokenInfo() {
+            const statusEl = document.getElementById('ts-status');
+            const expireEl = document.getElementById('ts-expire');
+            const remainEl = document.getElementById('ts-remaining');
+            const payloadEl = document.getElementById('ts-payload');
+            
+            try {
+                const res = await fetch('/admin/token/info');
+                const data = await res.json();
+                
+                if (data.status === 'active') {
+                    statusEl.textContent = '有效';
+                    statusEl.className = 'tag tag-green';
+                    statusEl.style.background = 'rgba(34, 197, 94, 0.2)';
+                    statusEl.style.color = '#4ade80';
+                    
+                    expireEl.textContent = data.expires_at;
+                    
+                    // Format remaining time nicely
+                    const secs = data.remaining_seconds;
+                    const hours = Math.floor(secs / 3600);
+                    const minutes = Math.floor((secs % 3600) / 60);
+                    remainEl.textContent = `${hours}小时 ${minutes}分钟`;
+                    
+                    if (hours < 1) {
+                         remainEl.style.color = '#f87171'; // Red warning
+                         statusEl.textContent = '即将过期';
+                         statusEl.style.color = '#f87171';
+                         statusEl.style.background = 'rgba(239, 68, 68, 0.2)';
+                    } else {
+                         remainEl.style.color = '#4ade80';
+                    }
+                    
+                    payloadEl.textContent = JSON.stringify(data.claims, null, 2);
+                } else if (data.status === 'expired') {
+                    statusEl.textContent = '已过期';
+                    statusEl.className = 'tag';
+                    statusEl.style.background = 'rgba(239, 68, 68, 0.2)';
+                    statusEl.style.color = '#f87171';
+                    
+                    expireEl.textContent = data.expires_at;
+                    remainEl.textContent = '0秒';
+                    remainEl.style.color = '#f87171';
+                    payloadEl.textContent = JSON.stringify(data.claims, null, 2);
+                } else {
+                    statusEl.textContent = data.message || '未知';
+                    statusEl.style.background = '#334155';
+                    expireEl.textContent = '--';
+                    remainEl.textContent = '--';
+                    payloadEl.textContent = '--';
+                }
+            } catch (e) {
+                statusEl.textContent = '加载失败';
+                console.error(e);
             }
         }
         
@@ -1003,6 +1090,50 @@ async def dashboard_page(request: Request):
     if not verify_cookie(request):
         return RedirectResponse(url="/admin/login", status_code=status.HTTP_302_FOUND)
     return HTML_TEMPLATE_ADMIN
+
+@router.get("/token/info")
+async def get_token_info(request: Request):
+    """获取当前Token状态"""
+    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    
+    try:
+        redis_client = get_redis_client()
+        token = redis_client.get(settings.REDIS_AUTH_KEY)
+        
+        if not token:
+            return {"status": "empty", "message": "未找到有效Token"}
+            
+        # Decode without verification
+        try:
+            payload = jwt.decode(token, options={"verify_signature": False})
+            exp = payload.get('exp')
+            
+            if exp:
+                exp_dt = datetime.datetime.fromtimestamp(exp)
+                now_dt = datetime.datetime.now()
+                remaining = (exp_dt - now_dt).total_seconds()
+                
+                is_expired = remaining <= 0
+                
+                return {
+                    "status": "active" if not is_expired else "expired",
+                    "token_preview": f"{token[:15]}...{token[-5:]}",
+                    "expires_at": exp_dt.strftime('%Y-%m-%d %H:%M:%S'),
+                    "remaining_seconds": int(remaining) if not is_expired else 0,
+                    "claims": payload
+                }
+            else:
+                return {
+                    "status": "unknown", 
+                    "message": "Token无过期时间字段",
+                    "claims": payload
+                }
+        except Exception as e:
+            return {"status": "error", "message": f"Token解析失败: {str(e)}"}
+            
+    except Exception as e:
+        logger.error(f"Error getting token info: {e}")
+        return {"status": "error", "message": str(e)}
 
 # Token Update
 @router.post("/token")

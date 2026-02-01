@@ -16,10 +16,10 @@ from app.services.apikey_service import APIKeyService
 from app.core.logger import logger
 from app.core.auth import get_current_api_key
 from app.core.exceptions import (
-    AllAccountsFailedException,
     DetectionFailedException,
     InvalidLanguageException,
-    RedisConnectionException
+    RedisConnectionException,
+    AuthExpiredException
 )
 from app.core.redis_client import get_redis_client
 from app import __version__
@@ -144,11 +144,11 @@ async def ai_detector(
             detail=str(e)
         )
     
-    except AllAccountsFailedException as e:
-        logger.error(f"所有账号均登录失败: {str(e)}")
+    except AuthExpiredException as e:
+        logger.error(f"Upstream Auth Expired: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="所有账号均登录失败，请稍后重试"
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="服务暂时不可用（上游认证失效）"
         )
     
     except DetectionFailedException as e:
@@ -261,11 +261,11 @@ async def ai_rewrite(
             detail=str(e)
         )
 
-    except AllAccountsFailedException as e:
-        logger.error(f"所有账号均登录失败: {str(e)}")
+    except AuthExpiredException as e:
+        logger.error(f"Upstream Auth Expired: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="所有账号均登录失败，请稍后重试"
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="服务暂时不可用（上游认证失效）"
         )
 
     except DetectionFailedException as e:
@@ -444,11 +444,11 @@ async def upload_file(
             detail=str(e)
         )
     
-    except AllAccountsFailedException as e:
-        logger.error(f"所有账号均登录失败: {str(e)}")
+    except AuthExpiredException as e:
+        logger.error(f"Upstream Auth Expired: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="所有账号均登录失败，请稍后重试"
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="服务暂时不可用（上游认证失效）"
         )
     
     except DetectionFailedException as e:
@@ -531,11 +531,11 @@ async def upload_file(
             detail=str(e)
         )
 
-    except AllAccountsFailedException as e:
-        logger.error(f"所有账号均登录失败: {str(e)}")
+    except AuthExpiredException as e:
+        logger.error(f"Upstream Auth Expired: {str(e)}")
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="所有账号均登录失败，请稍后重试"
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="服务暂时不可用（上游认证失效）"
         )
 
     except RedisConnectionException as e:

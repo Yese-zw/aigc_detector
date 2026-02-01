@@ -22,6 +22,9 @@ class Settings(BaseSettings):
     WORKERS: int = 4  # Uvicorn worker进程数
     RELOAD: bool = False  # 是否启用热重载（开发环境设为True）
     
+    # 后台管理密码
+    ADMIN_PASSWORD: str = "zw123"
+    
     # Redis配置
     REDIS_HOST: str = "124.221.97.191"
     REDIS_PORT: int = 6379
@@ -33,15 +36,19 @@ class Settings(BaseSettings):
     AUTH_EXPIRE_SECONDS: int = 7200 * 3  # 6小时
     REDIS_AUTH_KEY: str = "ai_detector_auth"
     
-    # AI检测账号列表 (email, password)
-    AI_ACCOUNTS: List[Tuple[str, str]] = [
-        # ('960777365@qq.com', '960777365@qq.com'),
-        ('1762389546@qq.com', '1762389546@qq.com'),
-        # 可添加更多账号
-    ]
+    # 邮件通知配置
+    MAIL_SERVER: str = "smtp.163.com"
+    MAIL_PORT: int = 465
+    MAIL_USERNAME: str = "aipaper2025@163.com"  # 发件人邮箱账号
+    MAIL_PASSWORD: str = "NRwSx36YhWfpkL4q"  # 发件人邮箱授权码
+    MAIL_FROM: str = "aipaper2025@163.com"  # 发件人地址
+    MAIL_TO: List[str] = ['1762389546@qq.com']  # 接收通知的邮箱列表
+
+    # 连续通知冷却时间（秒，防止短时间发送大量邮件）
+    MAIL_COOLDOWN_SECONDS: int = 3600
     
     # AI检测服务配置
-    AI_DETECTOR_BASE_URL: str = "https://oldxrz.lanbeike.online"
+    AI_DETECTOR_BASE_URL: str = "https://xrzbk.lanbeike.online"
     AI_DETECTOR_TIMEOUT: int = 1500000
     LOGIN_TIMEOUT: int = 10
     

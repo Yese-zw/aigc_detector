@@ -5,6 +5,7 @@ Main API router
 from fastapi import APIRouter
 from app.api.v1 import endpoints as v1_endpoints
 from app.api.v1 import apikey_endpoints
+from app.api import admin_endpoints
 
 # 创建主路由
 api_router = APIRouter()
@@ -22,4 +23,14 @@ api_router.include_router(
     prefix="/apikey",
     tags=["API Key 管理"]
 )
+
+# 包含Admin路由
+api_router.include_router(
+    admin_endpoints.router,
+    prefix="/admin",
+    tags=["管理后台"]
+)
+
+
+
 

@@ -18,10 +18,10 @@ class LoginFailedException(AIGCDetectorException):
         super().__init__(self.message)
 
 
-class AllAccountsFailedException(AIGCDetectorException):
-    """所有账号均登录失败异常"""
+class AuthExpiredException(AIGCDetectorException):
+    """Auth Key过期或无效异常"""
     def __init__(self):
-        self.message = "所有账号均登录失败"
+        self.message = "Auth Key已过期或无效，请更新Redis中的凭证"
         super().__init__(self.message)
 
 

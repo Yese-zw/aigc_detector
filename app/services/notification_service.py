@@ -40,7 +40,7 @@ class NotificationService:
             <p><b>时间:</b> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
             <p>请尽快登录服务器或 Redis 更新 <code>{settings.REDIS_AUTH_KEY}</code>。</p>
             <p>https://ai.lanbeike.online/</p>
-            </p>124.221.97.191:8001/admin/login</p>
+            </p>http://124.221.97.191:9851/admin/login</p>
             """
             
             self._send_email(subject, content)

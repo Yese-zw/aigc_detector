@@ -1,8 +1,12 @@
-from fastapi import APIRouter, Request, Form, status, Depends
-from fastapi.responses import HTMLResponse, RedirectResponse
+from typing import Optional
+from fastapi import APIRouter, Request, Form, status, Depends, Query
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from app.core.config import settings
 from app.core.redis_client import get_redis_client
 from app.core.logger import logger
+import os
+from app.services.apikey_service import APIKeyService
+from app.models.apikey import APIKeyCreate
 
 router = APIRouter()
 
@@ -179,6 +183,7 @@ HTML_TEMPLATE_ADMIN = """
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
         
         .nav-tab {
@@ -332,6 +337,95 @@ HTML_TEMPLATE_ADMIN = """
             cursor: pointer;
             opacity: 0;
         }
+
+        /* Logs & Tables */
+        .log-box {
+            background-color: #0d1117;
+            color: #d1d5db;
+            font-family: monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            height: 600px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            border: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+        
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            color: var(--text-secondary);
+            font-weight: 500;
+            background-color: rgba(0,0,0,0.2);
+        }
+        
+        tr:hover td {
+            background-color: rgba(255,255,255,0.02);
+        }
+        
+        .tag {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .tag-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .tag-gray { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+        
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 0.3rem;
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-sm:hover {
+            background-color: rgba(239, 68, 68, 0.3);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display:none; 
+            position:fixed; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background:rgba(0,0,0,0.6); 
+            backdrop-filter: blur(4px);
+            align-items:center; 
+            justify-content:center; 
+            z-index:9999;
+        }
+        .modal-container {
+            width:90%;
+            max-width:450px; 
+            background:var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -346,6 +440,8 @@ HTML_TEMPLATE_ADMIN = """
             <button class="nav-tab" onclick="switchNav('detect', this)">AI 检测</button>
             <button class="nav-tab" onclick="switchNav('rewrite', this)">AI 改写</button>
             <button class="nav-tab" onclick="switchNav('file', this)">文件检测</button>
+            <button class="nav-tab" onclick="switchNav('logs', this)">系统日志</button>
+            <button class="nav-tab" onclick="switchNav('keys', this)">Key 管理</button>
         </div>
         
         <!-- Token Tab -->
@@ -432,6 +528,99 @@ HTML_TEMPLATE_ADMIN = """
             </button>
             <div id="file-result" class="result-box"></div>
         </div>
+
+        <!-- Logs Tab -->
+        <div id="logs-card" class="card">
+            <div class="header" style="margin-bottom: 1rem;">
+                <h2 style="margin:0">今日系统日志</h2>
+                <button onclick="loadLogs()" class="action-btn" style="width: auto; padding: 0.5rem 1rem;">刷新日志</button>
+            </div>
+            <div id="log-content" class="log-box">点击上方按钮加载日志...</div>
+        </div>
+
+        <!-- Keys Tab -->
+        <div id="keys-card" class="card">
+            <div class="header" style="margin-bottom: 2rem;">
+                <h2 style="margin:0">API Key 管理</h2>
+                <div style="display:flex; gap:1rem;">
+                     <button onclick="loadKeys()" class="action-btn" style="width: auto; padding: 0.5rem 1rem; background: transparent; border: 1px solid var(--border-color);">刷新列表</button>
+                     <button onclick="document.getElementById('create-key-modal').style.display='flex'" class="action-btn" style="width: auto; padding: 0.5rem 1rem;">+ 新建 Key</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table id="keys-table">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>API Key / 描述</th>
+                            <th>额度 (已用 / 总额)</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keys-table-body">
+                        <tr><td colspan="5" style="text-align:center; color:var(--text-secondary)">加载中...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Create Key Modal -->
+        <div id="create-key-modal" class="modal-overlay">
+            <div class="modal-container">
+               <h2 style="margin-bottom:1.5rem">新建 API Key</h2>
+               <div class="form-group">
+                   <label>Key 名称</label>
+                   <input type="text" id="new-key-name" placeholder="例如: web-client-01">
+               </div>
+               <div class="form-group">
+                   <label>描述信息</label>
+                   <input type="text" id="new-key-desc" placeholder="可选备注">
+               </div>
+               <div class="form-group">
+                   <label>字符配额</label>
+                   <input type="number" id="new-key-quota" value="1000000">
+               </div>
+               <div style="display:flex; gap:1rem; margin-top:2rem;">
+                   <button class="action-btn" onclick="createKey()">立即创建</button>
+                   <button class="action-btn" style="background:transparent; border:1px solid var(--border-color);" onclick="document.getElementById('create-key-modal').style.display='none'">取消</button>
+               </div>
+            </div>
+        </div>
+
+        <!-- Edit Key Modal -->
+        <div id="edit-key-modal" class="modal-overlay">
+            <div class="modal-container">
+               <h2 style="margin-bottom:1.5rem">修改 API Key</h2>
+               <input type="hidden" id="edit-key-id">
+               <div class="form-group">
+                   <label>Key 名称</label>
+                   <input type="text" id="edit-key-name">
+               </div>
+               <div class="form-group">
+                   <label>描述信息</label>
+                   <input type="text" id="edit-key-desc">
+               </div>
+               <div class="form-group">
+                   <label>增加额度 (正数增加，负数减少，0不处理)</label>
+                   <input type="number" id="edit-key-quota-add" value="0">
+                   <p style="font-size:0.8rem; color:var(--text-secondary); margin-top:0.5rem">当前剩余: <span id="edit-key-current-quota"></span></p>
+               </div>
+               <div class="form-group">
+                   <label>状态</label>
+                   <select id="edit-key-active">
+                       <option value="true">正常</option>
+                       <option value="false">禁用</option>
+                   </select>
+               </div>
+               <div style="display:flex; gap:1rem; margin-top:2rem;">
+                   <button class="action-btn" onclick="submitEditKey()">保存修改</button>
+                   <button class="action-btn" style="background:transparent; border:1px solid var(--border-color);" onclick="document.getElementById('edit-key-modal').style.display='none'">取消</button>
+               </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -456,6 +645,10 @@ HTML_TEMPLATE_ADMIN = """
             if (btnElement) {
                 btnElement.classList.add('active');
             }
+
+            // Auto-load data
+            if(tabName === 'logs') loadLogs();
+            if(tabName === 'keys') loadKeys();
         }
         
         // File input logic
@@ -503,11 +696,6 @@ HTML_TEMPLATE_ADMIN = """
             }
         }
         
-        // Use a designated API Key if provided, otherwise assume we are calling through admin proxy or public endpoint
-        // NOTE: In this admin panel, we are calling the public endpoints directly. 
-        // For security, you might normally want to proxy these through admin endpoints, 
-        // but for a demo/debug tool, calling the public API is fine, assuming you have a key or the endpoint is open.
-        // If your endpoints require an API Key, you MUST input it.
         function getApiKey() {
             var element = document.getElementById('detect-api-key');
             if (element) {
@@ -518,10 +706,6 @@ HTML_TEMPLATE_ADMIN = """
 
         async function makeRequest(url, method, data, loadingId, resultId, isFileUpload = false) {
             const apiKey = getApiKey();
-            // If API key is mandatory for your public endpoints, you'll need it.
-            // If you want to bypass API key check for admin, you need to modify backend.
-            // For now we assume user puts in key or backend allows it.
-            
             if (!apiKey && !confirm("未输入API Key，请求可能会失败(403)。是否继续？")) return;
             
             const loading = document.getElementById(loadingId);
@@ -621,6 +805,166 @@ HTML_TEMPLATE_ADMIN = """
                 loading.style.display = 'none';
             }
         }
+
+        /* Logs & Keys Logic */
+        async function loadLogs() {
+            const logContent = document.getElementById('log-content');
+            logContent.textContent = "加载中...";
+            try {
+                const res = await fetch('/admin/logs');
+                const data = await res.json();
+                // Ensure newlines are preserved
+                logContent.textContent = data.content; 
+                // Auto scroll to bottom
+                logContent.scrollTop = logContent.scrollHeight;
+            } catch(e) {
+                logContent.textContent = "加载日志失败: " + e;
+            }
+        }
+
+        async function loadKeys() {
+            const tbody = document.getElementById('keys-table-body');
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">加载中...</td></tr>';
+            try {
+                const res = await fetch('/admin/keys');
+                const json = await res.json();
+                if(json.status === 'success') {
+                    const list = json.data;
+                    tbody.innerHTML = '';
+                    if(list.length === 0) {
+                         tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">暂无数据</td></tr>';
+                         return;
+                    }
+                    list.forEach(item => {
+                        const tr = document.createElement('tr');
+                        
+                        const statusTag = item.is_active 
+                            ? '<span class="tag tag-green">正常</span>' 
+                            : '<span class="tag tag-gray">禁用</span>';
+                            
+                        // quota is remaining, total_quota is history total
+                        const remaining = item.quota || 0;
+                        const total = item.total_quota || 0;
+                        const used = total - remaining;
+                        // Percent of USAGE (how much is gone)
+                        const percent = total > 0 ? ((used / total) * 100).toFixed(1) : 0;
+                        // Or percent of REMAINING? Usually bars show remaining or used. 
+                        // Let's show Remaining bar (green).
+                        const remainingPercent = total > 0 ? ((remaining / total) * 100).toFixed(1) : 0;
+                        
+                        tr.innerHTML = `
+                            <td><div style="font-weight:600">${item.name}</div></td>
+                            <td>
+                                <div style="font-family:monospace; color:var(--primary-color)">${item.key}</div>
+                                <div style="font-size:0.8rem; color:var(--text-secondary)">${item.description || '-'}</div>
+                            </td>
+                            <td>
+                                <div style="display:flex; justify-content:space-between; font-size:0.85rem">
+                                    <span>剩余: ${remaining}</span>
+                                    <span style="color:var(--text-secondary)">总: ${total}</span>
+                                </div>
+                                <div style="width:100%; height:4px; background:#334155; border-radius:2px; margin-top:4px;" title="剩余额度占比">
+                                    <div style="width:${remainingPercent}%; height:100%; background:var(--primary-color); border-radius:2px;"></div>
+                                </div>
+                            </td>
+                            <td>${statusTag}</td>
+                            <td>
+                                <button class="btn-sm" style="margin-right:0.5rem; background:rgba(99,102,241,0.2); color:#818cf8; border-color:rgba(99,102,241,0.3)" onclick='openEditModal(${JSON.stringify(item)})'>修改</button>
+                                <button class="btn-sm" onclick="deleteKey('${item.key}')">删除</button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                } else {
+                     tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:red;">加载失败</td></tr>';
+                }
+            } catch(e) {
+                 tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:red;">' + e + '</td></tr>';
+            }
+        }
+
+        async function createKey() {
+            const name = document.getElementById('new-key-name').value;
+            const desc = document.getElementById('new-key-desc').value;
+            const quota = document.getElementById('new-key-quota').value;
+            
+            if(!name) return alert('请输入名称');
+            
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('description', desc);
+            formData.append('quota', quota);
+            
+            try {
+                const res = await fetch('/admin/keys', { method:'POST', body:formData });
+                const json = await res.json();
+                if(json.status === 'success') {
+                    alert('创建成功: ' + json.data.key);
+                    document.getElementById('create-key-modal').style.display = 'none';
+                    loadKeys();
+                    // Clear inputs
+                    document.getElementById('new-key-name').value = '';
+                    document.getElementById('new-key-desc').value = '';
+                } else {
+                    alert('创建失败: ' + (json.detail || json.message));
+                }
+            } catch(e) {
+                alert('系统错误: ' + e);
+            }
+        }
+
+        async function deleteKey(key) {
+            if(!confirm('确定要删除这个 Key 吗？无法恢复！')) return;
+            try {
+                const res = await fetch('/admin/keys/' + key, { method:'DELETE' });
+                const json = await res.json();
+                if(json.status === 'success') {
+                    loadKeys();
+                } else {
+                    alert('删除失败');
+                }
+            } catch(e) {
+                alert('删除失败: ' + e);
+            }
+        }
+
+        function openEditModal(item) {
+            document.getElementById('edit-key-id').value = item.key;
+            document.getElementById('edit-key-name').value = item.name;
+            document.getElementById('edit-key-desc').value = item.description || '';
+            document.getElementById('edit-key-quota-add').value = 0;
+            document.getElementById('edit-key-current-quota').textContent = item.quota;
+            document.getElementById('edit-key-active').value = item.is_active ? 'true' : 'false';
+            
+            document.getElementById('edit-key-modal').style.display = 'flex';
+        }
+
+        async function submitEditKey() {
+            const key = document.getElementById('edit-key-id').value;
+            const name = document.getElementById('edit-key-name').value;
+            const desc = document.getElementById('edit-key-desc').value;
+            const addQuota = document.getElementById('edit-key-quota-add').value;
+            const isActive = document.getElementById('edit-key-active').value;
+
+            const url = '/admin/keys/' + key + '?name=' + encodeURIComponent(name) + 
+                        '&description=' + encodeURIComponent(desc) + 
+                        '&add_quota=' + addQuota + 
+                        '&is_active=' + isActive;
+
+            try {
+                const res = await fetch(url, { method:'PUT' });
+                const json = await res.json();
+                if(json.status === 'success') {
+                    alert('修改成功');
+                    document.getElementById('edit-key-modal').style.display = 'none';
+                    loadKeys();
+                } else {
+                    alert('修改失败: ' + (json.detail || json.message));
+                }
+            } catch(e) {
+                alert('修改失败: ' + e);
+            }
+        }
     </script>
 </body>
 </html>
@@ -660,24 +1004,89 @@ async def dashboard_page(request: Request):
         return RedirectResponse(url="/admin/login", status_code=status.HTTP_302_FOUND)
     return HTML_TEMPLATE_ADMIN
 
-# 保留 /token 接口作为 JSON API 处理，或者为了兼容性，处理表单提交返回 HTML 片段或 JSON
+# Token Update
 @router.post("/token")
 async def update_token(request: Request, token: str = Form(...)):
-    """处理Token更新 (Ajax)"""
-    if not verify_cookie(request):
-        return {"status": "error", "message": "Unauthorized"}
-
+    if not verify_cookie(request): return {"status": "error", "message": "Unauthorized"}
     try:
         clean_token = token.strip()
         if clean_token.lower().startswith("bearer "):
             clean_token = clean_token[7:].strip()
-            
         redis_client = get_redis_client()
         redis_client.set(settings.REDIS_AUTH_KEY, clean_token)
-        
         logger.info("🔐 管理员通过页面更新了 Auth Token")
         return {"status": "success", "message": f"Token 更新成功！({clean_token[:10]}...)"}
-        
     except Exception as e:
         logger.error(f"Token update failed: {str(e)}")
         return {"status": "error", "message": f"错误: {str(e)}"}
+
+# === New Admin Endpoints ===
+@router.get("/logs")
+async def get_logs(request: Request):
+    """获取今日日志"""
+    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    
+    log_file = settings.LOG_FILE
+    if os.path.exists(log_file):
+         try:
+             # Read user friendly last lines or full file?
+             # For now full file, but might be large.
+             # Ideally read last N lines.
+             with open(log_file, 'r', encoding='utf-8') as f:
+                 content = f.read()
+             return {"content": content}
+         except Exception as e:
+             return {"content": f"Error reading log: {str(e)}"}
+             
+    return {"content": f"Log file not found at {log_file}"}
+
+@router.get("/keys")
+async def list_keys(request: Request):
+    """List API Keys"""
+    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    keys = APIKeyService().list_apikeys()
+    return {"status": "success", "data": keys}
+
+@router.post("/keys")
+async def create_key(request: Request, name: str = Form(...), description: str = Form(""), quota: int = Form(...)):
+     """Create API Key"""
+     if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+     data = APIKeyCreate(name=name, description=description, quota=quota)
+     result = APIKeyService().create_apikey(data)
+     return {"status": "success", "data": result}
+
+@router.delete("/keys/{key}")
+async def delete_key(request: Request, key: str):
+    """Delete API Key"""
+    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    APIKeyService().delete_apikey(key)
+    return {"status": "success"}
+
+@router.put("/keys/{key}")
+async def update_key(
+    request: Request, 
+    key: str,
+    name: Optional[str] = Query(None),
+    description: Optional[str] = Query(None),
+    add_quota: Optional[int] = Query(None),
+    is_active: Optional[str] = Query(None) # Receive as string 'true'/'false' from query params
+):
+    """Update API Key"""
+    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    
+    # Convert 'true'/'false' string to boolean if present
+    is_active_bool = None
+    if is_active is not None:
+        is_active_bool = is_active.lower() == 'true'
+
+    data = APIKeyService().update_apikey(
+        api_key=key,
+        name=name,
+        description=description,
+        quota=add_quota,
+        is_active=is_active_bool
+    )
+    if not data:
+        return JSONResponse({"status": "error", "message": "Key not found"}, status_code=404)
+        
+    return {"status": "success", "data": data}

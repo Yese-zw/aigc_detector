@@ -472,6 +472,26 @@ HTML_TEMPLATE_ADMIN = """
             </div>
 
             <div id="token-msg" class="alert alert-success" style="display:none;"></div>
+
+            <!-- 自动获取 Token 模块 -->
+            <div style="background:#0f172a; padding:1.5rem; border-radius:1rem; margin-bottom:2rem; border:1px solid var(--border-color)">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem">
+                    <div>
+                        <div style="color:var(--text-color); font-weight:600; font-size:1rem">自动获取 Token</div>
+                        <div style="color:var(--text-secondary); font-size:0.8rem; margin-top:0.2rem">通过微信扫码快速获取最新认证 Token</div>
+                    </div>
+                    <button class="action-btn" id="wx-login-btn" onclick="startWxLogin()" style="width:auto; padding:0.6rem 1.2rem; background:linear-gradient(135deg, #07c160, #06ad56); border:none">
+                        微信登录获取
+                    </button>
+                </div>
+                <div id="wx-qr-container" style="display:none; text-align:center; margin-top:1rem; border-top:1px solid rgba(255,255,255,0.05); padding-top:1.5rem;">
+                    <div style="display:inline-block; background:white; padding:12px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2)">
+                        <img id="wx-qr-img" src="" style="width:180px; height:180px; display:block">
+                    </div>
+                    <div id="wx-status" style="color:var(--text-secondary); font-size:0.9rem; margin-top:1rem; font-weight:500">请使用微信扫码登录</div>
+                    <div style="color:#6366f1; font-size:0.75rem; margin-top:0.3rem; cursor:pointer" onclick="startWxLogin()">刷新二维码</div>
+                </div>
+            </div>
             
             <div class="form-group">
                 <label for="token">更新 Token (Bearer Token)</label>
@@ -691,6 +711,97 @@ HTML_TEMPLATE_ADMIN = """
             });
         }
         
+        let wxPollInterval = null;
+
+        async function startWxLogin() {
+            const btn = document.getElementById('wx-login-btn');
+            const qrContainer = document.getElementById('wx-qr-container');
+            const qrImg = document.getElementById('wx-qr-img');
+            const statusText = document.getElementById('wx-status');
+            
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            btn.textContent = '请求中...';
+            
+            try {
+                // 调用后端开始登录接口
+                const response = await fetch('https://xrzbk.lanbeike.online/api/wxlogin/start', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const result = await response.json();
+                
+                if (result.code === 200) {
+                    qrImg.src = result.data.qr_url;
+                    qrContainer.style.display = 'block';
+                    statusText.textContent = '请打开微信扫码';
+                    statusText.style.color = 'var(--text-color)';
+                    btn.textContent = '等待扫码中...';
+                    
+                    // 开始轮询
+                    if (wxPollInterval) clearInterval(wxPollInterval);
+                    wxPollInterval = setInterval(() => pollWxStatus(result.data.request_id), 2500);
+                } else {
+                    alert('获取二维码失败: ' + result.msg);
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.textContent = '重新获取';
+                }
+            } catch (e) {
+                console.error(e);
+                alert('连接登录服务器失败，请检查网络或稍后再试');
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                btn.textContent = '重新获取';
+            }
+        }
+
+        async function pollWxStatus(requestId) {
+            const statusText = document.getElementById('wx-status');
+            const btn = document.getElementById('wx-login-btn');
+            
+            try {
+                const response = await fetch(`https://xrzbk.lanbeike.online/api/wxlogin/status?request_id=${requestId}`);
+                const result = await response.json();
+                
+                if (result.code === 200) {
+                    if (result.data.status === 'DONE') {
+                        clearInterval(wxPollInterval);
+                        wxPollInterval = null;
+                        
+                        // 填入 token 并更新 UI
+                        document.getElementById('token-input').value = result.data.token;
+                        statusText.textContent = '登录成功！正在自动更新系统 Token...';
+                        statusText.style.color = '#4ade80';
+                        
+                        document.getElementById('wx-qr-container').style.display = 'none';
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                        btn.textContent = '获取成功';
+                        btn.style.background = 'var(--success-color)';
+                        
+                        // 自动触发更新
+                        updateToken();
+                    } else if (result.data.status === 'EXPIRED') {
+                        clearInterval(wxPollInterval);
+                        wxPollInterval = null;
+                        statusText.textContent = '二维码已过期';
+                        statusText.style.color = '#ef4444';
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                        btn.textContent = '二维码过期，点击重试';
+                    } else if (result.data.status === 'WAITING') {
+                        statusText.textContent = '请打开微信扫码...';
+                    } else if (result.data.status === 'SCANNED') {
+                        statusText.textContent = '已扫码，请在手机上确认登录';
+                        statusText.style.color = '#6366f1';
+                    }
+                }
+            } catch (e) {
+                console.error('Polling error:', e);
+            }
+        }
+
         function generateUUID() {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);

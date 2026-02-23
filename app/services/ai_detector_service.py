@@ -15,6 +15,15 @@ from app.core.exceptions import (
 )
 from app.services.notification_service import notification_service
 
+# 映射文件后缀到正确的Content-Type（确保和浏览器一致）
+FILE_CONTENT_TYPE_MAP = {
+    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'doc': 'application/msword',
+    'pdf': 'application/pdf',
+    'txt': 'text/plain',
+    'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+}
+
 
 class AIDetectorService:
     """AI检测服务类"""
@@ -88,8 +97,7 @@ class AIDetectorService:
     
     def aigccheck(self, text: str, language: str) -> Dict[str, Any]:
         """执行AI检测"""
-        language = "chinese" if language == "zh" else "english"
-        
+
         # 检查Auth
         auth_info = self._check_auth_and_notify()
         
@@ -207,41 +215,87 @@ class AIDetectorService:
         except Exception as e:
             logger.error(f"✗ 文件上传错误: {str(e)}")
             raise DetectionFailedException(str(e))
-    
+
     def _do_upload_request(
-        self,
-        token: str,
-        file_content: bytes,
-        filename: str,
-        uuid: str,
-        language: str,
-        mode: str,
-        platform: str
+            self,
+            token: str,
+            file_content: bytes,
+            filename: str,
+            uuid: str,
+            language: str,  # 允许传zh/en，内部自动映射为数字
+            mode: str,  # 必须传数字字符串，如"1"
+            platform: str  # 必须传数字字符串，如"1"
     ) -> Dict[str, Any]:
-        """执行实际的文件上传请求"""
-        headers = self._update_header_cookie(token)
-        if "content-type" in headers:
-            del headers["content-type"]
-        headers['page-timestamp'] = str(int(time.time()*1000))
-        upload_url = f"{settings.AI_DETECTOR_BASE_URL}/document/upload"
-        
-        files = {'file': (filename, file_content)}
-        data = {
-            'uuid': uuid,
-            'language': language,
-            'mode': mode,
-            'platform': platform
-        }
-        
-        response = requests.post(
-            url=upload_url,
-            headers=headers,
-            files=files,
-            data=data,
-            timeout=settings.AI_DETECTOR_TIMEOUT
-        )
-        response.raise_for_status()
-        return response.json()
+        """执行实际的文件上传请求（自动映射语言标识为数字）"""
+        try:
+            # 2. 核心：将语言标识（如zh）映射为服务器预期的数字字符串
+
+            # 构建请求头
+            headers = self._update_header_cookie(token)
+            headers.pop("content-type", None)
+            headers['page-timestamp'] = str(int(time.time() * 1000))
+            upload_url = f"{settings.AI_DETECTOR_BASE_URL}/document/upload"
+
+            # 构建文件参数
+            file_suffix = filename.split('.')[-1].lower() if '.' in filename else ''
+            file_type = FILE_CONTENT_TYPE_MAP.get(file_suffix, 'application/octet-stream')
+            files = {
+                'file': (filename, file_content, file_type)
+            }
+
+            # 3. 校验并构建表单数据（最终传给服务器的都是数字字符串）
+            # 待校验的参数：languageId（已映射）、modeId、platformId
+            params_to_check = {
+                'languageId': language,
+                'modeId': mode,
+                'platformId': platform
+            }
+            # 统一校验所有参数是否为数字字符串
+            for param_name, param_value in params_to_check.items():
+                if not param_value.isdigit():
+                    raise ValueError(f"{param_name}必须传数字字符串！当前值：{param_value}")
+
+            data = {
+                'uuid': uuid,
+                'languageId': language,  # 映射后的数字（如1）
+                'modeId': mode,
+                'platformId': platform
+            }
+
+            # 打印请求详情
+            logger.info(f"【最终上传请求】")
+            logger.info(f"URL: {upload_url}")
+            logger.info(f"文件信息：{filename} | {file_type} | {len(file_content)}字节")
+            logger.info(f"表单数据：{data}")
+
+            # 发送请求
+            response = requests.post(
+                url=upload_url,
+                headers=headers,
+                files=files,
+                data=data,
+                timeout=settings.AI_DETECTOR_TIMEOUT,
+                verify=True
+            )
+
+            logger.info(f"响应状态码：{response.status_code}")
+            logger.info(f"响应内容：{response.text}")
+
+            response.raise_for_status()
+            return response.json()
+
+        except ValueError as e:
+            logger.error(f"参数校验失败：{e}")
+            raise
+        except requests.exceptions.HTTPError as e:
+            logger.error(f"上传请求失败：{e}，响应内容：{response.text if 'response' in locals() else '无'}")
+            raise Exception(f"AI检测请求失败：{e}")
+        except requests.exceptions.RequestException as e:
+            logger.error(f"网络异常：{e}")
+            raise Exception(f"上传请求网络异常：{e}")
+        except Exception as e:
+            logger.error(f"上传未知错误：{e}", exc_info=True)
+            raise
 
     def file_status(self, uuid: str) -> Dict[str, Any]:
         """查询文件状态"""

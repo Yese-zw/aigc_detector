@@ -563,8 +563,8 @@ HTML_TEMPLATE_ADMIN = """
             <div class="form-group">
                 <label>语言</label>
                 <select id="file-lang">
-                    <option value="zh">chinese (zh)</option>
-                    <option value="en">english (en)</option>
+                    <option value="1">chinese (zh)</option>
+                    <option value="2">english (en)</option>
                 </select>
             </div>
             <div class="form-group">
@@ -573,7 +573,7 @@ HTML_TEMPLATE_ADMIN = """
             </div>
             <div class="form-group">
                 <label>平台 (Platform)</label>
-                <input type="text" id="file-platform" value="web" placeholder="Platform">
+                <input type="text" id="file-platform" value="1" placeholder="Platform">
             </div>
             <button class="action-btn" onclick="performFileUpload()">
                 上传并检测 <span class="loading" id="file-loading"></span>

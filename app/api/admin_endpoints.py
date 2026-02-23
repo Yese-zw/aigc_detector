@@ -5,6 +5,8 @@ from app.core.config import settings
 from app.core.redis_client import get_redis_client
 from app.core.logger import logger
 import os
+import requests
+import json
 import jwt
 import datetime
 from app.services.apikey_service import APIKeyService
@@ -804,10 +806,9 @@ HTML_TEMPLATE_ADMIN = """
             btn.textContent = '请求中...';
             
             try {
-                // 调用后端开始登录接口
-                const response = await fetch('https://xrzbk.lanbeike.online/api/wxlogin/start', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
+                // 调用后端代理接口开始登录
+                const response = await fetch('/admin/wxlogin/start', {
+                    method: 'POST'
                 });
                 const result = await response.json();
                 
@@ -841,7 +842,8 @@ HTML_TEMPLATE_ADMIN = """
             const btn = document.getElementById('wx-login-btn');
             
             try {
-                const response = await fetch(`https://xrzbk.lanbeike.online/api/wxlogin/status?request_id=${requestId}`);
+                // 调用后端代理接口查询状态
+                const response = await fetch(`/admin/wxlogin/status?request_id=${requestId}`);
                 const result = await response.json();
                 
                 if (result.code === 200) {
@@ -1412,3 +1414,67 @@ async def update_key(
         return JSONResponse({"status": "error", "message": "Key not found"}, status_code=404)
         
     return {"status": "success", "data": data}
+
+# === WeChat Login Proxy Endpoints ===
+
+@router.post("/wxlogin/start")
+async def proxy_wxlogin_start(request: Request):
+    """代理微信登录开始接口"""
+    if not verify_cookie(request):
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    
+    url = f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/start"
+    headers = {
+        "authority": "xrzbk.lanbeike.online",
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+        "content-type": "application/json",
+        "origin": "https://ai.lanbeike.online",
+        "referer": "https://ai.lanbeike.online/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        "sec-ch-ua": '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+    }
+    
+    try:
+        # 使用 POST 请求并携带 user-agent 等头信息
+        # 注意：这里不发 body，因为抓包显示 content-length 为 0
+        response = requests.post(url, headers=headers, timeout=10)
+        return response.json()
+    except Exception as e:
+        logger.error(f"WxLogin start proxy failed: {e}")
+        return JSONResponse({"code": 500, "msg": f"代理请求失败: {str(e)}"}, status_code=500)
+
+@router.get("/wxlogin/status")
+async def proxy_wxlogin_status(request: Request, request_id: str):
+    """代理微信登录状态查询接口"""
+    if not verify_cookie(request):
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    
+    url = f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/status"
+    params = {"request_id": request_id}
+    headers = {
+        "authority": "xrzbk.lanbeike.online",
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+        "origin": "https://ai.lanbeike.online",
+        "referer": "https://ai.lanbeike.online/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+        "sec-ch-ua": '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+    }
+    
+    try:
+        response = requests.get(url, headers=headers, params=params, timeout=10)
+        return response.json()
+    except Exception as e:
+        logger.error(f"WxLogin status proxy failed: {e}")
+        return JSONResponse({"code": 500, "msg": f"代理请求失败: {str(e)}"}, status_code=500)

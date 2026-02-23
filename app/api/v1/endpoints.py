@@ -551,3 +551,36 @@ async def upload_file(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="服务器内部错误"
         )
+
+
+@router.get(
+    "/supported",
+    response_model=AIDetectorResponse,
+    summary="获取支持列表",
+    description="获取AI服务支持的语言和模式列表（带 24 小时缓存）",
+    responses={
+        200: {"description": "获取成功"},
+        500: {"description": "服务器内部错误", "model": ErrorResponse}
+    }
+)
+async def get_supported():
+    """
+    获取支持列表接口
+    
+    请求接口 `https://api.lanbeike.online/api/supported` 获取数据，
+    并将其保存在 Redis 中，过期时间为 24 小时。
+    如果缓存存在，优先从缓存读取。
+    """
+    try:
+        data = ai_detector_service.get_supported_data()
+        return AIDetectorResponse(
+            status="success",
+            result=data,
+            message=None
+        )
+    except Exception as e:
+        logger.error(f"获取支持列表失败: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)
+        )

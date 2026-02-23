@@ -279,3 +279,29 @@ class AIDetectorService:
         )
         response.raise_for_status()
         return response.json()
+
+    def get_supported_data(self) -> Dict[str, Any]:
+        """获取并缓存支持列表"""
+        cache_key = "supported_data_cache"
+        try:
+            # 尝试从缓存获取
+            cached_data = self.redis_client.get(cache_key)
+            if cached_data:
+                logger.info("✓ 从缓存获取支持列表")
+                return json.loads(cached_data) if isinstance(cached_data, str) else json.loads(cached_data.decode('utf-8'))
+            
+            # 缓存不存在，发起请求
+            logger.info("📝 发起请求获取支持列表")
+            url = "https://api.lanbeike.online/api/supported"
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            data = response.json()
+            
+            # 保存到缓存，24 小时 (86400 秒)
+            self.redis_client.setex(cache_key, 86400, json.dumps(data, ensure_ascii=False))
+            logger.info("✓ 支持列表已保存到缓存 (24h)")
+            
+            return data
+        except Exception as e:
+            logger.error(f"✗ 获取支持列表失败: {str(e)}")
+            raise DetectionFailedException(f"获取支持列表失败: {str(e)}")

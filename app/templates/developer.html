@@ -622,7 +622,7 @@ print(response.json())</code></pre>
   -H "Content-Type: application/json" \
   -d '{
     "text": "这段文字需要被智能化地改写。",
-    "combination_id": '10030'
+    "combination_id": "10030"
   }'</code></pre>
                         </div>
                     </div>
@@ -641,7 +641,7 @@ headers = {
 }
 data = {
     "text": "这段文字需要被智能化地改写。",
-    "combination_id": 10030
+    "combination_id": "10030"
 }
 
 response = requests.post(url, headers=headers, json=data)
@@ -680,7 +680,7 @@ print(response.json())</code></pre>
                         <table class="param-table" style="margin-bottom: 0;">
                             <thead style="position: sticky; top: 0; background: rgb(0,0,0); z-index: 10;">
                                 <tr>
-                                    <th>组合 ID (伪装)</th>
+                                    <th>组合 ID </th>
                                     <th>语言</th>
                                     <th>处理模式</th>
                                     <th>针对平台</th>

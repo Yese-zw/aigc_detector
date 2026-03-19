@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIGC API 开发者中心</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --surface-color: rgba(25, 28, 41, 0.7);
+            --surface-hover: rgba(43, 48, 68, 0.8);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --gradient-1: #6366f1;
+            --gradient-2: #a855f7;
+            --gradient-3: #ec4899;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --badge-bg: rgba(99, 102, 241, 0.2);
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: rgba(15, 17, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            padding: 0 1rem;
+            background: linear-gradient(to right, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-group {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 0.25rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            background: var(--surface-hover);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            border-left: 3px solid var(--accent-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .hero {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            scroll-margin-top: 80px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+            color: #fff;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .method {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+        }
+
+        .method.get { background: rgba(16, 185, 129, 0.2); color: var(--success-color); }
+        .method.post { background: rgba(99, 102, 241, 0.2); color: var(--accent-color); }
+
+        .url {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            word-break: break-all;
+        }
+
+        /* Layout for request/response */
+        .api-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .api-block {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tables for params */
+        .param-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .param-table th, .param-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .param-table th {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .param-table td {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .param-name {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .param-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: var(--badge-bg);
+            color: var(--accent-color);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .badge.required {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--error-color);
+        }
+
+        .badge.optional {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success-color);
+        }
+
+        /* Code Blocks */
+        .code-window {
+            background: #0d0d0d;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .code-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 1.5rem;
+            background: transparent;
+            font-size: 0.9rem;
+            border-radius: 0;
+        }
+
+        /* Authentication Box */
+        .auth-box {
+            background: linear-gradient(145deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .auth-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 200;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-microchip"></i> API 服务
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-title">快速入门</div>
+            <a href="#intro" class="nav-item active"><i class="fas fa-rocket fa-fw me-2"></i> 简介</a>
+            <a href="#auth" class="nav-item"><i class="fas fa-key fa-fw me-2"></i> 认证与 API Key</a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-title">核心接口</div>
+            <a href="#quota" class="nav-item"><i class="fas fa-wallet fa-fw me-2"></i> 查询余额</a>
+            <a href="#rewrite" class="nav-item"><i class="fas fa-pen-nib fa-fw me-2"></i> 文本改写</a>
+            <a href="#supported" class="nav-item"><i class="fas fa-table fa-fw me-2"></i> 组合对照表</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="hero" id="intro">
+            <h1>构建下一代 <br>AI 服务应用</h1>
+            <p>通过我们高性能、高可用性的接口服务，轻松将智能文本处理能力集成到您的平台中。</p>
+        </section>
+
+        <section class="glass-panel" id="auth">
+            <h2><i class="fas fa-shield-halved"></i> 认证授权</h2>
+            <p>所有的接口请求都必须在 HTTP Header 中包含有效的 API Key。未授权或额度不足的请求将被拒绝。</p>
+
+            <div class="auth-box">
+                <div class="auth-header">
+                    <i class="fas fa-lock"></i> HTTP 请求头注入
+                </div>
+                <div class="code-window">
+                    <pre><code class="language-http">X-API-Key: your_live_api_key_here</code></pre>
+                </div>
+                <p style="margin-bottom: 0; font-size: 0.9rem;">获取您的专属 API Key，请联系管理员或在控制台中生成。</p>
+            </div>
+
+            <h3>基础消耗原则</h3>
+            <ul style="color: var(--text-secondary); margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>文本改写按请求消耗的字符长度计费。</li>
+                <li>特定的改写组合 ID 可能会双倍计费。</li>
+                <li>每次请求成功后才会真正扣除额度。</li>
+            </ul>
+        </section>
+
+        <!-- Quota Endpoint -->
+        <section class="glass-panel" id="quota">
+            <h2><i class="fas fa-wallet"></i> 查询余额</h2>
+            <p>查询当前 API Key 账户中剩余的可用点数（字符数）。</p>
+
+            <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="url">/ai/quota</span>
+            </div>
+
+            <div class="api-block" style="grid-template-columns: 1fr;">
+                <div class="req-params">
+                    <h3>请求说明</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        调用该接口只需携带有效的 <code>X-API-Key</code> 即可进行访问，不扣除额度。
+                    </p>
+                </div>
+
+                <div class="req-examples">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab(this, 'quota-curl')">cURL</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'quota-python')">Python</button>
+                    </div>
+
+                    <div id="quota-curl" class="tab-content active">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="code-title">Request</span>
+                            </div>
+                            <pre><code class="language-bash">curl -X GET "https://api.lingsi.chat/ai/quota" \
+  -H "X-API-Key: your_api_key"</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="quota-python" class="tab-content">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="code-title">Request</span>
+                            </div>
+                            <pre><code class="language-python">import requests
+
+url = "https://api.lingsi.chat/ai/quota"
+headers = {
+    "X-API-Key": "your_api_key"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="code-window mt-4" style="margin-top: 2rem;">
+                        <div class="code-header">
+                            <span class="code-title">Response (200 OK)</span>
+                        </div>
+                        <pre><code class="language-json">{
+  "status": "success",
+  "result": {
+    "quota": 9986
+  },
+  "message": null,
+  "quota_info": {
+    "used": 0,
+    "remaining": 9986
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rewrite Endpoint -->
+        <section class="glass-panel" id="rewrite">
+            <h2><i class="fas fa-pen-nib"></i> 文本改写</h2>
+            <p>提供智能文本改写服务，提升文本质量或使其更加拟人化。</p>
+
+            <div class="endpoint-header">
+                <span class="method post">POST</span>
+                <span class="url">/ai/AIRewrite</span>
+            </div>
+
+            <div class="api-block">
+                <div class="req-params">
+                    <h3>请求参数 (JSON)</h3>
+                    <table class="param-table">
+                        <tr>
+                            <th>参数名</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="param-name">text</span>
+                                <span class="badge required">必填</span>
+                            </td>
+                            <td>
+                                <span class="param-type">string</span><br>
+                                待改写的源文本内容
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="param-name">combination_id</span>
+                                <span class="badge required">必填</span>
+                            </td>
+                            <td>
+                                <span class="param-type">integer / string</span><br>
+                                选定的改写组合ID。<br>
+                                取值可在【支持列表】接口中获取。部分特定组合ID可能会消耗双倍额度。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="req-examples">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab(this, 'rewrite-curl')">cURL</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'rewrite-python')">Python</button>
+                    </div>
+
+                    <div id="rewrite-curl" class="tab-content active">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="code-title">Request</span>
+                            </div>
+                            <pre><code class="language-bash">curl -X POST "https://api.lingsi.chat/ai/AIRewrite" \
+  -H "X-API-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "这段文字需要被智能化地改写。",
+    "combination_id": 10030
+  }'</code></pre>
+                        </div>
+                    </div>
+
+                    <div id="rewrite-python" class="tab-content">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="code-title">Request</span>
+                            </div>
+                            <pre><code class="language-python">import requests
+
+url = "https://api.lingsi.chat/ai/AIRewrite"
+headers = {
+    "X-API-Key": "your_api_key",
+    "Content-Type": "application/json"
+}
+data = {
+    "text": "这段文字需要被智能化地改写。",
+    "combination_id": 10030
+}
+
+response = requests.post(url, headers=headers, json=data)
+print(response.json())</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="code-window mt-4" style="margin-top: 2rem;">
+                        <div class="code-header">
+                            <span class="code-title">Response (200 OK)</span>
+                        </div>
+                        <pre><code class="language-json">{
+  "status": "success",
+  "result": {
+    "rewrite_text": "在智能技术的处理下，这段话需要进行改写。"
+  },
+  "message": null,
+  "quota_info": {
+    "used": 14,
+    "remaining": 9986
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Options Table -->
+        <section class="glass-panel" id="supported">
+            <h2><i class="fas fa-table"></i> 可用改写组合对照表</h2>
+            <p>为了方便您在调用 <code>/ai/AIRewrite</code> 时指定正确的参数，在此列出目前所有支持的改写组合及其 ID 对照关系。</p>
+
+            <div class="api-block" style="display: block; margin-top: 1rem;">
+                <div class="req-params">
+                    <div class="table-container" style="max-height: 500px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 8px; margin-top: 1rem;">
+                        <table class="param-table" style="margin-bottom: 0;">
+                            <thead style="position: sticky; top: 0; background: rgb(0,0,0); z-index: 10;">
+                                <tr>
+                                    <th>组合 ID (伪装)</th>
+                                    <th>语言</th>
+                                    <th>处理模式</th>
+                                    <th>针对平台</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 中文 降低重复率 -->
+                                <tr><td><span class="param-name">10010</span></td><td>中文</td><td>降低重复率</td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10011</span></td><td>中文</td><td>降低重复率</td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10012</span></td><td>中文</td><td>降低重复率</td><td>PaperYY</td></tr>
+                                <tr><td><span class="param-name">10013</span></td><td>中文</td><td>降低重复率</td><td>PaperPass</td></tr>
+                                <tr><td><span class="param-name">10014</span></td><td>中文</td><td>降低重复率</td><td>万方</td></tr>
+                                <tr><td><span class="param-name">10015</span></td><td>中文</td><td>降低重复率</td><td>大雅</td></tr>
+                                <tr><td><span class="param-name">10016</span></td><td>中文</td><td>降低重复率</td><td>朱雀</td></tr>
+                                <tr><td><span class="param-name">10017</span></td><td>中文</td><td>降低重复率</td><td>格子达</td></tr>
+                                <tr><td><span class="param-name">10018</span></td><td>中文</td><td>降低重复率</td><td>笔杆网</td></tr>
+                                <tr><td><span class="param-name">10019</span></td><td>中文</td><td>降低重复率</td><td>华宸</td></tr>
+                                <tr><td><span class="param-name">10052</span></td><td>中文</td><td>降低重复率</td><td>Paperred</td></tr>
+
+                                <!-- 中文 降低AIGC率 -->
+                                <tr><td><span class="param-name">10020</span></td><td>中文</td><td>降低AIGC率</td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10021</span></td><td>中文</td><td>降低AIGC率</td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10022</span></td><td>中文</td><td>降低AIGC率</td><td>PaperYY</td></tr>
+                                <tr><td><span class="param-name">10023</span></td><td>中文</td><td>降低AIGC率</td><td>PaperPass</td></tr>
+                                <tr><td><span class="param-name">10024</span></td><td>中文</td><td>降低AIGC率</td><td>万方</td></tr>
+                                <tr><td><span class="param-name">10025</span></td><td>中文</td><td>降低AIGC率</td><td>大雅</td></tr>
+                                <tr><td><span class="param-name">10026</span></td><td>中文</td><td>降低AIGC率</td><td>朱雀</td></tr>
+                                <tr><td><span class="param-name">10027</span></td><td>中文</td><td>降低AIGC率</td><td>格子达</td></tr>
+                                <tr><td><span class="param-name">10028</span></td><td>中文</td><td>降低AIGC率</td><td>笔杆网</td></tr>
+                                <tr><td><span class="param-name">10029</span></td><td>中文</td><td>降低AIGC率</td><td>华宸</td></tr>
+                                <tr><td><span class="param-name">10051</span></td><td>中文</td><td>降低AIGC率</td><td>Paperred</td></tr>
+
+                                <!-- 中文 双降模式 -->
+                                <tr><td><span class="param-name">10030</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10031</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10032</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>PaperYY</td></tr>
+                                <tr><td><span class="param-name">10033</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>PaperPass</td></tr>
+                                <tr><td><span class="param-name">10034</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>万方</td></tr>
+                                <tr><td><span class="param-name">10035</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>大雅</td></tr>
+                                <tr><td><span class="param-name">10036</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>朱雀</td></tr>
+                                <tr><td><span class="param-name">10037</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>格子达</td></tr>
+                                <tr><td><span class="param-name">10038</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>笔杆网</td></tr>
+                                <tr><td><span class="param-name">10039</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>华宸</td></tr>
+                                <tr><td><span class="param-name">10053</span></td><td>中文</td><td><span class="badge required">双降模式</span></td><td>Paperred</td></tr>
+
+                                <!-- 英文 降低重复率 -->
+                                <tr><td><span class="param-name">10040</span></td><td>英文</td><td>降低重复率</td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10041</span></td><td>英文</td><td>降低重复率</td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10048</span></td><td>英文</td><td>降低重复率</td><td>Turnitin</td></tr>
+                                <tr><td><span class="param-name">10050</span></td><td>英文</td><td>降低重复率</td><td>ZeroGPT</td></tr>
+
+                                <!-- 英文 降低AIGC率 -->
+                                <tr><td><span class="param-name">10042</span></td><td>英文</td><td>降低AIGC率</td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10043</span></td><td>英文</td><td>降低AIGC率</td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10047</span></td><td>英文</td><td>降低AIGC率</td><td>Turnitin</td></tr>
+                                <tr><td><span class="param-name">10049</span></td><td>英文</td><td>降低AIGC率</td><td>ZeroGPT</td></tr>
+
+                                <!-- 英文 双降模式 -->
+                                <tr><td><span class="param-name">10044</span></td><td>英文</td><td><span class="badge required">双降模式</span></td><td>知网</td></tr>
+                                <tr><td><span class="param-name">10045</span></td><td>英文</td><td><span class="badge required">双降模式</span></td><td>维普</td></tr>
+                                <tr><td><span class="param-name">10046</span></td><td>英文</td><td><span class="badge required">双降模式</span></td><td>Turnitin</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-http.min.js"></script>
+
+    <script>
+        // Tab switching logic
+        function switchTab(btn, targetId) {
+            const tabsContainer = btn.closest('.tabs');
+            const targetContent = document.getElementById(targetId);
+            
+            // Remove active classes
+            tabsContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            targetContent.parentElement.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            // Add active classes
+            btn.classList.add('active');
+            targetContent.classList.add('active');
+        }
+
+        // Active state in sidebar based on scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.sidebar .nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

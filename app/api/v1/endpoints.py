@@ -205,15 +205,26 @@ async def ai_rewrite(
     try:
         text_length = len(request.text)
 
+        # combination_id 伪装解析与向下兼容
+        try:
+            combo_id_int = int(request.combination_id)
+            if combo_id_int > 10000:
+                real_combination_id = str(combo_id_int - 10000)
+            else:
+                real_combination_id = str(combo_id_int)
+        except ValueError:
+            real_combination_id = str(request.combination_id)
+
         # 获取 API Key 信息
         key_data = apikey_service.get_apikey(api_key)
-        if request.combination_id in [30,31,32,33,34,35,36,37,38,39,60,61,62,'30','31','32','33','34','35','36','37','38','39','60','61','62']:
+        double_quota_list = ['30','31','32','33','34','35','36','37','38','39','60','61','62']
+        if real_combination_id in double_quota_list:
             text_length *=2
 
         logger.info("=" * 70)
         logger.info(f"📥 收到改写请求")
         logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
-        logger.info(f"   🌐 组合: {request.combination_id}")
+        logger.info(f"   🌐 组合: {real_combination_id} (原始传参: {request.combination_id})")
         logger.info(f"   📏 文本长度: {text_length} 字符")
         logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
 
@@ -228,7 +239,7 @@ async def ai_rewrite(
         # 先执行改写（在扣除额度之前）
         result = ai_detector_service.aigcrewrite(
             text=request.text,
-            combination_id=request.combination_id
+            combination_id=real_combination_id
         )
 
         # 改写成功后才扣除额度
@@ -550,6 +561,52 @@ async def upload_file(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="服务器内部错误"
+        )
+
+
+@router.get(
+    "/quota",
+    response_model=AIDetectorResponse,
+    summary="查询额度余额",
+    description="查询当前 API Key 的可用点数余额",
+    responses={
+        200: {"description": "查询成功"},
+        401: {"description": "未授权，缺少或无效的 API Key", "model": ErrorResponse},
+        500: {"description": "服务器内部错误", "model": ErrorResponse}
+    }
+)
+async def get_quota(
+    api_key: str = Depends(get_current_api_key)
+):
+    """
+    查询 API Key 余额
+    
+    **认证方式：**
+    在请求头中添加 `X-API-Key: your_api_key`
+    """
+    try:
+        key_data = apikey_service.get_apikey(api_key)
+        
+        logger.info("=" * 70)
+        logger.info(f"💰 收到额度查询请求")
+        logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
+        logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
+        logger.info("=" * 70)
+        
+        return AIDetectorResponse(
+            status="success",
+            result={"quota": key_data.quota if key_data else 0},
+            message=None,
+            quota_info=QuotaInfo(
+                used=0,
+                remaining=key_data.quota if key_data else 0
+            )
+        )
+    except Exception as e:
+        logger.error(f"额度查询失败: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="查询失败，服务器内部错误"
         )
 
 

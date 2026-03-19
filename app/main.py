@@ -4,7 +4,7 @@ FastAPI Application Entry Point
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from contextlib import asynccontextmanager
 
 from app.core.config import settings
@@ -39,9 +39,9 @@ app = FastAPI(
     description=settings.APP_DESCRIPTION,
     version=__version__,
     lifespan=lifespan,
-    docs_url="/docs",
-    redoc_url="/redoc",
-    openapi_url="/openapi.json"
+    # docs_url="/docs",
+    # redoc_url="/redoc",
+    # openapi_url="/openapi.json"
 )
 
 # 配置CORS
@@ -57,21 +57,31 @@ app.add_middleware(
 app.include_router(api_router)
 
 
-@app.get("/", tags=["根路径"])
-async def root():
-    """根路径"""
-    return JSONResponse(
-        content={
-            "message": f"欢迎使用 {settings.APP_NAME}",
-            "version": __version__,
-        }
-    )
+# @app.get("/", tags=["根路径"])
+# async def root():
+#     """根路径"""
+#     return JSONResponse(
+#         content={
+#             "message": f"欢迎使用 {settings.APP_NAME}",
+#             "version": __version__,
+#         }
+#     )
 
 
 @app.get("/ping", tags=["健康检查"])
 async def ping():
     """简单的ping接口"""
     return {"status": "ok", "message": "pong"}
+
+
+@app.get("/", tags=["开发者中心"])
+async def developer_portal():
+    """开发者 API 文档页面"""
+    import os
+    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'developer.html')
+    with open(template_path, 'r', encoding='utf-8') as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 
 if __name__ == "__main__":

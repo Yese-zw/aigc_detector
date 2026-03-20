@@ -20,7 +20,6 @@ async def lifespan(app: FastAPI):
     logger.info("=" * 50)
     logger.info(f"正在启动 {settings.APP_NAME} v{__version__}")
     logger.info(f"服务地址: http://{settings.HOST}:{settings.PORT}")
-    logger.info(f"API文档: http://{settings.HOST}:{settings.PORT}/docs")
     logger.info("=" * 50)
     
     yield
@@ -42,6 +41,9 @@ app = FastAPI(
     # docs_url="/docs",
     # redoc_url="/redoc",
     # openapi_url="/openapi.json"
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None
 )
 
 # 配置CORS

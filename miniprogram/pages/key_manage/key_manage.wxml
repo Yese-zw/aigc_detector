@@ -1,0 +1,63 @@
+<view class="page-wrapper container {{theme}}">
+  <view class="bg-blobs">
+    <view class="blob blob-1"></view>
+    <view class="blob blob-2"></view>
+    <view class="blob blob-3"></view>
+  </view>
+
+  <view class="header-section animate-fade-in-up">
+    <view class="header-left">
+      <text class="page-title">下游终端密钥</text>
+      <text class="page-subtitle">API Keys Management</text>
+    </view>
+    <button class="btn-gradient-small" bindtap="openAddModal">
+      <text class="btn-icon">＋</text>新建
+    </button>
+  </view>
+
+  <scroll-view class="key-list animate-fade-in-up animate-delay-1" scroll-y>
+    <view class="key-card glass-card {{item.is_active ? '' : 'inactive'}}" wx:for="{{keys}}" wx:key="api_key">
+      <!-- 头部名称与开关 -->
+      <view class="key-header">
+        <view class="key-title-group">
+          <text class="key-icon">🔑</text>
+          <text class="key-name">{{item.name || '未命名密钥'}}</text>
+        </view>
+        <switch checked="{{item.is_active}}" color="#6C63FF" bindchange="toggleActive" data-key="{{item.api_key}}" />
+      </view>
+
+      <!-- 密钥明文框 -->
+      <view class="key-value-box" bindtap="copyKey" data-key="{{item.api_key}}">
+        <text class="key-value">{{item.api_key}}</text>
+        <text class="copy-hint">点击复制</text>
+      </view>
+
+      <!-- 状态与数据双列格 -->
+      <view class="stats-grid">
+        <view class="stat-item" bindtap="modifyQuota" data-key="{{item.api_key}}">
+          <text class="stat-label">🎯 可用额度 (点击修改)</text>
+          <text class="stat-value quota">{{item.quota}}</text>
+        </view>
+        <view class="stat-item-divider"></view>
+        <view class="stat-item">
+          <text class="stat-label">⚡ 累计调用</text>
+          <text class="stat-value">{{item.used}}</text>
+        </view>
+      </view>
+
+      <!-- 底部控制栏 -->
+      <view class="key-footer">
+        <text class="key-desc">{{item.description || '暂无详细描述...'}}</text>
+        <view class="btn-danger-small" bindtap="deleteKey" data-key="{{item.api_key}}">
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view wx:if="{{!isLoading && keys.length === 0}}" class="empty-state glass-card">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">当前暂无任何下游密钥分发</text>
+    </view>
+  </scroll-view>
+</view>

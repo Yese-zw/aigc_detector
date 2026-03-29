@@ -1,0 +1,56 @@
+@import "../../pages/index/index.wxss";
+
+.page-wrapper {
+  background: #0B0B1A;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.header-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.refresh-btn {
+  color: #00D4AA;
+  font-size: 24rpx;
+  padding: 10rpx 24rpx;
+  background: rgba(0, 212, 170, 0.1);
+  border-radius: 999rpx;
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.log-container {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: calc(100vh - 120rpx);
+}
+
+.log-text {
+  font-family: monospace;
+  font-size: 20rpx;
+  color: #A0AABF;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+}

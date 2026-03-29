@@ -1,0 +1,312 @@
+@import "../index/index.wxss";
+
+.profile-page {
+  background: #0B0B1A;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 背景光晕 */
+.profile-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.prof-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+.prof-blob-1 {
+  top: -100rpx; right: -100rpx;
+  width: 400rpx; height: 400rpx;
+  background: #6C63FF;
+}
+.prof-blob-2 {
+  bottom: 200rpx; left: -150rpx;
+  width: 500rpx; height: 500rpx;
+  background: #00D4AA;
+}
+.prof-blob-3 {
+  top: 40%; right: -50rpx;
+  width: 300rpx; height: 300rpx;
+  background: #FF6B6B;
+}
+
+/* 导航栏 */
+.prof-nav {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+.prof-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.prof-nav-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #fff;
+}
+.prof-nav-actions {
+  position: absolute;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-icon-btn {
+  padding: 10rpx;
+}
+.nav-icon-text {
+  font-size: 36rpx;
+}
+
+/* 主容器 */
+.prof-scroll {
+  flex: 1;
+  position: relative;
+  z-index: 5;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+/* 用户信息卡 */
+.user-card {
+  position: relative;
+  padding: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.2);
+}
+.user-card-glow {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+.user-card-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 头像区域 */
+.avatar-section {
+  position: relative;
+  margin-right: 32rpx;
+}
+.avatar-container {
+  position: relative;
+  width: 140rpx; height: 140rpx;
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+}
+.avatar-glow-ring {
+  position: absolute;
+  inset: -6rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6C63FF, #00D4AA);
+  filter: blur(10rpx);
+  opacity: 0.8;
+}
+.avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6C63FF, #00D4AA);
+}
+.user-avatar {
+  position: relative;
+  z-index: 2;
+  width: 132rpx; height: 132rpx;
+  border-radius: 50%;
+  background: #333;
+  border: 4rpx solid #1A1A2E;
+}
+.avatar-badge {
+  position: absolute;
+  bottom: 0; right: 0;
+  z-index: 3;
+  width: 40rpx; height: 40rpx;
+  background: linear-gradient(135deg, #FFB347, #FFCC33);
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+  border: 4rpx solid #1A1A2E;
+}
+.badge-icon {
+  font-size: 20rpx;
+}
+
+/* 文本信息 */
+.user-info-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.user-name {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8rpx;
+  text-shadow: 0 2rpx 10rpx rgba(255, 255, 255, 0.2);
+}
+.user-id {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+}
+
+/* 动作按钮 */
+.profile-action-btn {
+  padding: 12rpx 30rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex; justify-content: center; align-items: center;
+  transition: all 0.2s ease;
+}
+.btn-gradient-hover {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  transform: scale(0.95);
+}
+.action-btn-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 统计行 */
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+  gap: 20rpx;
+}
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 0;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.03);
+}
+.stat-num {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8rpx;
+  font-family: monospace;
+}
+.stat-name {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 菜单区域 */
+.menu-section {
+  margin-bottom: 30rpx;
+}
+.menu-card {
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  transition: all 0.2s ease;
+}
+.menu-item-hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+.menu-icon-wrap {
+  width: 60rpx; height: 60rpx;
+  border-radius: 16rpx;
+  display: flex; justify-content: center; align-items: center;
+  margin-right: 24rpx;
+}
+.menu-icon {
+  font-size: 32rpx;
+}
+.menu-label {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+.menu-desc {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 16rpx;
+}
+.menu-badge {
+  background: #FF6B6B;
+  padding: 2rpx 12rpx;
+  border-radius: 20rpx;
+  margin-right: 16rpx;
+  min-width: 24rpx;
+  display: flex; justify-content: center; align-items: center;
+}
+.badge-num {
+  font-size: 20rpx;
+  color: #fff;
+  font-weight: 700;
+}
+.menu-arrow {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: -6rpx;
+}
+.menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 40rpx;
+}
+
+/* 退出登录 */
+.logout-section {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.logout-btn {
+  padding: 30rpx;
+  border-radius: 24rpx;
+  text-align: center;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+.logout-text {
+  font-size: 28rpx;
+  color: #FF6B6B;
+  font-weight: 600;
+}
+.glass-card-hover {
+  background: rgba(255, 107, 107, 0.15);
+  transform: scale(0.98);
+}

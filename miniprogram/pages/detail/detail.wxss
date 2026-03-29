@@ -1,0 +1,257 @@
+/* ============================================================
+   DETAIL PAGE - 内容详情样式
+   ============================================================ */
+
+.detail-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  position: relative;
+}
+
+.detail-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0; overflow: hidden;
+  pointer-events: none;
+}
+
+.det-blob-1 {
+  position: absolute;
+  width: 400rpx; height: 400rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108,99,255,0.3), transparent 70%);
+  top: 20%; right: -100rpx;
+  filter: blur(80rpx);
+  animation: blobMove1 16s ease-in-out infinite;
+}
+
+/* 导航栏 */
+.detail-nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(11,11,26,0.95) 0%, rgba(11,11,26,0.6) 100%);
+  backdrop-filter: blur(20rpx);
+  -webkit-backdrop-filter: blur(20rpx);
+}
+
+.detail-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+}
+
+.nav-back, .nav-share {
+  width: 64rpx; height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-glass-light);
+  border-radius: 50%;
+  border: 1rpx solid var(--color-glass-border-light);
+}
+
+.nav-back-hover {
+  background: var(--color-glass-medium);
+}
+
+.back-arrow {
+  font-size: 40rpx;
+  color: #FFFFFF;
+  font-weight: 300;
+  margin-top: -4rpx;
+}
+
+.share-icon {
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+
+.detail-nav-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* 滚动区 */
+.detail-scroll {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+
+/* 封面图 */
+.cover-section {
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+  overflow: hidden;
+}
+
+.cover-img {
+  width: 100%; height: 100%;
+}
+
+.cover-gradient {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 60%;
+  background: linear-gradient(0deg, var(--color-bg-primary) 0%, transparent 100%);
+}
+
+/* 文章信息 */
+.article-header {
+  padding: 0 32rpx 32rpx;
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 2;
+}
+
+.article-tags {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.article-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: 12rpx;
+}
+
+.article-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 20rpx;
+  line-height: 1.5;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.meta-author {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.author-dot {
+  width: 12rpx; height: 12rpx;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.author-name {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.meta-sep {
+  color: var(--color-text-tertiary);
+  font-size: 20rpx;
+}
+
+.meta-date {
+  font-size: 24rpx;
+  color: var(--color-text-tertiary);
+}
+
+/* 统计条 */
+.stats-bar {
+  margin: 0 24rpx 32rpx;
+  padding: 24rpx 0;
+  border-radius: var(--radius-xl) !important;
+  display: flex;
+  align-items: center;
+}
+
+.stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.stats-icon {
+  font-size: 28rpx;
+}
+
+.stats-val {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.stats-lbl {
+  font-size: 20rpx;
+  color: var(--color-text-tertiary);
+}
+
+.stats-divider {
+  width: 1rpx;
+  height: 60rpx;
+  background: var(--color-glass-border);
+}
+
+/* 文章内容 */
+.article-body {
+  padding: 0 32rpx;
+  margin-bottom: 40rpx;
+}
+
+.rich-content {
+  font-size: 30rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* 底部操作 */
+.bottom-actions {
+  display: flex;
+  gap: 20rpx;
+  padding: 0 32rpx;
+}
+
+.like-btn, .collect-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 24rpx 0;
+  border-radius: var(--radius-xl) !important;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.like-btn.liked {
+  background: rgba(255, 107, 107, 0.1) !important;
+  border-color: rgba(255, 107, 107, 0.25) !important;
+}
+
+.collect-btn.collected {
+  background: rgba(255, 179, 71, 0.1) !important;
+  border-color: rgba(255, 179, 71, 0.25) !important;
+}
+
+.like-icon, .collect-icon {
+  font-size: 32rpx;
+}
+
+.like-text, .collect-text {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}

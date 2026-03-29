@@ -1,0 +1,477 @@
+/* ============================================================
+   LOGIN PAGE - 液态玻璃登录界面样式
+   ============================================================ */
+
+.login-page {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================== 动态背景 ==================== */
+
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg,
+    #0B0B1A 0%,
+    #1a0a2e 20%,
+    #0d2137 40%,
+    #14142B 60%,
+    #1E0A3C 80%,
+    #0B0B1A 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease infinite;
+}
+
+/* 液态光斑 Aurora Blobs */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80rpx);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 400rpx;
+  height: 400rpx;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.6), transparent 70%);
+  top: 10%;
+  left: -10%;
+  animation: blobMove1 12s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 350rpx;
+  height: 350rpx;
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.5), transparent 70%);
+  top: 30%;
+  right: -15%;
+  animation: blobMove2 15s ease-in-out infinite;
+}
+
+.blob-3 {
+  width: 300rpx;
+  height: 300rpx;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.4), transparent 70%);
+  bottom: 20%;
+  left: 20%;
+  animation: blobMove3 18s ease-in-out infinite;
+}
+
+.blob-4 {
+  width: 250rpx;
+  height: 250rpx;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%);
+  bottom: 30%;
+  right: 10%;
+  animation: blobMove1 14s ease-in-out infinite reverse;
+}
+
+/* 浮动粒子 */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4rpx);
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.particle-1 {
+  width: 16rpx; height: 16rpx;
+  top: 15%; left: 20%;
+  animation: float 6s ease-in-out infinite, fadeIn 2s ease;
+}
+
+.particle-2 {
+  width: 12rpx; height: 12rpx;
+  top: 25%; right: 25%;
+  animation: float 8s ease-in-out infinite 1s, fadeIn 2s ease 0.5s;
+}
+
+.particle-3 {
+  width: 20rpx; height: 20rpx;
+  top: 50%; left: 10%;
+  animation: floatSlow 10s ease-in-out infinite, fadeIn 2s ease 1s;
+}
+
+.particle-4 {
+  width: 10rpx; height: 10rpx;
+  top: 60%; right: 15%;
+  animation: float 7s ease-in-out infinite 2s, fadeIn 2s ease 1.5s;
+}
+
+.particle-5 {
+  width: 14rpx; height: 14rpx;
+  bottom: 25%; left: 35%;
+  animation: floatSlow 9s ease-in-out infinite 0.5s, fadeIn 2s ease 0.3s;
+}
+
+.particle-6 {
+  width: 8rpx; height: 8rpx;
+  bottom: 35%; right: 30%;
+  animation: float 5s ease-in-out infinite 1.5s, fadeIn 2s ease 0.8s;
+}
+
+/* 网格纹理 */
+.grid-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1rpx, transparent 1rpx),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1rpx, transparent 1rpx);
+  background-size: 60rpx 60rpx;
+  opacity: 0.5;
+}
+
+/* ==================== 主内容 ==================== */
+
+.login-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 48rpx;
+  padding-top: env(safe-area-inset-top);
+  box-sizing: border-box;
+}
+
+/* ==================== Logo 区域 ==================== */
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
+}
+
+.logo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2rpx solid rgba(108, 99, 255, 0.3);
+}
+
+.ring-1 {
+  width: 160rpx; height: 160rpx;
+  animation: rotate 20s linear infinite, glow 3s ease-in-out infinite;
+}
+
+.ring-2 {
+  width: 130rpx; height: 130rpx;
+  border-color: rgba(0, 212, 170, 0.25);
+  animation: rotate 15s linear infinite reverse;
+}
+
+.logo-icon {
+  width: 100rpx;
+  height: 100rpx;
+  background: var(--gradient-primary);
+  border-radius: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 32rpx rgba(108, 99, 255, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.logo-symbol {
+  font-size: 48rpx;
+  color: #FFFFFF;
+}
+
+.app-name-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.app-name {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+}
+
+.app-name-dot {
+  font-size: 40rpx;
+  color: var(--color-primary);
+  margin: 0 4rpx;
+}
+
+.app-name-highlight {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-tagline {
+  font-size: 24rpx;
+  color: var(--color-text-tertiary);
+  letter-spacing: 4rpx;
+}
+
+/* ==================== 登录卡片 ==================== */
+
+.login-card {
+  width: 100%;
+  max-width: 650rpx;
+  border-radius: var(--radius-2xl);
+  margin-bottom: 48rpx;
+}
+
+.card-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(255,255,255,0.03) 10%,
+    transparent 20%
+  );
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 56rpx 48rpx;
+}
+
+.login-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12rpx;
+}
+
+.login-subtitle {
+  display: block;
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 48rpx;
+}
+
+/* 功能亮点 */
+.features-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48rpx;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.feature-icon-wrap {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  border: 1rpx solid rgba(255,255,255,0.08);
+}
+
+.feature-icon {
+  font-size: 36rpx;
+}
+
+.feature-label {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+}
+
+/* ==================== 微信登录按钮 ==================== */
+
+.wx-login-btn {
+  width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  line-height: normal !important;
+  border-radius: var(--radius-full) !important;
+  overflow: hidden;
+}
+
+.wx-login-btn::after {
+  border: none !important;
+}
+
+.btn-inner {
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.btn-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #07C160 0%, #06AD56 50%, #059B4B 100%);
+  transition: all 0.3s ease;
+}
+
+.wx-login-btn-hover .btn-bg {
+  filter: brightness(1.1);
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16rpx;
+}
+
+.wx-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.btn-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+}
+
+/* Loading 动画 */
+.loading-spinner {
+  width: 36rpx;
+  height: 36rpx;
+  border: 3rpx solid rgba(255,255,255,0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: rotate 0.8s linear infinite;
+}
+
+.btn-loading .btn-bg {
+  opacity: 0.7;
+}
+
+/* 分割线 */
+.login-divider {
+  display: flex;
+  align-items: center;
+  margin: 40rpx 0 24rpx;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.divider-text {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+  padding: 0 24rpx;
+}
+
+/* 协议 */
+.agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+}
+
+.checkbox-wrapper {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4rpx;
+  transition: all 0.3s ease;
+}
+
+.checkbox-wrapper.checked {
+  background: var(--gradient-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 12rpx rgba(108, 99, 255, 0.4);
+}
+
+.check-icon {
+  font-size: 20rpx;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.agreement-text {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
+}
+
+.link {
+  color: var(--color-primary-light);
+}
+
+/* ==================== 底部 ==================== */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.footer-text {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+  letter-spacing: 1rpx;
+}
+
+.version {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.2);
+}

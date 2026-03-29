@@ -23,6 +23,14 @@ def verify_cookie(request: Request) -> bool:
     cookie = request.cookies.get(COOKIE_NAME)
     return cookie == settings.ADMIN_PASSWORD
 
+def verify_bearer_token(request: Request) -> bool:
+    """验证 Bearer Token（用于小程序调用）"""
+    auth_header = request.headers.get("Authorization", "")
+    if not auth_header.startswith("Bearer "):
+        return False
+    token = auth_header[7:].strip()
+    return token == settings.ADMIN_PASSWORD
+
 @router.get("/login", response_class=HTMLResponse)
 async def login_page(error: int = Query(0)):
     """登录页面"""
@@ -65,7 +73,8 @@ async def dashboard_page(request: Request):
 @router.get("/token/info")
 async def get_token_info(request: Request):
     """获取当前Token状态"""
-    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if not verify_bearer_token(request) and not verify_cookie(request):
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
     
     try:
         redis_client = get_redis_client()
@@ -88,7 +97,7 @@ async def get_token_info(request: Request):
                 
                 return {
                     "status": "active" if not is_expired else "expired",
-                    "token_preview": f"{token[:15]}...{token[-5:]}",
+                    "token_preview": f"{token[:15]}...{token[-5:]}" if len(token) > 20 else token,
                     "expires_at": exp_dt.strftime('%Y-%m-%d %H:%M:%S'),
                     "remaining_seconds": int(remaining) if not is_expired else 0,
                     "claims": payload
@@ -109,7 +118,8 @@ async def get_token_info(request: Request):
 # Token Update
 @router.post("/token")
 async def update_token(request: Request, token: str = Form(...)):
-    if not verify_cookie(request): return {"status": "error", "message": "Unauthorized"}
+    if not verify_bearer_token(request) and not verify_cookie(request):
+        return JSONResponse({"error": "Unauthorized", "message": "Unauthorized"}, status_code=401)
     try:
         clean_token = token.strip()
         if clean_token.lower().startswith("bearer "):
@@ -126,7 +136,7 @@ async def update_token(request: Request, token: str = Form(...)):
 @router.get("/logs")
 async def get_logs(request: Request):
     """获取今日日志"""
-    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if not verify_bearer_token(request) and not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
     
     log_file = settings.LOG_FILE
     if os.path.exists(log_file):
@@ -145,14 +155,14 @@ async def get_logs(request: Request):
 @router.get("/keys")
 async def list_keys(request: Request):
     """List API Keys"""
-    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if not verify_bearer_token(request) and not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
     keys = APIKeyService().list_apikeys()
     return {"status": "success", "data": keys}
 
 @router.post("/keys")
 async def create_key(request: Request, name: str = Form(...), description: str = Form(""), quota: int = Form(...)):
      """Create API Key"""
-     if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+     if not verify_bearer_token(request) and not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
      data = APIKeyCreate(name=name, description=description, quota=quota)
      result = APIKeyService().create_apikey(data)
      return {"status": "success", "data": result}
@@ -160,7 +170,7 @@ async def create_key(request: Request, name: str = Form(...), description: str =
 @router.delete("/keys/{key}")
 async def delete_key(request: Request, key: str):
     """Delete API Key"""
-    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if not verify_bearer_token(request) and not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
     APIKeyService().delete_apikey(key)
     return {"status": "success"}
 
@@ -174,7 +184,7 @@ async def update_key(
     is_active: Optional[str] = Query(None) # Receive as string 'true'/'false' from query params
 ):
     """Update API Key"""
-    if not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    if not verify_bearer_token(request) and not verify_cookie(request): return JSONResponse({"error": "Unauthorized"}, status_code=401)
     
     # Convert 'true'/'false' string to boolean if present
     is_active_bool = None
@@ -198,7 +208,7 @@ async def update_key(
 @router.post("/wxlogin/start")
 async def proxy_wxlogin_start(request: Request):
     """代理微信登录开始接口"""
-    if not verify_cookie(request):
+    if not verify_bearer_token(request) and not verify_cookie(request):
         return JSONResponse({"error": "Unauthorized"}, status_code=401)
     
     url = f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/start"
@@ -230,7 +240,7 @@ async def proxy_wxlogin_start(request: Request):
 @router.get("/wxlogin/status")
 async def proxy_wxlogin_status(request: Request, request_id: str):
     """代理微信登录状态查询接口"""
-    if not verify_cookie(request):
+    if not verify_bearer_token(request) and not verify_cookie(request):
         return JSONResponse({"error": "Unauthorized"}, status_code=401)
     
     url = f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/status"
@@ -256,3 +266,111 @@ async def proxy_wxlogin_status(request: Request, request_id: str):
     except Exception as e:
         logger.error(f"WxLogin status proxy failed: {e}")
         return JSONResponse({"code": 500, "msg": f"代理请求失败: {str(e)}"}, status_code=500)
+
+
+# === 小程序 Admin Dashboard API ===
+
+@router.get("/miniapp/dashboard")
+async def miniapp_dashboard(request: Request):
+    """小程序 Admin Dashboard 数据接口（无需认证）"""
+    # 移除密码验证，允许直接访问
+    pass
+
+    try:
+        api_key_service = APIKeyService()
+        all_keys = api_key_service.list_apikeys()
+
+        total_keys = len(all_keys)
+        active_keys = sum(1 for k in all_keys if k.is_active)
+        total_quota = sum(k.total_quota for k in all_keys)
+        remaining_quota = sum(k.quota for k in all_keys)
+        used_quota = total_quota - remaining_quota
+
+        keys_data = []
+        for k in all_keys:
+            used = k.total_quota - k.quota
+            pct = round(used / k.total_quota * 100, 1) if k.total_quota > 0 else 0
+            keys_data.append({
+                "key": k.key[:8] + "..." + k.key[-4:],
+                "name": k.name,
+                "description": k.description or "",
+                "quota": k.quota,
+                "total_quota": k.total_quota,
+                "used_quota": used,
+                "usage_pct": pct,
+                "is_active": k.is_active,
+                "created_at": k.created_at,
+                "last_used_at": k.last_used_at or "",
+            })
+
+        # Redis token状态
+        token_status = "unknown"
+        try:
+            redis_client = get_redis_client()
+            token = redis_client.get(settings.REDIS_AUTH_KEY)
+            if token:
+                try:
+                    payload = jwt.decode(token, options={"verify_signature": False})
+                    exp = payload.get('exp')
+                    if exp:
+                        import datetime as dt
+                        remaining = (dt.datetime.fromtimestamp(exp) - dt.datetime.now()).total_seconds()
+                        token_status = "active" if remaining > 0 else "expired"
+                    else:
+                        token_status = "active"
+                except Exception:
+                    token_status = "error"
+            else:
+                token_status = "empty"
+        except Exception:
+            token_status = "redis_error"
+
+        return {
+            "status": "success",
+            "data": {
+                "summary": {
+                    "total_keys": total_keys,
+                    "active_keys": active_keys,
+                    "inactive_keys": total_keys - active_keys,
+                    "total_quota": total_quota,
+                    "used_quota": used_quota,
+                    "remaining_quota": remaining_quota,
+                    "usage_pct": round(used_quota / total_quota * 100, 1) if total_quota > 0 else 0,
+                },
+                "token_status": token_status,
+                "keys": keys_data,
+            }
+        }
+    except Exception as e:
+        logger.error(f"Miniapp dashboard error: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+
+# === Lingsi Analytics 代理接口 ===
+@router.get("/lingsi-dashboard")
+async def proxy_lingsi_dashboard(request: Request, time_range: str = Query("30d")):
+    """代理 lingsi.chat 的仪表盘数据，供小程序大屏使用"""
+    BASE_URL_LINGSI = "https://lingsi.chat/api/v1"
+    API_KEY = "lingsi-analytics-secure-key-2026"
+    ENDPOINT_LINGSI = "/analytics/dashboard-overview"
+    
+    url = f"{BASE_URL_LINGSI}{ENDPOINT_LINGSI}"
+    headers = {
+        "X-API-Key": API_KEY,
+        "Content-Type": "application/json"
+    }
+    params = {
+        "time_range": time_range
+    }
+    
+    try:
+        response = requests.get(url, headers=headers, params=params, timeout=10)
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return JSONResponse({"error": f"Lingsi API returned {response.status_code}", "detail": response.text}, status_code=response.status_code)
+            
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Lingsi dashboard proxy failed: {e}")
+        return JSONResponse({"error": "Failed to connect to Lingsi API", "detail": str(e)}, status_code=500)

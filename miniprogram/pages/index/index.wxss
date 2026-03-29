@@ -1,0 +1,103 @@
+/* index.wxss */
+.page-wrapper {
+  background: #0B0B1A;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* 背景光晕 */
+.bg-blobs { position: absolute; width: 100%; height: 100%; top:0; left:0; z-index:0; pointer-events:none; }
+.blob { position: absolute; border-radius: 50%; filter: blur(80rpx); opacity: 0.15; }
+.blob-1 { width: 500rpx; height: 500rpx; background: radial-gradient(circle, #6C63FF, transparent); top: -100rpx; left: -100rpx; animation: b1 15s infinite alternate; }
+.blob-2 { width: 400rpx; height: 400rpx; background: radial-gradient(circle, #00D4AA, transparent); bottom: 10%; right: -50rpx; animation: b2 12s infinite alternate; }
+.blob-3 { width: 300rpx; height: 300rpx; background: radial-gradient(circle, #FFB347, transparent); top: 30%; left: 20%; animation: b3 10s infinite alternate; }
+
+/* 头部 */
+.header { position: relative; z-index: 10; padding: 0 40rpx; margin-bottom: 20rpx; }
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.header-title { font-size: 36rpx; font-weight: 700; }
+.update-time { font-size: 22rpx; color: rgba(255,255,255,0.5); }
+
+/* 内容区域 */
+.main-scroll { position: relative; z-index: 5; }
+.content-wrapper { padding: 0 40rpx 40rpx; }
+
+/* 过滤器与实时状态 */
+.filter-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32rpx; }
+.time-tabs { display: flex; padding: 6rpx; border-radius: 999rpx; background: rgba(255,255,255,0.06); border: 1rpx solid rgba(255,255,255,0.1); }
+.tab { padding: 8rpx 28rpx; font-size: 24rpx; border-radius: 999rpx; color: rgba(255,255,255,0.5); transition: all 0.3s; }
+.tab.active { background: #6C63FF; color: #fff; box-shadow: 0 4rpx 12rpx rgba(108,99,255,0.4); }
+
+.live-status { display: flex; align-items: center; font-size: 24rpx; color: #00D4AA; background: rgba(0,212,170,0.1); padding: 8rpx 24rpx; border-radius: 999rpx; border: 1rpx solid rgba(0,212,170,0.3); }
+.pulse-dot { width: 12rpx; height: 12rpx; background: #00D4AA; border-radius: 50%; padding-left: 20rpx; margin-right: 12rpx; box-shadow: 0 0 10rpx #00D4AA; animation: pulse 2s infinite; }
+
+/* 核心指标卡片 (Hero Grid) */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24rpx; margin-bottom: 40rpx; }
+.hero-card { position: relative; padding: 32rpx 24rpx; display: flex; flex-direction: column; overflow: hidden; }
+.hero-icon-bg { font-size: 40rpx; margin-bottom: 12rpx; opacity: 0.8;}
+.hero-title { font-size: 22rpx; color: rgba(255,255,255,0.6); margin-bottom: 8rpx; }
+.hero-value { font-size: 44rpx; font-weight: 800; line-height: 1.2; margin-bottom: 24rpx; white-space: nowrap; }
+.hero-footer { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16rpx; font-size: 22rpx; }
+.footer-label { color: rgba(255,255,255,0.4); }
+.highlight-green { color: #00D4AA; font-weight: 600; }
+.highlight-blue { color: #00B4D8; font-weight: 600; }
+
+.glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%); backdrop-filter: blur(40rpx) saturate(180%); border: 1rpx solid rgba(255,255,255,0.12); border-radius: 28rpx; }
+.glass-card-primary { background: linear-gradient(135deg, rgba(108,99,255,0.15) 0%, rgba(59,130,246,0.06) 100%); border-color: rgba(108,99,255,0.25); }
+.glass-card-secondary { background: linear-gradient(135deg, rgba(0,212,170,0.15) 0%, rgba(0,180,216,0.06) 100%); border-color: rgba(0,212,170,0.25); }
+
+/* 标题样式 */
+.section-title { display: flex; align-items: center; gap: 12rpx; font-size: 30rpx; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 24rpx; margin-top: 16rpx;}
+
+/* Bento Grid */
+.bento-card { padding: 32rpx; }
+.bento-wide { grid-column: 1 / -1; }
+
+/* 漏斗 */
+.funnel-metrics { display: flex; justify-content: space-between; align-items: center; text-align: center; margin-bottom: 32rpx; padding: 16rpx 0; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+.funnel-item { display: flex; flex-direction: column; }
+.funnel-item .f-lbl { font-size: 20rpx; color: rgba(255,255,255,0.5); margin-bottom: 8rpx; }
+.funnel-item .f-val { font-size: 32rpx; font-weight: 700; color: #fff; }
+.funnel-item.accent .f-val { color: #FF6B6B; }
+.funnel-arrow { color: rgba(255,255,255,0.3); font-size: 28rpx; }
+
+/* 条形进度条 */
+.bar-row { font-size: 22rpx; color: rgba(255,255,255,0.7); margin-bottom: 16rpx; display: flex; flex-direction: column; gap: 8rpx;}
+.bar-track { height: 12rpx; background: rgba(255,255,255,0.06); border-radius: 6rpx; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 6rpx; transition: width 0.8s ease-out; }
+.blue { background: #00B4D8; }
+.purple { background: #6C63FF; }
+
+/* 四宫格网格 */
+.quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24rpx; }
+.card-icon { font-size: 32rpx; margin-bottom: 16rpx; display: block;}
+.sm-title { font-size: 20rpx; color: rgba(255,255,255,0.5); display: block; margin-bottom: 12rpx;}
+.lg-val { font-size: 36rpx; font-weight: 700; display: block; margin-bottom: 16rpx; }
+.sm-row { font-size: 18rpx; color: rgba(255,255,255,0.4); margin-bottom: 6rpx;}
+.sm-prog-lbl { font-size: 18rpx; background: rgba(255,255,255,0.1); padding: 4rpx 12rpx; border-radius: 6rpx; display: inline-block; margin-top: 8rpx; color: rgba(255,255,255,0.6);}
+
+/* 文本颜色工具类 */
+.cyan { color: #00D4AA; }
+.warm { color: #FFB347; }
+.purple { color: #6C63FF; }
+.green { color: #4ECDC4; font-weight: 600; }
+
+/* 按需加载动画 */
+.loading-mask { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: rgba(11,11,26,0.8); z-index: 999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10rpx);}
+.spinner { width: 60rpx; height: 60rpx; border: 4rpx solid rgba(255,255,255,0.1); border-top-color: #6C63FF; border-radius: 50%; animation: spin 1s linear infinite; }
+
+/* 动画定义 */
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.4; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20rpx); } to { opacity: 1; transform: translateY(0); } }
+@keyframes b1 { to { transform: translate(40rpx, 40rpx); } }
+@keyframes b2 { to { transform: translate(-30rpx, -20rpx); } }
+@keyframes b3 { to { transform: translate(30rpx, -30rpx); } }
+
+/* 统一进入动画 */
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }

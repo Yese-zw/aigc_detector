@@ -1,0 +1,28 @@
+<view class="page-wrapper container {{theme}}">
+  <view class="bg-blobs">
+    <view class="blob blob-1"></view>
+    <view class="blob blob-2"></view>
+  </view>
+
+  <view class="theme-card glass-card animate-fade-in-up">
+    <view class="theme-header">🎨 选择界面主题</view>
+    
+    <view class="theme-option {{theme === 'theme-dark' ? 'active' : ''}}" bindtap="setDark">
+      <view class="theme-icon">🌌</view>
+      <view class="theme-info">
+        <text class="theme-name">液态玻璃 (Liquid Glass)</text>
+        <text class="theme-desc">深色极客工作台模式</text>
+      </view>
+      <view class="theme-check" wx:if="{{theme === 'theme-dark'}}">✓</view>
+    </view>
+    
+    <view class="theme-option {{theme === 'theme-light' ? 'active' : ''}}" bindtap="setLight">
+      <view class="theme-icon">❄️</view>
+      <view class="theme-info">
+        <text class="theme-name">极地简白 (Arctic White)</text>
+        <text class="theme-desc">清爽办公白日模式</text>
+      </view>
+      <view class="theme-check" wx:if="{{theme === 'theme-light'}}">✓</view>
+    </view>
+  </view>
+</view>

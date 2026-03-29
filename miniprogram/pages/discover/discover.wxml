@@ -1,0 +1,89 @@
+<!-- ============================================================
+     AIGC REWRITE - 改写页
+     ============================================================ -->
+<view class="page-wrapper safe-area-bottom">
+  
+  <!-- 动态背景光晕 -->
+  <view class="bg-blobs">
+    <view class="blob blob-1"></view>
+    <view class="blob blob-2"></view>
+  </view>
+
+  <view class="header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="header-content" style="height: {{navHeight}}px;">
+      <text class="header-title">文本改写</text>
+    </view>
+  </view>
+
+  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - {{statusBarHeight + navHeight}}px - 140rpx);">
+    <view class="content-wrapper">
+      
+      <!-- 组合选择 -->
+      <view class="combo-selector animate-fade-in-up">
+        <text class="combo-label">选择组合</text>
+        <view class="combo-options">
+          <view class="combo-option {{comboId === '100' ? 'active' : ''}}" bindtap="setCombo" data-id="100">标准改写</view>
+          <view class="combo-option {{comboId === '30' ? 'active' : ''}}" bindtap="setCombo" data-id="30">强力降重</view>
+        </view>
+        <text class="combo-hint" wx:if="{{comboId === '30'}}">💡 强力降重需消耗双倍额度</text>
+      </view>
+
+      <!-- 文本输入区 -->
+      <view class="input-card glass-card animate-fade-in-up animate-delay-1">
+        <textarea 
+          class="text-input" 
+          placeholder="请输入需要改写的文本，字数建议在 50~2000 字之间..."
+          value="{{text}}"
+          bindinput="onInput"
+          maxlength="5000"
+          show-confirm-bar="{{false}}"
+          disable-default-padding
+        ></textarea>
+        <view class="input-footer">
+          <text class="word-count">{{wordCount}} 字</text>
+          <view class="action-icons">
+            <view class="icon-btn" bindtap="clearText">🗑️ 清空</view>
+            <view class="icon-btn" bindtap="pasteText">📋 粘贴</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 改写按钮 -->
+      <view class="btn-container animate-fade-in-up animate-delay-2">
+        <button class="btn-gradient {{isLoading ? 'loading' : ''}}" bindtap="doRewrite" disabled="{{isLoading || wordCount === 0}}">
+          <text wx:if="{{!isLoading}}">开始改写</text>
+          <text wx:else>改写中...</text>
+        </button>
+      </view>
+
+      <!-- 结果展示区 -->
+      <view class="result-section animate-fade-in-up animate-delay-3" wx:if="{{result}}">
+        <view class="section-title">
+          <text class="section-icon">✨</text>
+          <text>改写结果</text>
+          <view class="copy-btn" bindtap="copyResult" wx:if="{{resultText}}">复制结果</view>
+        </view>
+
+        <view class="result-card glass-card">
+          <!-- 识别出来的直接文本结果 -->
+          <view wx:if="{{resultText}}" class="txt-result">
+            <text class="txt-content">{{resultText}}</text>
+          </view>
+
+          <!-- 暂存完整 JSON -->
+          <view class="json-result" wx:else>
+            <text class="json-text">{{resultStr}}</text>
+          </view>
+        </view>
+        
+        <!-- 额度信息 -->
+        <view class="quota-info" wx:if="{{quotaInfo}}">
+          <text>本次消耗: {{quotaInfo.used}}</text>
+          <text>剩余额度: {{quotaInfo.remaining}}</text>
+        </view>
+      </view>
+
+      <view style="height: 60rpx;"></view>
+    </view>
+  </scroll-view>
+</view>

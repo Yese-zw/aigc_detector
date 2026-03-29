@@ -1,0 +1,119 @@
+<!-- ============================================================
+     PROFILE PAGE - 个人中心
+     Glass Morphism Profile
+============================================================ -->
+<view class="profile-page theme-wrapper {{theme}}">
+
+  <!-- 背景装饰 -->
+  <view class="profile-bg">
+    <view class="prof-blob prof-blob-1"></view>
+    <view class="prof-blob prof-blob-2"></view>
+    <view class="prof-blob prof-blob-3"></view>
+  </view>
+
+  <!-- 自定义导航栏 -->
+  <view class="prof-nav" style="padding-top: {{statusBarHeight}}px;">
+    <view class="prof-nav-content" style="height: {{navHeight}}px;">
+    </view>
+  </view>
+
+  <!-- 主内容 -->
+  <scroll-view 
+    scroll-y="{{true}}" 
+    class="prof-scroll"
+    style="height: calc(100vh - {{statusBarHeight + navHeight}}px);"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+  >
+
+
+
+    <!-- ==================== 系统管理 ==================== -->
+    <view class="menu-section animate-fade-in-up animate-delay-2" wx:if="{{isLoggedIn}}">
+      <view class="menu-card glass-card">
+        <!-- Key 管理 -->
+        <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="key_manage">
+          <view class="menu-left">
+            <view class="menu-icon-wrap" style="background: rgba(108,99,255,0.15);">
+              <text class="menu-icon">🔑</text>
+            </view>
+            <text class="menu-label">Key管理</text>
+          </view>
+          <view class="menu-right">
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+
+        <view class="menu-divider"></view>
+
+        <!-- 系统日志 -->
+        <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="sys_logs">
+          <view class="menu-left">
+            <view class="menu-icon-wrap" style="background: rgba(255,107,107,0.15);">
+              <text class="menu-icon">📝</text>
+            </view>
+            <text class="menu-label">系统日志</text>
+          </view>
+          <view class="menu-right">
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ==================== 设置菜单 ==================== -->
+    <view class="menu-section animate-fade-in-up animate-delay-3">
+      <view class="menu-card glass-card">
+        <!-- 主题模式 -->
+        <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="theme">
+          <view class="menu-left">
+            <view class="menu-icon-wrap" style="background: rgba(255,179,71,0.15);">
+              <text class="menu-icon">🎨</text>
+            </view>
+            <text class="menu-label">主题模式</text>
+          </view>
+          <view class="menu-right">
+            <text class="menu-desc">深色模式</text>
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+
+        <view class="menu-divider"></view>
+
+        <!-- 关于我们 -->
+        <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="about">
+          <view class="menu-left">
+            <view class="menu-icon-wrap" style="background: rgba(78,205,196,0.15);">
+              <text class="menu-icon">💡</text>
+            </view>
+            <text class="menu-label">关于我们</text>
+          </view>
+          <view class="menu-right">
+            <text class="menu-desc">v1.0.0</text>
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+
+        <view class="menu-divider"></view>
+
+        <!-- 帮助反馈 -->
+        <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="feedback">
+          <view class="menu-left">
+            <view class="menu-icon-wrap" style="background: rgba(168,85,247,0.15);">
+              <text class="menu-icon">💬</text>
+            </view>
+            <text class="menu-label">帮助与反馈</text>
+          </view>
+          <view class="menu-right">
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 底部间距 -->
+    <view style="height: 200rpx;"></view>
+  </scroll-view>
+</view>

@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/admin/admin",
+    "pages/profile/profile",
+    "pages/key_manage/key_manage",
+    "pages/sys_logs/sys_logs",
+    "pages/theme/theme"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0B0B1A",
+    "navigationBarTitleText": "AIGC 检测",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0B0B1A",
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#0B0B1A",
+    "backgroundColorBottom": "#0B0B1A"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#636e8a",
+    "selectedColor": "#6C63FF",
+    "backgroundColor": "#0B0B1A",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "数据大屏"
+      },
+      {
+        "pagePath": "pages/admin/admin",
+        "text": "Token管理"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

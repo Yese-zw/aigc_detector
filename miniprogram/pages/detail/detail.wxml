@@ -1,0 +1,97 @@
+<!-- ============================================================
+     DETAIL PAGE - 内容详情页
+     ============================================================ -->
+<view class="detail-page">
+
+  <!-- 背景 -->
+  <view class="detail-bg">
+    <view class="det-blob det-blob-1"></view>
+  </view>
+
+  <!-- 自定义导航栏 -->
+  <view class="detail-nav" style="padding-top: {{statusBarHeight}}px;">
+    <view class="detail-nav-content" style="height: {{navHeight}}px;">
+      <view class="nav-back" bindtap="goBack" hover-class="nav-back-hover">
+        <text class="back-arrow">‹</text>
+      </view>
+      <text class="detail-nav-title">详情</text>
+      <view class="nav-share" bindtap="onShare">
+        <text class="share-icon">↗</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主内容 -->
+  <scroll-view 
+    scroll-y="{{true}}" 
+    class="detail-scroll"
+    style="padding-top: {{statusBarHeight + navHeight}}px;"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}"
+  >
+    <!-- 封面图 -->
+    <view class="cover-section" wx:if="{{detail.cover_image}}">
+      <image class="cover-img" src="{{detail.cover_image}}" mode="aspectFill" />
+      <view class="cover-gradient"></view>
+    </view>
+
+    <!-- 文章信息 -->
+    <view class="article-header animate-fade-in-up">
+      <view class="article-tags">
+        <view class="tag tag-primary" wx:if="{{detail.category}}">{{detail.category}}</view>
+        <view class="tag" wx:if="{{detail.is_featured}}">🔥 推荐</view>
+      </view>
+      <text class="article-title">{{detail.title}}</text>
+      <text class="article-subtitle" wx:if="{{detail.subtitle}}">{{detail.subtitle}}</text>
+
+      <view class="article-meta">
+        <view class="meta-author">
+          <view class="author-dot"></view>
+          <text class="author-name">{{detail.author || 'Team'}}</text>
+        </view>
+        <text class="meta-sep">·</text>
+        <text class="meta-date">{{detail.created_at_formatted || ''}}</text>
+      </view>
+    </view>
+
+    <!-- 统计条 -->
+    <view class="stats-bar glass-card animate-fade-in-up animate-delay-1">
+      <view class="stats-item">
+        <text class="stats-icon">👁</text>
+        <text class="stats-val">{{detail.view_count || 0}}</text>
+        <text class="stats-lbl">浏览</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-icon">❤️</text>
+        <text class="stats-val">{{detail.like_count || 0}}</text>
+        <text class="stats-lbl">喜欢</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item" bindtap="handleShare">
+        <text class="stats-icon">📤</text>
+        <text class="stats-val">分享</text>
+        <text class="stats-lbl">好友</text>
+      </view>
+    </view>
+
+    <!-- 文章内容 -->
+    <view class="article-body animate-fade-in-up animate-delay-2">
+      <rich-text nodes="{{detail.content || '暂无内容'}}" class="rich-content"></rich-text>
+    </view>
+
+    <!-- 底部操作 -->
+    <view class="bottom-actions animate-fade-in-up animate-delay-3">
+      <view class="like-btn glass-card {{isLiked ? 'liked' : ''}}" hover-class="glass-card-hover" bindtap="handleLike">
+        <text class="like-icon">{{isLiked ? '❤️' : '🤍'}}</text>
+        <text class="like-text">{{isLiked ? '已喜欢' : '喜欢'}}</text>
+      </view>
+      <view class="collect-btn glass-card {{isCollected ? 'collected' : ''}}" hover-class="glass-card-hover" bindtap="handleCollect">
+        <text class="collect-icon">{{isCollected ? '⭐' : '☆'}}</text>
+        <text class="collect-text">{{isCollected ? '已收藏' : '收藏'}}</text>
+      </view>
+    </view>
+
+    <view style="height: 120rpx;"></view>
+  </scroll-view>
+</view>

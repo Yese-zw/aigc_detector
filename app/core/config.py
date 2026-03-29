@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     
     # 服务器配置
     HOST: str = "0.0.0.0"
-    PORT: int = 8001
+    PORT: int = 8000
     WORKERS: int = 4  # Uvicorn worker进程数
     RELOAD: bool = False  # 是否启用热重载（开发环境设为True）
     

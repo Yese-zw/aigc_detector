@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "Token管理",
+  "navigationBarBackgroundColor": "#0B0B1A",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#0B0B1A",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "backgroundColorTop": "#0B0B1A",
+  "backgroundColorBottom": "#0B0B1A"
+}

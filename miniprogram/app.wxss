@@ -1,0 +1,379 @@
+/* ============================================================
+   MODERN WXAPP - 液态玻璃设计系统
+   Liquid Glass Design System
+   ============================================================ */
+
+/* === 全局基础样式 === */
+page {
+  --color-bg-primary: #0B0B1A;
+  --color-bg-secondary: #14142B;
+  --color-bg-tertiary: #1E1E3F;
+  --color-bg-card: #181830;
+
+  --color-glass-light: rgba(255, 255, 255, 0.06);
+  --color-glass-medium: rgba(255, 255, 255, 0.10);
+  --color-glass-heavy: rgba(255, 255, 255, 0.16);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-glass-border-light: rgba(255, 255, 255, 0.08);
+
+  --color-primary: #6C63FF;
+  --color-primary-light: #8B83FF;
+  --color-primary-dark: #5046e5;
+  --color-secondary: #00D4AA;
+  --color-secondary-light: #33DDBB;
+  --color-accent: #FF6B6B;
+  --color-accent-light: #FF8E8E;
+  --color-warning: #FFB347;
+  --color-info: #4ECDC4;
+  --color-cyan: #00B4D8;
+
+  --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #3B82F6 100%);
+  --gradient-secondary: linear-gradient(135deg, #00D4AA 0%, #00B4D8 100%);
+  --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  --gradient-warm: linear-gradient(135deg, #FFB347 0%, #FF6B6B 100%);
+  --gradient-cool: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+  --gradient-purple: linear-gradient(135deg, #a855f7 0%, #6C63FF 100%);
+  --gradient-cosmic: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.68);
+  --color-text-tertiary: rgba(255, 255, 255, 0.38);
+  --color-text-inverse: #0B0B1A;
+
+  --radius-xs: 8rpx;
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 28rpx;
+  --radius-xl: 36rpx;
+  --radius-2xl: 48rpx;
+  --radius-full: 999rpx;
+
+  --shadow-glass: 0 8rpx 32rpx rgba(0, 0, 0, 0.3);
+  --shadow-glass-lg: 0 16rpx 48rpx rgba(0, 0, 0, 0.4);
+  --shadow-glow-primary: 0 0 40rpx rgba(108, 99, 255, 0.25);
+  --shadow-glow-secondary: 0 0 40rpx rgba(0, 212, 170, 0.25);
+  --shadow-glow-accent: 0 0 40rpx rgba(255, 107, 107, 0.25);
+
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === 液态玻璃卡片 === */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+  backdrop-filter: blur(40rpx) saturate(180%);
+  -webkit-backdrop-filter: blur(40rpx) saturate(180%);
+  border: 1rpx solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.glass-card-hover {
+  transform: translateY(-4rpx) scale(1.01);
+  box-shadow: var(--shadow-glass-lg);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === 玻璃卡片变体 === */
+.glass-card-primary {
+  background: linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(59,130,246,0.06) 100%);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+.glass-card-secondary {
+  background: linear-gradient(135deg, rgba(0,212,170,0.12) 0%, rgba(0,180,216,0.06) 100%);
+  border-color: rgba(0, 212, 170, 0.2);
+}
+
+.glass-card-accent {
+  background: linear-gradient(135deg, rgba(255,107,107,0.12) 0%, rgba(255,142,83,0.06) 100%);
+  border-color: rgba(255, 107, 107, 0.2);
+}
+
+.glass-card-warm {
+  background: linear-gradient(135deg, rgba(255,179,71,0.12) 0%, rgba(255,107,107,0.06) 100%);
+  border-color: rgba(255, 179, 71, 0.2);
+}
+
+/* === 渐变文字 === */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+.gradient-text-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+/* === 渐变按钮 === */
+.btn-gradient {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 600;
+  padding: 24rpx 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  box-shadow: 0 8rpx 24rpx rgba(108, 99, 255, 0.35);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
+}
+
+.btn-gradient-hover {
+  transform: translateY(-2rpx);
+  box-shadow: 0 12rpx 32rpx rgba(108, 99, 255, 0.45);
+}
+
+/* === 动态背景渐变动画 === */
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 50% 0%; }
+  50%  { background-position: 100% 50%; }
+  75%  { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0rpx); }
+  50%      { transform: translateY(-20rpx); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0rpx) rotate(0deg); }
+  50%      { transform: translateY(-30rpx) rotate(3deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20rpx rgba(108, 99, 255, 0.3); }
+  50%      { box-shadow: 0 0 40rpx rgba(108, 99, 255, 0.6); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes blobMove1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(60rpx, -40rpx) scale(1.1); }
+  50%      { transform: translate(-30rpx, 60rpx) scale(0.95); }
+  75%      { transform: translate(50rpx, 30rpx) scale(1.05); }
+}
+
+@keyframes blobMove2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-50rpx, 50rpx) scale(1.08); }
+  66%      { transform: translate(40rpx, -60rpx) scale(0.92); }
+}
+
+@keyframes blobMove3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20%      { transform: translate(70rpx, 30rpx) scale(1.05); }
+  40%      { transform: translate(-40rpx, -50rpx) scale(0.98); }
+  60%      { transform: translate(30rpx, 70rpx) scale(1.1); }
+  80%      { transform: translate(-60rpx, 20rpx) scale(0.95); }
+}
+
+/* === 进入动画工具类 === */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-5 { animation-delay: 0.5s; opacity: 0; }
+.animate-delay-6 { animation-delay: 0.6s; opacity: 0; }
+
+/* === 分割线 === */
+.divider {
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--color-glass-border), transparent);
+  margin: 24rpx 0;
+}
+
+/* === Tag / 标签 === */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 20rpx;
+  border-radius: var(--radius-full);
+  font-size: 22rpx;
+  font-weight: 500;
+  background: var(--color-glass-light);
+  color: var(--color-text-secondary);
+  border: 1rpx solid var(--color-glass-border-light);
+}
+
+.tag-primary {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--color-primary-light);
+  border-color: rgba(108, 99, 255, 0.25);
+}
+
+.tag-secondary {
+  background: rgba(0, 212, 170, 0.15);
+  color: var(--color-secondary-light);
+  border-color: rgba(0, 212, 170, 0.25);
+}
+
+/* === 骨架屏 === */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--color-glass-light) 0%,
+    rgba(255,255,255,0.12) 50%,
+    var(--color-glass-light) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* === 安全区域 === */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* === 滚动条隐藏 === */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* === 布局工具 === */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,27 @@
+<!-- ============================================================
+     CUSTOM TAB BAR - 液态玻璃底部导航
+     ============================================================ -->
+<view class="tab-bar safe-area-bottom">
+  <view class="tab-bar-inner">
+    <!-- 玻璃背景 -->
+    <view class="tab-bar-bg"></view>
+    
+    <!-- 活动指示器 -->
+    <view class="active-indicator" style="left: {{indicatorLeft}}px;"></view>
+
+    <!-- Tab 项 -->
+    <view 
+      class="tab-item {{selected === index ? 'active' : ''}}"
+      wx:for="{{list}}" wx:key="index"
+      data-path="{{item.pagePath}}"
+      data-index="{{index}}"
+      bindtap="switchTab"
+    >
+      <view class="tab-icon-wrap">
+        <text class="tab-icon">{{selected === index ? item.selectedIcon : item.icon}}</text>
+        <view class="tab-glow" wx:if="{{selected === index}}"></view>
+      </view>
+      <text class="tab-label">{{item.text}}</text>
+    </view>
+  </view>
+</view>

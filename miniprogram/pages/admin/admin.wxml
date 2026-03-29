@@ -1,0 +1,86 @@
+<!-- Admin Dashboard Page: Update Upstream Token -->
+<view class="page-wrapper">
+
+  <!-- 动态背景光晕 -->
+  <view class="bg-blobs">
+    <view class="blob blob-1"></view>
+    <view class="blob blob-2"></view>
+    <view class="blob blob-3"></view>
+  </view>
+
+  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - {{statusBarHeight}}px - 140rpx); margin-top: {{statusBarHeight}}px;" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" refresher-background="transparent">
+    <view class="content-wrapper">
+
+      <!-- 系统状态 Banner -->
+      <view class="status-banner glass-card {{tokenStatusClass}} animate-fade-in-up">
+        <view class="status-dot"></view>
+        <view class="status-info">
+          <text class="status-label">当前上游 Token 状态</text>
+          <text class="status-value">{{tokenStatusText}}</text>
+        </view>
+        <view class="status-badge">{{tokenStatusBadge}}</view>
+      </view>
+
+      <!-- Token 详细信息 -->
+      <view class="detail-card glass-card animate-fade-in-up animate-delay-1" wx:if="{{tokenInfo}}">
+        <view class="detail-row">
+          <text class="detail-label">Token 预览</text>
+          <text class="detail-value">{{tokenInfo.token_preview || '无'}}</text>
+        </view>
+        <view class="detail-row">
+          <text class="detail-label">过期时间</text>
+          <text class="detail-value">{{tokenInfo.expires_at || '永久有效或解析失败'}}</text>
+        </view>
+        <view class="detail-row" wx:if="{{tokenInfo.remaining_time_fmt}}">
+          <text class="detail-label">剩余时长</text>
+          <text class="detail-value highlight">{{tokenInfo.remaining_time_fmt}}</text>
+        </view>
+      </view>
+
+      <!-- 微信扫码获取 -->
+      <view class="section-title animate-fade-in-up animate-delay-2" style="margin-top: 40rpx;">
+        <text class="section-icon">📱</text>
+        <text>微信扫码自动获取</text>
+      </view>
+      <view class="update-card glass-card animate-fade-in-up animate-delay-2" style="align-items: center;">
+        <text class="auth-desc" style="text-align: center; width: 100%;">点击生成二维码，使用微信扫码即可自动抓取最新 Token 并更新至后台。</text>
+        <button class="btn-outline" bindtap="startWxLogin" loading="{{isWxLoading}}" style="margin-bottom: 20rpx;">生成安全登录二维码</button>
+        
+        <block wx:if="{{wxQrUrl}}">
+          <image src="{{wxQrUrl}}" mode="aspectFit" show-menu-by-longpress="{{true}}" style="width: 400rpx; height: 400rpx; border-radius: 12rpx; background: #fff; padding: 10rpx; margin-top: 20rpx;"/>
+          <text class="auth-desc" style="margin-top: 20rpx;">长按识别或使用微信扫一扫，扫码后将自动拦截最新 Token。</text>
+        </block>
+      </view>
+
+      <!-- Token 更新区域 -->
+      <view class="section-title animate-fade-in-up animate-delay-3" style="margin-top: 40rpx;">
+        <text class="section-icon">🔑</text>
+        <text>更新主节点 Token</text>
+      </view>
+
+      <view class="update-card glass-card animate-fade-in-up animate-delay-2">
+
+        <textarea
+          class="token-input"
+          placeholder="在此粘贴前缀带有 Bearer 或纯 JWT 格式的 Token..."
+          value="{{inputToken}}"
+          bindinput="onTokenInput"
+          maxlength="-1"
+          show-confirm-bar="{{false}}"
+          disable-default-padding
+        ></textarea>
+        
+        <view class="btn-row">
+          <button class="btn-outline" bindtap="clearInput" disabled="{{!inputToken}}">清空</button>
+          <button class="btn-gradient" bindtap="doUpdate" disabled="{{!inputToken || isSubmitting}}">
+            <text wx:if="{{!isSubmitting}}">更新 Token</text>
+            <text wx:else>更新中...</text>
+          </button>
+        </view>
+      </view>
+
+      <!-- 底部留白 -->
+      <view class="bottom-safe"></view>
+    </view>
+  </scroll-view>
+</view>

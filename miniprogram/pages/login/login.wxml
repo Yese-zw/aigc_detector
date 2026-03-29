@@ -1,0 +1,130 @@
+<!-- ============================================================
+     LOGIN PAGE - 液态玻璃登录界面
+     Immersive Liquid Glass Login
+     ============================================================ -->
+<view class="login-page">
+
+  <!-- ==================== 动态背景 ==================== -->
+  <view class="bg-container">
+    <!-- 流动渐变背景 -->
+    <view class="bg-gradient"></view>
+    
+    <!-- 液态光斑 Aurora Blobs -->
+    <view class="aurora-blob blob-1"></view>
+    <view class="aurora-blob blob-2"></view>
+    <view class="aurora-blob blob-3"></view>
+    <view class="aurora-blob blob-4"></view>
+
+    <!-- 浮动粒子装饰 -->
+    <view class="particle particle-1"></view>
+    <view class="particle particle-2"></view>
+    <view class="particle particle-3"></view>
+    <view class="particle particle-4"></view>
+    <view class="particle particle-5"></view>
+    <view class="particle particle-6"></view>
+
+    <!-- 网格纹理 -->
+    <view class="grid-overlay"></view>
+  </view>
+
+  <!-- ==================== 主内容区 ==================== -->
+  <view class="login-content">
+    
+    <!-- Logo 区域 -->
+    <view class="logo-section animate-fade-in-up">
+      <view class="logo-wrapper">
+        <view class="logo-ring ring-1"></view>
+        <view class="logo-ring ring-2"></view>
+        <view class="logo-icon">
+          <text class="logo-symbol">✦</text>
+        </view>
+      </view>
+      <view class="app-name-wrapper">
+        <text class="app-name">Modern</text>
+        <text class="app-name-dot"> · </text>
+        <text class="app-name app-name-highlight">App</text>
+      </view>
+      <text class="app-tagline">探索无限可能 · Explore the Infinite</text>
+    </view>
+
+    <!-- 登录卡片 -->
+    <view class="login-card glass-card animate-fade-in-up animate-delay-2">
+      <!-- 卡片内光泽动画 -->
+      <view class="card-shine"></view>
+      
+      <view class="card-content">
+        <text class="login-title">欢迎回来</text>
+        <text class="login-subtitle">使用微信账号快速开始体验</text>
+
+        <!-- 功能亮点 -->
+        <view class="features-row">
+          <view class="feature-item">
+            <view class="feature-icon-wrap" style="background: rgba(108,99,255,0.15);">
+              <text class="feature-icon">🔐</text>
+            </view>
+            <text class="feature-label">安全登录</text>
+          </view>
+          <view class="feature-item">
+            <view class="feature-icon-wrap" style="background: rgba(0,212,170,0.15);">
+              <text class="feature-icon">⚡</text>
+            </view>
+            <text class="feature-label">极速体验</text>
+          </view>
+          <view class="feature-item">
+            <view class="feature-icon-wrap" style="background: rgba(255,107,107,0.15);">
+              <text class="feature-icon">✨</text>
+            </view>
+            <text class="feature-label">个性推荐</text>
+          </view>
+        </view>
+
+        <!-- 微信登录按钮 -->
+        <button 
+          class="wx-login-btn {{isLoading ? 'btn-loading' : ''}}"
+          bindtap="handleWxLogin"
+          disabled="{{isLoading}}"
+          hover-class="wx-login-btn-hover"
+        >
+          <view class="btn-inner">
+            <view class="btn-bg"></view>
+            <view wx:if="{{!isLoading}}" class="btn-content">
+              <image class="wx-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04LjY5IDEyLjQ2Yy0uMzEgMC0uNTctLjI1LS41Ny0uNTdzLjI2LS41Ny41Ny0uNTcuNTcuMjUuNTcuNTctLjI1LjU3LS41Ny41N3ptMy41OCAwYy0uMzEgMC0uNTctLjI1LS41Ny0uNTdzLjI2LS41Ny41Ny0uNTcuNTcuMjUuNTcuNTctLjI1LjU3LS41Ny41N3ptLTYuMjctNS45QzMuMjUgNi41NiAxIDkuMTUgMSAxMi4yM2MwIDEuOC44NyAzLjQ0IDIuMjcgNC42OS4xLjA5LjE1LjI1LjA5LjM5bC0uNDMgMS41N2MtLjA1LjE3LjEyLjMyLjI4LjI1bDEuNzctLjg3Yy4xMi0uMDYuMjYtLjA2LjM5LS4wMi43OC4yMyAxLjYyLjM2IDIuNS4zNi4xNyAwIC4zNC0uMDEuNS0uMDItLjI0LS42NC0uMzctMS4zMi0uMzctMi4wMyAwLTMuMDQgMi43OS01LjUgNi4yMy01LjUuMjUgMCAuNS4wMS43NS4wM0MxNC4yIDcuNTMgMTEuOCA2LjU2IDkgNi41NmMtMS4wMSAwLTEuOTguMTctMi44Ny40OHptMTMuMTQgNy45YzEuMTItMS4wMSAxLjgzLTIuMzQgMS44My0zLjggMC0yLjgyLTIuNzYtNS4xLTYuMTctNS4xcy02LjE3IDIuMjgtNi4xNyA1LjFjMCAyLjgyIDIuNzYgNS4xIDYuMTcgNS4xLjcyIDAgMS40MS0uMSAyLjA1LS4yOS4xMi0uMDQuMjUtLjAzLjM2LjAzbDEuNDMuNzFjLjE2LjA4LjMzLS4wOC4yOC0uMjVsLS4zNS0xLjI3Yy0uMDQtLjE1LjAxLS4zLjExLS4zOXptLTUuMjctMi4ybC0uNTIuNTJjLS4yMi4yMi0uNTguMjItLjggMGwtLjUyLS41MmMtLjIyLS4yMi0uMjItLjU4IDAtLjhsLjUyLS41MmMuMjItLjIyLjU4LS4yMi44IDBsLjUyLjUyYy4yMi4yMi4yMi41OCAwIC44em0zLjA4IDBsLS41Mi41MmMtLjIyLjIyLS41OC4yMi0uOCAwbC0uNTItLjUyYy0uMjItLjIyLS4yMi0uNTggMC0uOGwuNTItLjUyYy4yMi0uMjIuNTgtLjIyLjggMGwuNTIuNTJjLjIyLjIyLjIyLjU4IDAgLjh6Ii8+PC9zdmc+" mode="aspectFit" />
+              <text class="btn-text">微信一键登录</text>
+            </view>
+            <view wx:else class="btn-content">
+              <view class="loading-spinner"></view>
+              <text class="btn-text">正在登录...</text>
+            </view>
+          </view>
+        </button>
+
+        <!-- 分割线 -->
+        <view class="login-divider">
+          <view class="divider-line"></view>
+          <text class="divider-text">安全认证</text>
+          <view class="divider-line"></view>
+        </view>
+
+        <!-- 协议 -->
+        <view class="agreement" bindtap="toggleAgreement">
+          <view class="checkbox-wrapper {{agreed ? 'checked' : ''}}">
+            <text wx:if="{{agreed}}" class="check-icon">✓</text>
+          </view>
+          <text class="agreement-text">
+            登录即表示同意
+            <text class="link" catchtap="showUserAgreement">《用户协议》</text>
+            和
+            <text class="link" catchtap="showPrivacyPolicy">《隐私政策》</text>
+          </text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部信息 -->
+    <view class="footer animate-fade-in animate-delay-4">
+      <text class="footer-text">Crafted with ♥ by Modern App Team</text>
+      <text class="version">v1.0.0</text>
+    </view>
+
+  </view>
+</view>

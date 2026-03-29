@@ -25,7 +25,7 @@
           <view class="combo-option {{comboId === '100' ? 'active' : ''}}" bindtap="setCombo" data-id="100">标准改写</view>
           <view class="combo-option {{comboId === '30' ? 'active' : ''}}" bindtap="setCombo" data-id="30">强力降重</view>
         </view>
-        <text class="combo-hint" wx:if="{{comboId === '30'}}">💡 强力降重需消耗双倍额度</text>
+        <text class="combo-hint" wx:if="{{comboId === '30'}}"><text class="iconfont icon-info" style="margin-right: 6rpx;"></text> 强力降重需消耗双倍额度</text>
       </view>
 
       <!-- 文本输入区 -->
@@ -42,8 +42,8 @@
         <view class="input-footer">
           <text class="word-count">{{wordCount}} 字</text>
           <view class="action-icons">
-            <view class="icon-btn" bindtap="clearText">🗑️ 清空</view>
-            <view class="icon-btn" bindtap="pasteText">📋 粘贴</view>
+            <view class="icon-btn" bindtap="clearText"><text class="iconfont icon-delete" style="margin-right: 6rpx;"></text>清空</view>
+            <view class="icon-btn" bindtap="pasteText"><text class="iconfont icon-copy" style="margin-right: 6rpx;"></text>粘贴</view>
           </view>
         </view>
       </view>
@@ -59,7 +59,7 @@
       <!-- 结果展示区 -->
       <view class="result-section animate-fade-in-up animate-delay-3" wx:if="{{result}}">
         <view class="section-title">
-          <text class="section-icon">✨</text>
+          <text class="section-icon iconfont icon-gift"></text>
           <text>改写结果</text>
           <view class="copy-btn" bindtap="copyResult" wx:if="{{resultText}}">复制结果</view>
         </view>

@@ -22,7 +22,7 @@
 
 /* 内容区域 */
 .main-scroll { position: relative; z-index: 5; }
-.content-wrapper { padding: 0 40rpx 40rpx; }
+.content-wrapper { padding: 40rpx; }
 
 /* 过滤器与实时状态 */
 .filter-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32rpx; }
@@ -67,15 +67,16 @@
 .bar-row { font-size: 22rpx; color: rgba(255,255,255,0.7); margin-bottom: 16rpx; display: flex; flex-direction: column; gap: 8rpx;}
 .bar-track { height: 12rpx; background: rgba(255,255,255,0.06); border-radius: 6rpx; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 6rpx; transition: width 0.8s ease-out; }
-.blue { background: #00B4D8; }
-.purple { background: #6C63FF; }
+.bg-blue { background: #00B4D8; }
+.bg-purple { background: #6C63FF; }
 
 /* 四宫格网格 */
 .quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24rpx; }
 .card-icon { font-size: 32rpx; margin-bottom: 16rpx; display: block;}
 .sm-title { font-size: 20rpx; color: rgba(255,255,255,0.5); display: block; margin-bottom: 12rpx;}
 .lg-val { font-size: 36rpx; font-weight: 700; display: block; margin-bottom: 16rpx; }
-.sm-row { font-size: 18rpx; color: rgba(255,255,255,0.4); margin-bottom: 6rpx;}
+.sm-row { font-size: 18rpx; color: rgba(255,255,255,0.6); margin-bottom: 6rpx; display: flex; align-items: center;}
+.sm-row-icon { font-size: 16rpx; margin-right: 8rpx; opacity: 0.9; }
 .sm-prog-lbl { font-size: 18rpx; background: rgba(255,255,255,0.1); padding: 4rpx 12rpx; border-radius: 6rpx; display: inline-block; margin-top: 8rpx; color: rgba(255,255,255,0.6);}
 
 /* 文本颜色工具类 */

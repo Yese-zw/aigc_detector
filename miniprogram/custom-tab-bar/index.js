@@ -9,20 +9,20 @@ Component({
       {
         pagePath: '/pages/index/index',
         text: '数据大屏',
-        icon: '📊',
-        selectedIcon: '📈',
+        icon: 'icon-chart',
+        selectedIcon: 'icon-chart',
       },
       {
         pagePath: '/pages/admin/admin',
         text: 'Token管理',
-        icon: '🛡️',
-        selectedIcon: '🔐',
+        icon: 'icon-lock',
+        selectedIcon: 'icon-lock',
       },
       {
         pagePath: '/pages/profile/profile',
         text: '我的',
-        icon: '👤',
-        selectedIcon: '👤',
+        icon: 'icon-user',
+        selectedIcon: 'icon-user',
       }
     ]
   },

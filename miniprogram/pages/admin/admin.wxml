@@ -8,7 +8,7 @@
     <view class="blob blob-3"></view>
   </view>
 
-  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - {{statusBarHeight}}px - 140rpx); margin-top: {{statusBarHeight}}px;" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" refresher-background="transparent">
+  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - 140rpx);" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" refresher-background="transparent">
     <view class="content-wrapper">
 
       <!-- 系统状态 Banner -->
@@ -39,7 +39,7 @@
 
       <!-- 微信扫码获取 -->
       <view class="section-title animate-fade-in-up animate-delay-2" style="margin-top: 40rpx;">
-        <text class="section-icon">📱</text>
+        <text class="section-icon iconfont icon-scan"></text>
         <text>微信扫码自动获取</text>
       </view>
       <view class="update-card glass-card animate-fade-in-up animate-delay-2" style="align-items: center;">
@@ -54,7 +54,7 @@
 
       <!-- Token 更新区域 -->
       <view class="section-title animate-fade-in-up animate-delay-3" style="margin-top: 40rpx;">
-        <text class="section-icon">🔑</text>
+        <text class="section-icon iconfont icon-key"></text>
         <text>更新主节点 Token</text>
       </view>
 

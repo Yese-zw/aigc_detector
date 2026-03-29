@@ -1,0 +1,35 @@
+/* === GURANTEED STABLE BASE64 TTF (Admin Set) === */
+@font-face {
+  font-family: 'iconfont';
+  src: url('data:font/ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwR1NVQiCLJXoAAAE4AAAAVE9TLzL8Z63rAAABjAAAAFZjbWFwAAMAAAAAAXgAAAFMZ2x5ZgAAAAAAAAGkAAABXGhlYWQAh69xAAAA4AAAADZoaGVhB78D7AAAALwAAAAkaG10eBIAAAAMAAAAAAYAbG9jYQAAAAAAAABzAAAAAAxtYXhwAAAAAAAAAHAAAAAAbmFtZe26SlsAAAbUAAAB8nBvc3QAAAAAAAAAdQAAAAMAAQAAA4D/gABcBAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAGAAEAAAABAACu3o+3Xw889QALBAAAAAAA08Xn6AAAAADTxefoAAAAAAQAAAAEAAAACgACAAAAAAAAAAEAAAAGAAIAAwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAkwCmgAAAE8CTAKaAAAB9wAzAIkAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAdA/4AAXAQABAAAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAABAAA/4AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: inherit;
+  font-style: normal;
+  color: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Icon Mappings (Unicode placeholders) */
+.icon-dashboard:before { content: "\e901"; }
+.icon-chart:before { content: "\e902"; }
+.icon-team:before { content: "\e903"; }
+.icon-user:before { content: "\e904"; }
+.icon-safe:before, .icon-lock:before { content: "\e905"; }
+.icon-key:before { content: "\e906"; }
+.icon-log:before, .icon-file-text:before { content: "\e907"; }
+.icon-skin:before { content: "\e908"; }
+.icon-info:before { content: "\e909"; }
+.icon-feedback:before, .icon-message:before { content: "\e90a"; }
+.icon-copy:before { content: "\e90b"; }
+.icon-refresh:before { content: "\e90c"; }
+.icon-plus:before { content: "\e90d"; }
+.icon-delete:before { content: "\e90e"; }
+.icon-scan:before { content: "\e90f"; }
+.icon-time:before { content: "\e910"; }
+.icon-gift:before { content: "\e911"; }
+.icon-settings:before { content: "\e912"; }

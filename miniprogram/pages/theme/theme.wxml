@@ -5,10 +5,10 @@
   </view>
 
   <view class="theme-card glass-card animate-fade-in-up">
-    <view class="theme-header">🎨 选择界面主题</view>
+    <view class="theme-header"><text class="iconfont icon-skin" style="margin-right: 12rpx;"></text>选择界面主题</view>
     
     <view class="theme-option {{theme === 'theme-dark' ? 'active' : ''}}" bindtap="setDark">
-      <view class="theme-icon">🌌</view>
+      <view class="theme-icon"><text class="iconfont icon-skin" style="font-size: 60rpx;"></text></view>
       <view class="theme-info">
         <text class="theme-name">液态玻璃 (Liquid Glass)</text>
         <text class="theme-desc">深色极客工作台模式</text>
@@ -17,7 +17,7 @@
     </view>
     
     <view class="theme-option {{theme === 'theme-light' ? 'active' : ''}}" bindtap="setLight">
-      <view class="theme-icon">❄️</view>
+      <view class="theme-icon"><text class="iconfont icon-skin" style="font-size: 60rpx; filter: invert(1);"></text></view>
       <view class="theme-info">
         <text class="theme-name">极地简白 (Arctic White)</text>
         <text class="theme-desc">清爽办公白日模式</text>

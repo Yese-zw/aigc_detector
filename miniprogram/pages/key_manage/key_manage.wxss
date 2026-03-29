@@ -183,21 +183,99 @@
   background: rgba(255, 107, 107, 0.2);
 }
 
-.empty-state {
+/* Modal 弹窗系统 */
+.modal-root {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 80rpx 0;
-  margin-top: 40rpx;
-  border-radius: 32rpx;
+  justify-content: center;
+  padding: 40rpx;
 }
-.empty-icon {
-  font-size: 80rpx;
-  margin-bottom: 20rpx;
-  opacity: 0.8;
+.modal-mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
 }
-.empty-text {
+.modal-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 48rpx 40rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 40rpx 80rpx rgba(0,0,0,0.6);
+}
+.modal-title {
+  font-size: 36rpx;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 40rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+.form-group {
+  margin-bottom: 32rpx;
+}
+.form-group .label {
+  font-size: 22rpx;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12rpx;
+  display: block;
+}
+.form-group .input, .form-group .textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1rpx solid rgba(255, 255, 255, 0.15);
+  border-radius: 16rpx;
+  padding: 24rpx;
   font-size: 28rpx;
-  color: rgba(255,255,255,0.5);
+  width: 100%;
+  box-sizing: border-box;
+  color: #ffffff !important;
+  margin-top: 8rpx;
+}
+.form-group .input:focus, .form-group .textarea:focus {
+  border-color: #6C63FF;
+  background: rgba(108, 99, 255, 0.05);
+}
+.placeholder-style {
+  color: rgba(255, 255, 255, 0.2);
+}
+.form-group .textarea { height: 160rpx; }
+
+.modal-footer {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 48rpx;
+}
+.btn-cancel, .btn-confirm {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 600;
+  border-radius: 999rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0;
+}
+.btn-cancel {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.btn-confirm {
+  background: linear-gradient(135deg, #6C63FF, #00D4AA);
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgba(108, 99, 255, 0.4);
+}
+
+.animate-pop-in {
+  animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

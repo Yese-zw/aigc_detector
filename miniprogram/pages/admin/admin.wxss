@@ -67,7 +67,7 @@
   height: calc(100vh - 180rpx);
 }
 .content-wrapper {
-  padding: 20rpx 40rpx;
+  padding: 40rpx;
 }
 
 /* 状态栏 */

@@ -5,7 +5,7 @@
   
   <view class="header-bar animate-fade-in-up">
     <text class="header-title">实时链路与安全记录</text>
-    <view class="refresh-btn" bindtap="fetchLogs">↻ 追平最新</view>
+    <view class="refresh-btn" bindtap="fetchLogs"><text class="iconfont icon-refresh" style="font-size: 24rpx; margin-right: 6rpx;"></text>追平最新</view>
   </view>
 
   <scroll-view class="log-container glass-card animate-fade-in-up animate-delay-1" scroll-y scroll-with-animation scroll-top="{{scrollTop}}">

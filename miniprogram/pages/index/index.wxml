@@ -10,14 +10,20 @@
     <view class="blob blob-3"></view>
   </view>
 
-  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - {{statusBarHeight}}px - 140rpx); margin-top: {{statusBarHeight}}px;" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" refresher-background="transparent">
+  <scroll-view class="main-scroll" scroll-y enhanced show-scrollbar="{{false}}" style="height: calc(100vh - 140rpx);" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresh" refresher-background="transparent">
     <view class="content-wrapper">
 
       <!-- 顶部过滤与实时状态 -->
       <view class="filter-row animate-fade-in-up" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <view class="live-status" style="justify-content: flex-start;">
-          <view class="pulse-dot"></view>
-          <text>{{realtime.online_users || 0}} 人在线</text>
+        <view class="live-status" style="justify-content: flex-start; gap: 20rpx;">
+          <view style="display: flex; align-items: center;">
+            <view class="pulse-dot"></view>
+            <text>{{realtime.online_users || 0}} 在线</text>
+          </view>
+          <view style="display: flex; align-items: center; color: rgba(255,255,255,0.6); font-size: 24rpx;">
+            <text class="iconfont icon-user" style="margin-right: 8rpx; font-size: 22rpx;"></text>
+            <text>{{f_today_active}} 活跃</text>
+          </view>
         </view>
         
         <view class="update-time" wx:if="{{lastUpdate}}" style="font-size: 22rpx; color: rgba(255, 255, 255, 0.5);">
@@ -29,30 +35,44 @@
       <view class="hero-grid animate-fade-in-up animate-delay-1">
         <!-- 总收入 -->
         <view class="hero-card glass-card glass-card-primary">
-          <view class="hero-icon-bg"><text>💰</text></view>
+          <view class="hero-icon-bg"><text class="iconfont icon-chart"></text></view>
           <text class="hero-title">总计收入 (元)</text>
           <text class="hero-value">¥ {{f_revenue}}</text>
-          <view class="hero-footer">
-            <text class="footer-label">今日新增</text>
-            <text class="footer-val highlight-green">+¥ {{f_today_rev}}</text>
+          <view class="hero-footer" style="padding-top: 12rpx; border-top: 1rpx solid rgba(255,255,255,0.08);">
+            <view style="display: flex; flex-direction: column; flex: 1;">
+              <text class="footer-label">今日新增</text>
+              <text class="footer-val highlight-green">+¥ {{f_today_rev}}</text>
+            </view>
+            <view style="width: 1rpx; height: 30rpx; background: rgba(255,255,255,0.1); margin: 0 16rpx; align-self: center;"></view>
+            <view style="display: flex; flex-direction: column; flex: 1;">
+              <text class="footer-label">本月新增</text>
+              <text class="footer-val highlight-green" style="color: #6C63FF;">+¥ {{f_month_rev}}</text>
+            </view>
           </view>
         </view>
 
         <!-- 总用户 -->
         <view class="hero-card glass-card glass-card-secondary">
-          <view class="hero-icon-bg"><text>👥</text></view>
+          <view class="hero-icon-bg"><text class="iconfont icon-team"></text></view>
           <text class="hero-title">总用户数 (人)</text>
           <text class="hero-value">{{f_total_users}}</text>
-          <view class="hero-footer">
-            <text class="footer-label">今日新增</text>
-            <text class="footer-val highlight-blue">+{{f_today_users}}</text>
+          <view class="hero-footer" style="padding-top: 12rpx; border-top: 1rpx solid rgba(255,255,255,0.08);">
+            <view style="display: flex; flex-direction: column; flex: 1;">
+              <text class="footer-label">今日新增</text>
+              <text class="footer-val highlight-blue" style="color: #00B4D8;">+{{f_today_users}}</text>
+            </view>
+            <view style="width: 1rpx; height: 30rpx; background: rgba(255,255,255,0.1); margin: 0 16rpx; align-self: center;"></view>
+            <view style="display: flex; flex-direction: column; flex: 1;">
+              <text class="footer-label">本月新增</text>
+              <text class="footer-val highlight-blue" style="color: #00D4AA;">+{{f_month_users}}</text>
+            </view>
           </view>
         </view>
       </view>
 
       <!-- 第二行：转化与活跃漏斗 -->
       <view class="section-title animate-fade-in-up animate-delay-2">
-        <text class="section-icon">📈</text><text>用户转化分析</text>
+        <text class="section-icon iconfont icon-chart"></text><text>用户转化分析</text>
       </view>
       
       <view class="bento-grid animate-fade-in-up animate-delay-2">
@@ -78,57 +98,61 @@
           <view class="conversion-bars">
             <view class="bar-row">
               <text>活跃数 ({{conversion.active_users || 0}})</text>
-              <view class="bar-track"><view class="bar-fill blue" style="width: {{conversion.active_users / (conversion.total_users || 1) * 100}}%"></view></view>
+              <view class="bar-track"><view class="bar-fill bg-blue" style="width: {{(conversion.active_users / (conversion.total_users || 1)) * 100}}%"></view></view>
             </view>
             <view class="bar-row">
               <text>付费数 ({{conversion.paid_users || 0}})</text>
-              <view class="bar-track"><view class="bar-fill purple" style="width: {{conversion.paid_users / (conversion.total_users || 1) * 100}}%"></view></view>
+              <view class="bar-track"><view class="bar-fill bg-purple" style="width: {{(conversion.paid_users / (conversion.total_users || 1)) * 100}}%"></view></view>
             </view>
           </view>
+
         </view>
       </view>
 
       <!-- 第三行：四宫格指标 (订单、积分、代理、近期数据) -->
       <view class="section-title animate-fade-in-up animate-delay-3">
-        <text class="section-icon">📊</text><text>业务指标</text>
+        <text class="section-icon iconfont icon-dashboard"></text><text>业务指标</text>
       </view>
 
       <view class="bento-grid quad-grid animate-fade-in-up animate-delay-3">
         
         <!-- 订单数据 -->
         <view class="bento-card glass-card">
-          <text class="card-icon">🛍️</text>
+          <text class="card-icon iconfont icon-scan" style="color: #6C63FF;"></text>
           <text class="sm-title">总订单量</text>
           <text class="lg-val">{{f_total_orders}}</text>
-          <view class="sm-row">今日: <text class="green">+{{f_today_orders}}</text></view>
-          <view class="sm-prog-lbl">完成率: {{orders.completion_rate || 0}}%</view>
+          <view class="sm-row" style="display: flex; justify-content: space-between; align-items: center;">
+            <view><text class="iconfont icon-copy sm-row-icon"></text> 今日: <text class="green">+{{f_today_orders}}</text></view>
+            <view style="font-size: 18rpx; color: rgba(255,255,255,0.4);">成功率: {{orders.completion_rate || 0}}%</view>
+          </view>
+          <view class="sm-row"><text class="iconfont icon-chart sm-row-icon"></text> 本月: <text style="color: #00D4AA;">{{f_month_orders}}</text></view>
         </view>
 
-        <!-- 积分流转 -->
+        <!-- 积分消耗统计 -->
         <view class="bento-card glass-card">
-          <text class="card-icon">💎</text>
-          <text class="sm-title">积分利用率</text>
-          <text class="lg-val cyan">{{points.utilization_rate || 0}}%</text>
-          <view class="sm-row">下发: {{points.distributed || 0}}</view>
-          <view class="sm-row">消耗: {{points.consumed || 0}}</view>
+          <text class="card-icon iconfont icon-gift" style="color: #00D4AA;"></text>
+          <text class="sm-title">积分消耗统计</text>
+          <text class="lg-val cyan">{{f_today_points}}</text>
+          <view class="sm-row"><text class="iconfont icon-copy sm-row-icon"></text> 今日消耗: {{f_today_points}}</view>
+          <view class="sm-row"><text class="iconfont icon-chart sm-row-icon"></text> 本月消耗: {{f_month_points}}</view>
         </view>
 
-        <!-- 代理与ARPU -->
+        <!-- 代理与价值 -->
         <view class="bento-card glass-card">
-          <text class="card-icon">🤝</text>
-          <text class="sm-title">代理与价值</text>
-          <text class="lg-val warm">¥{{revenue.arpu || 0.00}}</text>
-          <view class="sm-row">代理数: {{agents.total || 0}}</view>
-          <view class="sm-row">代理抽成: {{agents.total_commission || 0}}</view>
+          <text class="card-icon iconfont icon-team" style="color: #FFB347;"></text>
+          <text class="sm-title">代理抽成与增长</text>
+          <text class="lg-val warm">¥{{f_agent_comm}}</text>
+          <view class="sm-row"><text class="iconfont icon-user sm-row-icon"></text> 代理总数: {{agents.total || 0}}</view>
+          <view class="sm-row"><text class="iconfont icon-chart sm-row-icon"></text> 今日增长: <text style="color: #FFB347;">+¥{{f_agent_growth}}</text></view>
         </view>
 
-        <!-- 近一小时 -->
+        <!-- 最近 1 小时 (数据优化) -->
         <view class="bento-card glass-card">
-          <text class="card-icon">⏱️</text>
+          <text class="card-icon iconfont icon-chart" style="color: #6C63FF;"></text>
           <text class="sm-title">最近 1 小时</text>
-          <text class="lg-val purple">¥{{realtime.recent_1h.revenue || 0}}</text>
-          <view class="sm-row">新增用户: {{realtime.recent_1h.new_users || 0}}</view>
-          <view class="sm-row">新增订单: {{realtime.recent_1h.new_orders || 0}}</view>
+          <text class="lg-val purple">¥ {{f_recent_1h_rev}}</text>
+          <view class="sm-row"><text class="iconfont icon-user sm-row-icon"></text> 新增用户: {{realtime.recent_1h.new_users || 0}}</view>
+          <view class="sm-row"><text class="iconfont icon-scan sm-row-icon"></text> 新增订单: {{realtime.recent_1h.new_orders || 0}}</view>
         </view>
 
       </view>

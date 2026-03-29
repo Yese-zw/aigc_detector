@@ -35,7 +35,7 @@
         <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="key_manage">
           <view class="menu-left">
             <view class="menu-icon-wrap" style="background: rgba(108,99,255,0.15);">
-              <text class="menu-icon">🔑</text>
+              <text class="menu-icon iconfont icon-key"></text>
             </view>
             <text class="menu-label">Key管理</text>
           </view>
@@ -50,7 +50,7 @@
         <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="sys_logs">
           <view class="menu-left">
             <view class="menu-icon-wrap" style="background: rgba(255,107,107,0.15);">
-              <text class="menu-icon">📝</text>
+              <text class="menu-icon iconfont icon-log"></text>
             </view>
             <text class="menu-label">系统日志</text>
           </view>
@@ -68,7 +68,7 @@
         <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="theme">
           <view class="menu-left">
             <view class="menu-icon-wrap" style="background: rgba(255,179,71,0.15);">
-              <text class="menu-icon">🎨</text>
+              <text class="menu-icon iconfont icon-skin"></text>
             </view>
             <text class="menu-label">主题模式</text>
           </view>
@@ -84,7 +84,7 @@
         <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="about">
           <view class="menu-left">
             <view class="menu-icon-wrap" style="background: rgba(78,205,196,0.15);">
-              <text class="menu-icon">💡</text>
+              <text class="menu-icon iconfont icon-info"></text>
             </view>
             <text class="menu-label">关于我们</text>
           </view>
@@ -100,7 +100,7 @@
         <view class="menu-item" hover-class="menu-item-hover" bindtap="handleMenuTap" data-type="feedback">
           <view class="menu-left">
             <view class="menu-icon-wrap" style="background: rgba(168,85,247,0.15);">
-              <text class="menu-icon">💬</text>
+              <text class="menu-icon iconfont icon-feedback"></text>
             </view>
             <text class="menu-label">帮助与反馈</text>
           </view>

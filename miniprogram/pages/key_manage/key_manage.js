@@ -1,4 +1,4 @@
-const ADMIN_API_BASE = 'https://api.lingsi.chat/admin'
+const ADMIN_API_BASE = 'https://api.lingsiai.cn/admin'
 
 Page({
   data: {

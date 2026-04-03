@@ -1,4 +1,4 @@
-const ADMIN_API_BASE = 'https://api.lingsi.chat'
+const ADMIN_API_BASE = 'https://api.lingsiai.cn'
 const DEFAULT_ADMIN_PWD = 'zw123' // 默认管理员密码
 
 Page({

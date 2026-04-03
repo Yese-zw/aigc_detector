@@ -2,7 +2,7 @@
  * API 请求工具 - AIGC Detector
  * 使用 X-API-Key 认证
  */
-const BASE_URL = 'https://api.lingsi.chat/api/v1/ai'
+const BASE_URL = 'https://api.lingsiai.cn/api/v1/ai'
 const STORAGE_KEY = 'user_api_key'
 
 /** 获取 API Key */

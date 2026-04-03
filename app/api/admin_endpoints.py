@@ -349,8 +349,8 @@ async def miniapp_dashboard(request: Request):
 # === Lingsi Analytics 代理接口 ===
 @router.get("/lingsi-dashboard")
 async def proxy_lingsi_dashboard(request: Request, time_range: str = Query("30d")):
-    """代理 lingsi.chat 的仪表盘数据，供小程序大屏使用"""
-    BASE_URL_LINGSI = "https://lingsi.chat/api/v1"
+    """代理 lingsiai.cn 的仪表盘数据，供小程序大屏使用"""
+    BASE_URL_LINGSI = "https://lingsiai.cn/api/v1"
     API_KEY = "lingsi-analytics-secure-key-2026"
     ENDPOINT_LINGSI = "/analytics/dashboard-overview"
     

@@ -52,7 +52,7 @@ import requests
 
 import requests
 
-url = "https://api.lingsi.chat/ai/AIRewrite"
+url = "https://api.lingsiai.cn/ai/AIRewrite"
 headers = {
     "X-API-Key": "sk__YWPFq0Dpwsk8Tk-sBYfrqgMCGTGts6sEpOlE6E30IQ",
     "Content-Type": "application/json"

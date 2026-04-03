@@ -275,7 +275,7 @@
 2026-03-29 19:23:06,768 - aigc_detector - ERROR - WxLogin status proxy failed: HTTPSConnectionPool(host='xrzbk.lanbeike.online', port=443): Read timed out. (read timeout=10)
 2026-03-29 19:26:02,389 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
 2026-03-29 19:26:34,425 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
-2026-03-29 19:31:26,188 - aigc_detector - ERROR - Lingsi dashboard proxy failed: HTTPSConnectionPool(host='lingsi.chat', port=443): Max retries exceeded with url: /api/v1/analytics/dashboard-overview?time_range=30d (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2026-03-29 19:31:26,188 - aigc_detector - ERROR - Lingsi dashboard proxy failed: HTTPSConnectionPool(host='lingsiai.cn', port=443): Max retries exceeded with url: /api/v1/analytics/dashboard-overview?time_range=30d (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
 2026-03-29 19:39:05,185 - aigc_detector - ERROR - Error getting token info: Connection closed by server.
 2026-03-29 19:57:29,793 - aigc_detector - INFO - 正在关闭应用...
 2026-03-29 19:57:29,797 - aigc_detector - INFO - Redis连接已关闭

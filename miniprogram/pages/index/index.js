@@ -1,6 +1,6 @@
 const app = getApp()
 
-const BASE_URL = "https://lingsi.chat/api/v1"
+const BASE_URL = "https://lingsiai.cn/api/v1"
 const API_KEY = "lingsi-analytics-secure-key-2026"
 const ENDPOINT = "/analytics/dashboard-overview"
 
@@ -116,7 +116,7 @@ Page({
 
     return new Promise((resolve) => {
       // 由于后端路由中并未包含 /api/v1 这个前缀，应直接使用 /admin/lingsi-dashboard
-      const LOCAL_API_BASE = 'https://api.lingsi.chat/admin'
+      const LOCAL_API_BASE = 'https://api.lingsiai.cn/admin'
 
       wx.request({
         url: `${LOCAL_API_BASE}/lingsi-dashboard`,

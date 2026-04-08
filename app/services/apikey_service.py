@@ -150,10 +150,7 @@ class APIKeyService:
         redis_key = self._get_redis_key(api_key)
         self.redis_client.set(redis_key, key_data.model_dump_json())
         
-        logger.info(
-            f"✓ API Key 验证通过 - 名称: {key_data.name}, "
-            f"使用: {usage}, 剩余: {key_data.quota}/{key_data.total_quota}"
-        )
+
         
         return {
             "valid": True,

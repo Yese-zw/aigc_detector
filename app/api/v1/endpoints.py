@@ -224,7 +224,7 @@ async def ai_rewrite(
             text_length *=2
 
         logger.info("=" * 70)
-        logger.info(f"📥 收到改写请求 | Key: {key_data.name if key_data else '未知'} | 组合: {real_combination_id} | 长度: {text_length} | 余额: {key_data.quota if key_data else 0}")
+        logger.info(f"📥 收到改写请求 | Key: {key_data.name if key_data else '未知'} | 组合: {real_combination_id} (原始传参: {request.combination_id}) | 长度: {text_length} | 余额: {key_data.quota if key_data else 0}")
 
         # 先检查额度是否足够（不扣除）
         if not key_data or key_data.quota < text_length:

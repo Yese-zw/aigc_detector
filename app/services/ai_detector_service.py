@@ -160,9 +160,9 @@ class AIDetectorService:
             
             res_json = response.json()
             
-            # 检查业务逻辑上的 token 失效 (部分接口 200 状态码但 code 为 401)
+            # 检查业务逻辑上的 token 失效 (部分接口 200 状态码但 code 为 401/104)
             # 根据抓包分析代码判断失效
-            if res_json.get("code") in [401, 1001, 1002, 1003]:  # 假设这些是 token 相关错误码
+            if res_json.get("code") in [401, 104, 1001, 1002, 1003]:  # 104 为多地登录导致失效
                 raise requests.exceptions.HTTPError("Business auth failed", response=response)
                 
             return res_json
@@ -181,7 +181,7 @@ class AIDetectorService:
                 else:
                     try:
                         res = e.response.json()
-                        if res.get("code") in [401, 1001, 1002, 1003]:
+                        if res.get("code") in [401, 104, 1001, 1002, 1003]:
                             is_auth_error = True
                     except:
                         pass

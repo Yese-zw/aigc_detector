@@ -52,6 +52,10 @@ class Settings(BaseSettings):
     AI_DETECTOR_TIMEOUT: int = 1500000
     LOGIN_TIMEOUT: int = 10
     
+    # 上游登录凭据
+    UPSTREAM_EMAIL: str = "1762389546@qq.com"
+    UPSTREAM_PASSWORD: str = "xrz1762389546"
+    
     # 日志配置
     LOG_LEVEL: str = "INFO"
     LOG_FILE: str = "logs/ai_detector.log"

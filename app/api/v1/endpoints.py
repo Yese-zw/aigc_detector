@@ -94,11 +94,7 @@ async def ai_detector(
         key_data = apikey_service.get_apikey(api_key)
         
         logger.info("=" * 70)
-        logger.info(f"📥 收到检测请求")
-        logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
-        logger.info(f"   🌐 语言: {request.language}")
-        logger.info(f"   📏 文本长度: {text_length} 字符")
-        logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
+        logger.info(f"📥 收到检测请求 | Key: {key_data.name if key_data else '未知'} | 语言: {request.language} | 长度: {text_length} | 余额: {key_data.quota if key_data else 0}")
         
         # 先检查额度是否足够（不扣除）
         if not key_data or key_data.quota < text_length:
@@ -114,6 +110,14 @@ async def ai_detector(
             language=request.language
         )
         
+        # 检查上游业务状态码，只有成功才扣除额度
+        if result.get("code") != 200:
+            logger.error(f"✗ 上游服务返回错误: {result}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"AI检测服务返回错误: {result.get('msg', '未知错误')}"
+            )
+            
         # 检测成功后才扣除额度
         verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
         
@@ -121,9 +125,7 @@ async def ai_detector(
             # 理论上不应该到这里，因为前面已经检查过了
             logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
         
-        logger.info(f"✓ 检测完成")
-        logger.info(f"   📊 扣除额度: {text_length}")
-        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
+        logger.info(f"✓ 检测完成 | 扣除: {text_length} | 剩余: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
         logger.info("=" * 70)
         
         # 返回响应，包含额度信息
@@ -222,11 +224,7 @@ async def ai_rewrite(
             text_length *=2
 
         logger.info("=" * 70)
-        logger.info(f"📥 收到改写请求")
-        logger.info(f"   🔑 API Key: {key_data.name if key_data else '未知'}")
-        logger.info(f"   🌐 组合: {real_combination_id} (原始传参: {request.combination_id})")
-        logger.info(f"   📏 文本长度: {text_length} 字符")
-        logger.info(f"   💰 剩余额度: {key_data.quota if key_data else 0}")
+        logger.info(f"📥 收到改写请求 | Key: {key_data.name if key_data else '未知'} | 组合: {real_combination_id} | 长度: {text_length} | 余额: {key_data.quota if key_data else 0}")
 
         # 先检查额度是否足够（不扣除）
         if not key_data or key_data.quota < text_length:
@@ -242,6 +240,14 @@ async def ai_rewrite(
             combination_id=real_combination_id
         )
 
+        # 检查上游业务状态码，只有成功才扣除额度
+        if result.get("code") != 200:
+            logger.error(f"✗ 上游改写服务返回错误: {result}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"AI改写服务返回错误: {result.get('msg', '未知错误')}"
+            )
+
         # 改写成功后才扣除额度
         verification_result = apikey_service.verify_and_consume_quota(api_key, text_length)
 
@@ -249,9 +255,7 @@ async def ai_rewrite(
             # 理论上不应该到这里，因为前面已经检查过了
             logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
 
-        logger.info(f"✓ 改写完成")
-        logger.info(f"   📊 扣除额度: {text_length}")
-        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
+        logger.info(f"✓ 改写完成 | 扣除: {text_length} | 剩余: {verification_result.get('remaining_quota', key_data.quota - text_length)}")
         logger.info("=" * 70)
 
         # 返回响应，包含额度信息
@@ -422,6 +426,14 @@ async def upload_file(
             platform=platform
         )
 
+        # 检查上游业务状态码，只有成功才扣除额度
+        if result.get("code") != 200:
+            logger.error(f"✗ 上游文件上传返回错误: {result}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"文件处理失败: {result.get('msg', '未知错误')}"
+            )
+
         # 上传成功后才扣除额度
         verification_result = apikey_service.verify_and_consume_quota(api_key, quota_cost)
 
@@ -429,9 +441,7 @@ async def upload_file(
             # 理论上不应该到这里，因为前面已经检查过了
             logger.warning(f"⚠️ 额度扣除失败: {verification_result['message']}")
 
-        logger.info(f"✓ 上传完成")
-        logger.info(f"   📊 扣除额度: {quota_cost}")
-        logger.info(f"   💰 剩余额度: {verification_result.get('remaining_quota', key_data.quota - quota_cost)}")
+        logger.info(f"✓ 上传完成 | 扣除: {quota_cost} | 剩余: {verification_result.get('remaining_quota', key_data.quota - quota_cost)}")
         logger.info("=" * 70)
         
         # 返回响应，包含额度信息

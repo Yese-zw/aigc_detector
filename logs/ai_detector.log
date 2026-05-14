@@ -373,3 +373,43 @@
 2026-03-29 20:07:53,786 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
 2026-03-29 20:07:53,786 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
 2026-03-29 20:07:53,786 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,878 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,879 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,879 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,879 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,880 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,880 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,884 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,884 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,887 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,887 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,071 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,072 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,072 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,072 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,083 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,083 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,640 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,641 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,641 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,641 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:14,425 - aigc_detector - INFO - request_id=d2654bc0f10645a4aec34a7fcdbd5a49 path=/admin/dashboard duration_ms=1.85 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:17,495 - aigc_detector - ERROR - Redis连接失败: Connection closed by server.
+2026-05-14 12:37:17,496 - aigc_detector - ERROR - Redis连接失败: Redis连接失败
+2026-05-14 12:37:17,496 - aigc_detector - INFO - request_id=ac6a6a6f850046d6a36b731836d2f216 path=/admin/token/info duration_ms=3003.68 status_code=500 api_key_name=- quota_used=0
+2026-05-14 12:37:18,974 - aigc_detector - INFO - request_id=36b1f119f54640babcae6cb65d1ddcaa path=/admin/dashboard duration_ms=1.93 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:19,195 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-05-14 12:37:19,223 - aigc_detector - INFO - request_id=1ad536962f094ebd81cf5cab127243bf path=/admin/token/info duration_ms=196.00 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:20,614 - aigc_detector - INFO - request_id=fc1ba0ddc57247c6b01edb094dd86d25 path=/admin/logs duration_ms=9.24 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:26,949 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '科学普及工作不断深入推进，利于全社会营造起爱科学，尊崇知识的良好氛围，经由趣味实验演示并辅以深入浅出阐述，孩子们能够就近领略科学的吸引力，提升国民科学素养对于国家达成高质量发展十分关键。', 'originalCount': 95, 'resultCount': 93}}
+2026-05-14 12:37:27,006 - aigc_detector - INFO - request_id=8553f3cf060548ffb2186d5032e4cc8a path=/ai/AIRewrite duration_ms=2639.51 status_code=200 api_key_name=测试 quota_used=95
+2026-05-14 12:37:29,071 - aigc_detector - INFO - request_id=99ea8e6e711047be8679205bc93c4fb3 path=/admin/logs duration_ms=1.08 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:30,500 - aigc_detector - INFO - request_id=b533a8728fc54bd9b38cd5a6f77bb496 path=/admin/logs duration_ms=10.52 status_code=200 api_key_name=- quota_used=0

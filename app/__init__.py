@@ -1,7 +1,3 @@
-"""
-AIGC Detector API Application
-AI生成内容检测服务
-"""
+"""Refactored AIGC Detector backend."""
 
 __version__ = "1.0.0"
-

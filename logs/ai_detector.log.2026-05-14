@@ -1,0 +1,425 @@
+2026-03-29 03:51:39,466 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 03:51:39,633 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 03:51:39,633 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 03:51:39,636 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 03:51:39,639 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 03:51:39,864 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,865 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 03:51:39,865 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 03:51:39,866 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,868 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,868 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 03:51:39,869 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,869 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 03:51:39,869 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
+2026-03-29 03:51:39,870 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 03:51:39,870 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 03:51:39,870 - aigc_detector - INFO - ==================================================
+2026-03-29 03:54:55,941 - aigc_detector - INFO - 🔧 更新API Key状态 - 测试: 启用
+2026-03-29 03:54:55,942 - aigc_detector - INFO - 🔧 更新API Key额度 - 测试: 102456 -> 102457 (+1)
+2026-03-29 03:54:55,942 - aigc_detector - INFO - 🔧 更新API Key名称 - 测试 -> 测试
+2026-03-29 03:55:10,549 - aigc_detector - INFO - ======================================================================
+2026-03-29 03:55:10,549 - aigc_detector - INFO - 📥 收到检测请求
+2026-03-29 03:55:10,550 - aigc_detector - INFO -    🔑 API Key: 测试
+2026-03-29 03:55:10,550 - aigc_detector - INFO -    🌐 语言: zh
+2026-03-29 03:55:10,550 - aigc_detector - INFO -    📏 文本长度: 94 字符
+2026-03-29 03:55:10,550 - aigc_detector - INFO -    💰 剩余额度: 102457
+2026-03-29 03:55:10,574 - aigc_detector - INFO - 📝 执行检测 - 语言: zh, 文本长度: 94
+2026-03-29 03:55:10,995 - aigc_detector - INFO - ✓ 检测完成
+2026-03-29 03:55:11,067 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 94, 剩余: 102363/110001
+2026-03-29 03:55:11,067 - aigc_detector - INFO - ✓ 检测完成
+2026-03-29 03:55:11,067 - aigc_detector - INFO -    📊 扣除额度: 94
+2026-03-29 03:55:11,067 - aigc_detector - INFO -    💰 剩余额度: 102363
+2026-03-29 03:55:11,068 - aigc_detector - INFO - ======================================================================
+2026-03-29 03:55:21,924 - aigc_detector - INFO - ======================================================================
+2026-03-29 03:55:21,924 - aigc_detector - INFO - 📥 收到改写请求
+2026-03-29 03:55:21,925 - aigc_detector - INFO -    🔑 API Key: 测试
+2026-03-29 03:55:21,925 - aigc_detector - INFO -    🌐 组合: 20 (原始传参: 20)
+2026-03-29 03:55:21,925 - aigc_detector - INFO -    📏 文本长度: 94 字符
+2026-03-29 03:55:21,926 - aigc_detector - INFO -    💰 剩余额度: 102363
+2026-03-29 03:55:21,950 - aigc_detector - INFO - 📝 执行改写 - 组合: 20, 文本长度: 94
+2026-03-29 03:55:23,779 - aigc_detector - INFO - ✓ 改写完成
+2026-03-29 03:55:23,852 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 94, 剩余: 102269/110001
+2026-03-29 03:55:23,852 - aigc_detector - INFO - ✓ 改写完成
+2026-03-29 03:55:23,852 - aigc_detector - INFO -    📊 扣除额度: 94
+2026-03-29 03:55:23,852 - aigc_detector - INFO -    💰 剩余额度: 102269
+2026-03-29 03:55:23,852 - aigc_detector - INFO - ======================================================================
+2026-03-29 18:33:33,687 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:33:33,750 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:33:33,762 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:33:33,819 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:33:33,819 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:33:33,822 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:33:34,063 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:33:34,123 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:33:34,218 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,218 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:33:34,218 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:33:34,218 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,222 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,222 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:33:34,222 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:33:34,222 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,226 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,226 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:33:34,226 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:33:34,226 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,229 - aigc_detector - INFO - ==================================================
+2026-03-29 18:33:34,230 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:33:34,230 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:33:34,230 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:47,523 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:46:47,524 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:46:47,524 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:46:52,452 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:46:52,485 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:46:52,505 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:46:52,513 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:46:52,548 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:46:52,602 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:46:52,684 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,685 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:46:52,685 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:46:52,685 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,727 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,727 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:46:52,727 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:46:52,727 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,752 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,752 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:46:52,752 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:46:52,752 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:52,974 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:46:53,031 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:46:53,118 - aigc_detector - INFO - ==================================================
+2026-03-29 18:46:53,118 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:46:53,118 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:46:53,118 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:49,604 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:51:49,605 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:51:49,605 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:51:49,651 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:51:49,651 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:51:49,651 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:51:49,651 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:51:49,652 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:51:49,683 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:51:49,683 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:51:49,683 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:51:54,756 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
+2026-03-29 18:51:54,756 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
+2026-03-29 18:51:54,772 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
+2026-03-29 18:51:54,772 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
+2026-03-29 18:51:59,149 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:51:59,233 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:51:59,335 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,335 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:51:59,335 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:51:59,335 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,456 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:51:59,511 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:51:59,523 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:51:59,539 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:51:59,583 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:51:59,599 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:51:59,602 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,602 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:51:59,602 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:51:59,602 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,676 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,677 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:51:59,677 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:51:59,677 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,707 - aigc_detector - INFO - ==================================================
+2026-03-29 18:51:59,708 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:51:59,708 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
+2026-03-29 18:51:59,708 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:48,066 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:52:48,066 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:52:48,067 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:52:48,067 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:52:48,067 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:52:48,067 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:52:48,082 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:52:48,082 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 18:52:48,082 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:52:48,082 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:52:48,082 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 18:52:48,083 - aigc_detector - INFO - 应用已关闭
+2026-03-29 18:52:50,400 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:52:50,410 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:52:50,423 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:52:50,431 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 18:52:50,461 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:52:50,471 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:52:50,485 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:52:50,492 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 18:52:50,559 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,559 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:52:50,559 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 18:52:50,559 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,568 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,568 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:52:50,568 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 18:52:50,568 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,591 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,591 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:52:50,591 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 18:52:50,591 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,592 - aigc_detector - INFO - ==================================================
+2026-03-29 18:52:50,592 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 18:52:50,592 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 18:52:50,592 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:10,788 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:05:10,788 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:05:10,789 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:05:21,352 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:05:21,353 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:05:21,353 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:05:29,994 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:05:29,999 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:05:30,000 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:05:30,026 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:05:30,079 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:05:30,080 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:05:30,081 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:05:30,102 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:05:30,192 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,192 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:05:30,192 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:05:30,193 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,194 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,194 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:05:30,194 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:05:30,194 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,206 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,206 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:05:30,206 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:05:30,206 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,231 - aigc_detector - INFO - ==================================================
+2026-03-29 19:05:30,231 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:05:30,231 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:05:30,231 - aigc_detector - INFO - ==================================================
+2026-03-29 19:16:57,572 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:16:57,572 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:16:57,573 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:16:57,620 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:16:57,621 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:16:57,621 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:16:57,651 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:16:57,652 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:16:57,652 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:17:06,503 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:17:06,510 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:17:06,522 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:17:06,536 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:17:06,575 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:17:06,580 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:17:06,593 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:17:06,609 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:17:06,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:17:06,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:17:06,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,701 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,701 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:17:06,702 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:17:06,702 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,718 - aigc_detector - INFO - ==================================================
+2026-03-29 19:17:06,718 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:17:06,718 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:17:06,718 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:26,753 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:21:26,754 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:21:26,754 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:21:33,441 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:21:33,448 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:21:33,458 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:21:33,511 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:21:33,515 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:21:33,523 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:21:33,608 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:33,608 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:21:33,608 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:21:33,608 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:33,615 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:33,615 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:21:33,615 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:21:33,615 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:33,624 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:33,624 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:21:33,624 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:21:33,624 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:34,493 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:21:34,590 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:21:34,681 - aigc_detector - INFO - ==================================================
+2026-03-29 19:21:34,681 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:21:34,681 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:21:34,681 - aigc_detector - INFO - ==================================================
+2026-03-29 19:23:01,945 - aigc_detector - ERROR - WxLogin status proxy failed: HTTPSConnectionPool(host='xrzbk.lanbeike.online', port=443): Max retries exceeded with url: /wxlogin/status?request_id=897f3d67-1766-4136-af08-41172a4a8d74 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2026-03-29 19:23:06,768 - aigc_detector - ERROR - WxLogin status proxy failed: HTTPSConnectionPool(host='xrzbk.lanbeike.online', port=443): Read timed out. (read timeout=10)
+2026-03-29 19:26:02,389 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
+2026-03-29 19:26:34,425 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
+2026-03-29 19:31:26,188 - aigc_detector - ERROR - Lingsi dashboard proxy failed: HTTPSConnectionPool(host='lingsiai.cn', port=443): Max retries exceeded with url: /api/v1/analytics/dashboard-overview?time_range=30d (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2026-03-29 19:39:05,185 - aigc_detector - ERROR - Error getting token info: Connection closed by server.
+2026-03-29 19:57:29,793 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:57:29,797 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:57:29,797 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:57:29,870 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:57:29,872 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:57:29,872 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:57:29,885 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 19:57:29,887 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 19:57:29,887 - aigc_detector - INFO - 应用已关闭
+2026-03-29 19:57:35,915 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:57:35,987 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:57:36,087 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:36,087 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:57:36,087 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:57:36,088 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:36,284 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:57:36,341 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:57:36,433 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:36,433 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:57:36,434 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:57:36,434 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:36,948 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:57:37,025 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:57:37,065 - aigc_detector - ERROR - Redis连接失败: Connection closed by server.
+2026-03-29 19:57:37,169 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:37,169 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:57:37,169 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:57:37,169 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:45,270 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 19:57:45,341 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 19:57:45,452 - aigc_detector - INFO - ==================================================
+2026-03-29 19:57:45,452 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 19:57:45,452 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 19:57:45,452 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:42,314 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 20:07:42,314 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 20:07:42,314 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 20:07:42,315 - aigc_detector - INFO - 应用已关闭
+2026-03-29 20:07:42,315 - aigc_detector - INFO - 应用已关闭
+2026-03-29 20:07:42,330 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 20:07:42,330 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 20:07:42,331 - aigc_detector - INFO - 应用已关闭
+2026-03-29 20:07:42,346 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 20:07:42,346 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 20:07:42,346 - aigc_detector - INFO - 应用已关闭
+2026-03-29 20:07:46,116 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:46,121 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:46,126 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:46,132 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:46,207 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:46,209 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:46,217 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:46,221 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:46,370 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,370 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:46,370 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:46,370 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,371 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,371 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:46,371 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:46,371 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,378 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,378 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:46,378 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:46,378 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,382 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:46,382 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:46,382 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:46,382 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:49,086 - aigc_detector - INFO - 正在关闭应用...
+2026-03-29 20:07:49,087 - aigc_detector - INFO - Redis连接已关闭
+2026-03-29 20:07:49,087 - aigc_detector - INFO - 应用已关闭
+2026-03-29 20:07:53,546 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:53,550 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:53,568 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:53,581 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
+2026-03-29 20:07:53,629 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:53,629 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:53,639 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:53,654 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
+2026-03-29 20:07:53,739 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,740 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:53,740 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:53,740 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,743 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,743 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:53,743 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:53,743 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,752 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,752 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:53,752 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:53,752 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,786 - aigc_detector - INFO - ==================================================
+2026-03-29 20:07:53,786 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-03-29 20:07:53,786 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-03-29 20:07:53,786 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,878 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,879 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,879 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,879 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,880 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,880 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,884 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,884 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:00,887 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:00,887 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,071 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,072 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,072 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,072 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,083 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,083 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,640 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:07,641 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-05-14 12:37:07,641 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-05-14 12:37:07,641 - aigc_detector - INFO - ==================================================
+2026-05-14 12:37:14,425 - aigc_detector - INFO - request_id=d2654bc0f10645a4aec34a7fcdbd5a49 path=/admin/dashboard duration_ms=1.85 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:17,495 - aigc_detector - ERROR - Redis连接失败: Connection closed by server.
+2026-05-14 12:37:17,496 - aigc_detector - ERROR - Redis连接失败: Redis连接失败
+2026-05-14 12:37:17,496 - aigc_detector - INFO - request_id=ac6a6a6f850046d6a36b731836d2f216 path=/admin/token/info duration_ms=3003.68 status_code=500 api_key_name=- quota_used=0
+2026-05-14 12:37:18,974 - aigc_detector - INFO - request_id=36b1f119f54640babcae6cb65d1ddcaa path=/admin/dashboard duration_ms=1.93 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:19,195 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-05-14 12:37:19,223 - aigc_detector - INFO - request_id=1ad536962f094ebd81cf5cab127243bf path=/admin/token/info duration_ms=196.00 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:20,614 - aigc_detector - INFO - request_id=fc1ba0ddc57247c6b01edb094dd86d25 path=/admin/logs duration_ms=9.24 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:26,949 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '科学普及工作不断深入推进，利于全社会营造起爱科学，尊崇知识的良好氛围，经由趣味实验演示并辅以深入浅出阐述，孩子们能够就近领略科学的吸引力，提升国民科学素养对于国家达成高质量发展十分关键。', 'originalCount': 95, 'resultCount': 93}}
+2026-05-14 12:37:27,006 - aigc_detector - INFO - request_id=8553f3cf060548ffb2186d5032e4cc8a path=/ai/AIRewrite duration_ms=2639.51 status_code=200 api_key_name=测试 quota_used=95
+2026-05-14 12:37:29,071 - aigc_detector - INFO - request_id=99ea8e6e711047be8679205bc93c4fb3 path=/admin/logs duration_ms=1.08 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:37:30,500 - aigc_detector - INFO - request_id=b533a8728fc54bd9b38cd5a6f77bb496 path=/admin/logs duration_ms=10.52 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:48:45,632 - aigc_detector - INFO - request_id=8d9c781c4449429ca84f4222cb8b1881 path=/api/v1/analytics/track duration_ms=0.35 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:48:45,636 - aigc_detector - INFO - request_id=8e5e1ae2a0564746a20db650f711ce97 path=/api/v1/analytics/track duration_ms=0.49 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:48:45,639 - aigc_detector - INFO - request_id=8be5edd34b6a42e394fa75f7ea6f6ba9 path=/api/v1/user-auth/check-auth duration_ms=0.37 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:48:45,643 - aigc_detector - INFO - request_id=839b5ec75d8944e09a1c5b34e03f83b3 path=/api/v1/user-auth/check-auth duration_ms=0.53 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:50:11,394 - aigc_detector - INFO - request_id=88eb1f9ad2374505bec7ba7b48e75758 path=/api/v1/user-auth/check-auth duration_ms=1.20 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:50:11,400 - aigc_detector - INFO - request_id=63e3c78a6e8043e2a63ebb4b9957c27d path=/api/v1/user-auth/check-auth duration_ms=0.36 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:50:11,445 - aigc_detector - INFO - request_id=6474b539da604212813358b1cfe959be path=/api/v1/analytics/track duration_ms=0.35 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:50:11,447 - aigc_detector - INFO - request_id=944862c15d494c9696ee6fde3b1ac0bd path=/api/v1/user-auth/check-auth duration_ms=0.43 status_code=404 api_key_name=- quota_used=0
+2026-05-14 12:50:12,599 - aigc_detector - INFO - request_id=250895fcd9584532b2eaf924f7389486 path=/api/v1/user-auth/login duration_ms=0.26 status_code=200 api_key_name=- quota_used=0
+2026-05-14 12:50:12,602 - aigc_detector - INFO - request_id=56e310660ce04441b4bf74d363162946 path=/api/v1/user-auth/login duration_ms=0.48 status_code=404 api_key_name=- quota_used=0

@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     MAIL_TO: List[str] = ["1762389546@qq.com"]
     MAIL_COOLDOWN_SECONDS: int = 3600
 
-    AI_DETECTOR_BASE_URL: str = "https://xrz.cntcn.com"
+    AI_DETECTOR_BASE_URL: str = "https://ai.lanbeike.online"
     AI_DETECTOR_TIMEOUT: int = 1500000
     LOGIN_TIMEOUT: int = 10
 

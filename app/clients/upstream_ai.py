@@ -202,11 +202,11 @@ class UpstreamAIClient:
 
     def _browser_headers(self, content_type: bool = False) -> dict[str, str]:
         headers = {
-            "authority": "https://xrz.cntcn.com",
+            "authority": "https://ai.lanbeike.online",
             "accept": "application/json, text/plain, */*",
             "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-            "origin": "https://xrz.cntcn.com",
-            "referer": "https://xrz.cntcn.com/",
+            "origin": "https://ai.lanbeike.online",
+            "referer": "https://ai.lanbeike.online/",
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
             "sec-ch-ua": '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"',
             "sec-ch-ua-mobile": "?0",

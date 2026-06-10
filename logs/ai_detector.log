@@ -1,415 +1,576 @@
-2026-03-29 03:51:39,466 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 03:51:39,633 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 03:51:39,633 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 03:51:39,636 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 03:51:39,639 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 03:51:39,864 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,865 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 03:51:39,865 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 03:51:39,866 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,868 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,868 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 03:51:39,869 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,869 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 03:51:39,869 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,869 - aigc_detector - INFO - ==================================================
-2026-03-29 03:51:39,870 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 03:51:39,870 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 03:51:39,870 - aigc_detector - INFO - ==================================================
-2026-03-29 03:54:55,941 - aigc_detector - INFO - 🔧 更新API Key状态 - 测试: 启用
-2026-03-29 03:54:55,942 - aigc_detector - INFO - 🔧 更新API Key额度 - 测试: 102456 -> 102457 (+1)
-2026-03-29 03:54:55,942 - aigc_detector - INFO - 🔧 更新API Key名称 - 测试 -> 测试
-2026-03-29 03:55:10,549 - aigc_detector - INFO - ======================================================================
-2026-03-29 03:55:10,549 - aigc_detector - INFO - 📥 收到检测请求
-2026-03-29 03:55:10,550 - aigc_detector - INFO -    🔑 API Key: 测试
-2026-03-29 03:55:10,550 - aigc_detector - INFO -    🌐 语言: zh
-2026-03-29 03:55:10,550 - aigc_detector - INFO -    📏 文本长度: 94 字符
-2026-03-29 03:55:10,550 - aigc_detector - INFO -    💰 剩余额度: 102457
-2026-03-29 03:55:10,574 - aigc_detector - INFO - 📝 执行检测 - 语言: zh, 文本长度: 94
-2026-03-29 03:55:10,995 - aigc_detector - INFO - ✓ 检测完成
-2026-03-29 03:55:11,067 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 94, 剩余: 102363/110001
-2026-03-29 03:55:11,067 - aigc_detector - INFO - ✓ 检测完成
-2026-03-29 03:55:11,067 - aigc_detector - INFO -    📊 扣除额度: 94
-2026-03-29 03:55:11,067 - aigc_detector - INFO -    💰 剩余额度: 102363
-2026-03-29 03:55:11,068 - aigc_detector - INFO - ======================================================================
-2026-03-29 03:55:21,924 - aigc_detector - INFO - ======================================================================
-2026-03-29 03:55:21,924 - aigc_detector - INFO - 📥 收到改写请求
-2026-03-29 03:55:21,925 - aigc_detector - INFO -    🔑 API Key: 测试
-2026-03-29 03:55:21,925 - aigc_detector - INFO -    🌐 组合: 20 (原始传参: 20)
-2026-03-29 03:55:21,925 - aigc_detector - INFO -    📏 文本长度: 94 字符
-2026-03-29 03:55:21,926 - aigc_detector - INFO -    💰 剩余额度: 102363
-2026-03-29 03:55:21,950 - aigc_detector - INFO - 📝 执行改写 - 组合: 20, 文本长度: 94
-2026-03-29 03:55:23,779 - aigc_detector - INFO - ✓ 改写完成
-2026-03-29 03:55:23,852 - aigc_detector - INFO - ✓ API Key 验证通过 - 名称: 测试, 使用: 94, 剩余: 102269/110001
-2026-03-29 03:55:23,852 - aigc_detector - INFO - ✓ 改写完成
-2026-03-29 03:55:23,852 - aigc_detector - INFO -    📊 扣除额度: 94
-2026-03-29 03:55:23,852 - aigc_detector - INFO -    💰 剩余额度: 102269
-2026-03-29 03:55:23,852 - aigc_detector - INFO - ======================================================================
-2026-03-29 18:33:33,687 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:33:33,750 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:33:33,762 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:33:33,819 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:33:33,819 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:33:33,822 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:33:34,063 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:33:34,123 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:33:34,218 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,218 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:33:34,218 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:33:34,218 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,222 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,222 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:33:34,222 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:33:34,222 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,226 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,226 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:33:34,226 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:33:34,226 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,229 - aigc_detector - INFO - ==================================================
-2026-03-29 18:33:34,230 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:33:34,230 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:33:34,230 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:47,523 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:46:47,524 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:46:47,524 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:46:47,556 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:46:52,452 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:46:52,485 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:46:52,505 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:46:52,513 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:46:52,548 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:46:52,602 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:46:52,684 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,685 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:46:52,685 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:46:52,685 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,727 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,727 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:46:52,727 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:46:52,727 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,752 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,752 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:46:52,752 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:46:52,752 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:52,974 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:46:53,031 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:46:53,118 - aigc_detector - INFO - ==================================================
-2026-03-29 18:46:53,118 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:46:53,118 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:46:53,118 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:49,604 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:51:49,605 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:51:49,605 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:51:49,651 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:51:49,651 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:51:49,651 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:51:49,651 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:51:49,652 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:51:49,683 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:51:49,683 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:51:49,683 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:51:54,756 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
-2026-03-29 18:51:54,756 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
-2026-03-29 18:51:54,772 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
-2026-03-29 18:51:54,772 - aigc_detector - ERROR - Redis连接失败: Error while reading from 124.221.97.191:6379 : (10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)
-2026-03-29 18:51:59,149 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:51:59,233 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:51:59,335 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,335 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:51:59,335 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:51:59,335 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,456 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:51:59,511 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:51:59,523 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:51:59,539 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:51:59,583 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:51:59,599 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:51:59,602 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,602 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:51:59,602 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:51:59,602 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,676 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,677 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:51:59,677 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:51:59,677 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,707 - aigc_detector - INFO - ==================================================
-2026-03-29 18:51:59,708 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:51:59,708 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8001
-2026-03-29 18:51:59,708 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:48,066 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:52:48,066 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:52:48,067 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:52:48,067 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:52:48,067 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:52:48,067 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:52:48,082 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:52:48,082 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 18:52:48,082 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:52:48,082 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:52:48,082 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 18:52:48,083 - aigc_detector - INFO - 应用已关闭
-2026-03-29 18:52:50,400 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:52:50,410 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:52:50,423 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:52:50,431 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 18:52:50,461 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:52:50,471 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:52:50,485 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:52:50,492 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 18:52:50,559 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,559 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:52:50,559 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 18:52:50,559 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,568 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,568 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:52:50,568 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 18:52:50,568 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,591 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,591 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:52:50,591 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 18:52:50,591 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,592 - aigc_detector - INFO - ==================================================
-2026-03-29 18:52:50,592 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 18:52:50,592 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 18:52:50,592 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:10,788 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:05:10,788 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:05:10,789 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:05:21,352 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:05:21,353 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:05:21,353 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:05:29,994 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:05:29,999 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:05:30,000 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:05:30,026 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:05:30,079 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:05:30,080 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:05:30,081 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:05:30,102 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:05:30,192 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,192 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:05:30,192 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:05:30,193 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,194 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,194 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:05:30,194 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:05:30,194 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,206 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,206 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:05:30,206 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:05:30,206 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,231 - aigc_detector - INFO - ==================================================
-2026-03-29 19:05:30,231 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:05:30,231 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:05:30,231 - aigc_detector - INFO - ==================================================
-2026-03-29 19:16:57,572 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:16:57,572 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:16:57,573 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:16:57,620 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:16:57,621 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:16:57,621 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:16:57,651 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:16:57,652 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:16:57,652 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:17:06,503 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:17:06,510 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:17:06,522 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:17:06,536 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:17:06,575 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:17:06,580 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:17:06,593 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:17:06,609 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:17:06,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:17:06,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:17:06,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,687 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,701 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,701 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:17:06,702 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:17:06,702 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,718 - aigc_detector - INFO - ==================================================
-2026-03-29 19:17:06,718 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:17:06,718 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:17:06,718 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:26,753 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:21:26,754 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:21:26,754 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:21:33,441 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:21:33,448 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:21:33,458 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:21:33,511 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:21:33,515 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:21:33,523 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:21:33,608 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:33,608 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:21:33,608 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:21:33,608 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:33,615 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:33,615 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:21:33,615 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:21:33,615 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:33,624 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:33,624 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:21:33,624 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:21:33,624 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:34,493 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:21:34,590 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:21:34,681 - aigc_detector - INFO - ==================================================
-2026-03-29 19:21:34,681 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:21:34,681 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:21:34,681 - aigc_detector - INFO - ==================================================
-2026-03-29 19:23:01,945 - aigc_detector - ERROR - WxLogin status proxy failed: HTTPSConnectionPool(host='xrzbk.lanbeike.online', port=443): Max retries exceeded with url: /wxlogin/status?request_id=897f3d67-1766-4136-af08-41172a4a8d74 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
-2026-03-29 19:23:06,768 - aigc_detector - ERROR - WxLogin status proxy failed: HTTPSConnectionPool(host='xrzbk.lanbeike.online', port=443): Read timed out. (read timeout=10)
-2026-03-29 19:26:02,389 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
-2026-03-29 19:26:34,425 - aigc_detector - INFO - 🔐 管理员通过页面更新了 Auth Token
-2026-03-29 19:31:26,188 - aigc_detector - ERROR - Lingsi dashboard proxy failed: HTTPSConnectionPool(host='lingsiai.cn', port=443): Max retries exceeded with url: /api/v1/analytics/dashboard-overview?time_range=30d (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
-2026-03-29 19:39:05,185 - aigc_detector - ERROR - Error getting token info: Connection closed by server.
-2026-03-29 19:57:29,793 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:57:29,797 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:57:29,797 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:57:29,870 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:57:29,872 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:57:29,872 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:57:29,885 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 19:57:29,887 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 19:57:29,887 - aigc_detector - INFO - 应用已关闭
-2026-03-29 19:57:35,915 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:57:35,987 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:57:36,087 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:36,087 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:57:36,087 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:57:36,088 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:36,284 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:57:36,341 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:57:36,433 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:36,433 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:57:36,434 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:57:36,434 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:36,948 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:57:37,025 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:57:37,065 - aigc_detector - ERROR - Redis连接失败: Connection closed by server.
-2026-03-29 19:57:37,169 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:37,169 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:57:37,169 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:57:37,169 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:45,270 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 19:57:45,341 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 19:57:45,452 - aigc_detector - INFO - ==================================================
-2026-03-29 19:57:45,452 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 19:57:45,452 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 19:57:45,452 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:42,314 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 20:07:42,314 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 20:07:42,314 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 20:07:42,315 - aigc_detector - INFO - 应用已关闭
-2026-03-29 20:07:42,315 - aigc_detector - INFO - 应用已关闭
-2026-03-29 20:07:42,330 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 20:07:42,330 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 20:07:42,331 - aigc_detector - INFO - 应用已关闭
-2026-03-29 20:07:42,346 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 20:07:42,346 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 20:07:42,346 - aigc_detector - INFO - 应用已关闭
-2026-03-29 20:07:46,116 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:46,121 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:46,126 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:46,132 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:46,207 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:46,209 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:46,217 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:46,221 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:46,370 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,370 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:46,370 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:46,370 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,371 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,371 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:46,371 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:46,371 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,378 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,378 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:46,378 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:46,378 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,382 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:46,382 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:46,382 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:46,382 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:49,086 - aigc_detector - INFO - 正在关闭应用...
-2026-03-29 20:07:49,087 - aigc_detector - INFO - Redis连接已关闭
-2026-03-29 20:07:49,087 - aigc_detector - INFO - 应用已关闭
-2026-03-29 20:07:53,546 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:53,550 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:53,568 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:53,581 - aigc_detector - INFO - Redis连接成功: 124.221.97.191:6379
-2026-03-29 20:07:53,629 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:53,629 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:53,639 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:53,654 - aigc_detector - INFO - AI检测服务初始化 (Key托管模式)
-2026-03-29 20:07:53,739 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,740 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:53,740 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:53,740 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,743 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,743 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:53,743 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:53,743 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,752 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,752 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:53,752 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:53,752 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,786 - aigc_detector - INFO - ==================================================
-2026-03-29 20:07:53,786 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-03-29 20:07:53,786 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-03-29 20:07:53,786 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,878 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,879 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:00,879 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:00,879 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,880 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:00,880 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:00,880 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,884 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:00,884 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:00,884 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:00,887 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:00,887 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:00,887 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,071 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,072 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:07,072 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:07,072 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,083 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:07,083 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:07,083 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,640 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:07,641 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-05-14 12:37:07,641 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-05-14 12:37:07,641 - aigc_detector - INFO - ==================================================
-2026-05-14 12:37:14,425 - aigc_detector - INFO - request_id=d2654bc0f10645a4aec34a7fcdbd5a49 path=/admin/dashboard duration_ms=1.85 status_code=200 api_key_name=- quota_used=0
-2026-05-14 12:37:17,495 - aigc_detector - ERROR - Redis连接失败: Connection closed by server.
-2026-05-14 12:37:17,496 - aigc_detector - ERROR - Redis连接失败: Redis连接失败
-2026-05-14 12:37:17,496 - aigc_detector - INFO - request_id=ac6a6a6f850046d6a36b731836d2f216 path=/admin/token/info duration_ms=3003.68 status_code=500 api_key_name=- quota_used=0
-2026-05-14 12:37:18,974 - aigc_detector - INFO - request_id=36b1f119f54640babcae6cb65d1ddcaa path=/admin/dashboard duration_ms=1.93 status_code=200 api_key_name=- quota_used=0
-2026-05-14 12:37:19,195 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-05-14 12:37:19,223 - aigc_detector - INFO - request_id=1ad536962f094ebd81cf5cab127243bf path=/admin/token/info duration_ms=196.00 status_code=200 api_key_name=- quota_used=0
-2026-05-14 12:37:20,614 - aigc_detector - INFO - request_id=fc1ba0ddc57247c6b01edb094dd86d25 path=/admin/logs duration_ms=9.24 status_code=200 api_key_name=- quota_used=0
-2026-05-14 12:37:26,949 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '科学普及工作不断深入推进，利于全社会营造起爱科学，尊崇知识的良好氛围，经由趣味实验演示并辅以深入浅出阐述，孩子们能够就近领略科学的吸引力，提升国民科学素养对于国家达成高质量发展十分关键。', 'originalCount': 95, 'resultCount': 93}}
-2026-05-14 12:37:27,006 - aigc_detector - INFO - request_id=8553f3cf060548ffb2186d5032e4cc8a path=/ai/AIRewrite duration_ms=2639.51 status_code=200 api_key_name=测试 quota_used=95
-2026-05-14 12:37:29,071 - aigc_detector - INFO - request_id=99ea8e6e711047be8679205bc93c4fb3 path=/admin/logs duration_ms=1.08 status_code=200 api_key_name=- quota_used=0
-2026-05-14 12:37:30,500 - aigc_detector - INFO - request_id=b533a8728fc54bd9b38cd5a6f77bb496 path=/admin/logs duration_ms=10.52 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:21:50,106 - aigc_detector - INFO - ==================================================
+2026-06-11 00:21:50,107 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:21:50,107 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:21:50,107 - aigc_detector - INFO - ==================================================
+2026-06-11 00:21:50,308 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:21:50,308 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:21:50,308 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:21:50,309 - aigc_detector - INFO - ==================================================
+2026-06-11 00:21:55,028 - aigc_detector - INFO - request_id=8c4f5bb62f764b619c44f191e85bbe4b path=/ duration_ms=2.21 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:21:56,246 - aigc_detector - INFO - request_id=f57a06c1d7434807a9db0b2ee3cb5c94 path=/favicon.ico duration_ms=0.59 status_code=404 api_key_name=- quota_used=0
+2026-06-11 00:22:02,527 - aigc_detector - INFO - request_id=7da9913d5d6d41de92c5ba6b742a8748 path=/admin/dashboard duration_ms=1.18 status_code=302 api_key_name=- quota_used=0
+2026-06-11 00:22:02,532 - aigc_detector - INFO - request_id=ef5be48837a745efa4b50e77ea20b567 path=/admin/login duration_ms=1.24 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:22:04,506 - aigc_detector - INFO - request_id=4cdac1708e974efcad7e004aafd8c788 path=/admin/login duration_ms=0.87 status_code=302 api_key_name=- quota_used=0
+2026-06-11 00:22:04,513 - aigc_detector - INFO - request_id=3ed4956956284f87827722307ca68b95 path=/admin/dashboard duration_ms=1.10 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:22:04,730 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:22:04,756 - aigc_detector - INFO - request_id=8f347a9af8b348a5a7997f2e6808e286 path=/admin/token/info duration_ms=179.07 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:22:09,818 - aigc_detector - INFO - request_id=ae00a299696949dcb6b8118d71c79670 path=/ai/detector duration_ms=1445.93 status_code=500 api_key_name=测试 quota_used=0
+2026-06-11 00:22:09,818 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
+    return service.detect(api_key, request.text, request.language)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
+    return self._run_billable_operation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api_key=api_key,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        error_detail_template="AI检测服务返回错误: {message}",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
+    result = upstream_call()
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
+    upstream_call=lambda: self.upstream.detect_text(text, language),
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
+    return self._request_with_retry(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 121, in _request_with_retry
+    token = self._get_token()
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 156, in _get_token
+    return self._login()
+           ~~~~~~~~~~~^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 166, in _login
+    payload = response.json()
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-06-11 00:25:37,779 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:25:37,780 - aigc_detector - INFO - Redis连接已关闭
+2026-06-11 00:25:37,780 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:25:37,826 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:25:37,827 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:25:37,843 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:25:37,843 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:25:50,659 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,667 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:25:50,668 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:25:50,670 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,686 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:25:50,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:25:50,688 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,689 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,689 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:25:50,689 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:25:50,690 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,690 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:50,691 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:25:50,699 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:25:50,700 - aigc_detector - INFO - ==================================================
+2026-06-11 00:25:54,310 - aigc_detector - INFO - request_id=8f851af50af240ebbc43ec780b0966a3 path=/admin/dashboard duration_ms=46.20 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:25:54,767 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:25:54,794 - aigc_detector - INFO - request_id=4ef4f391700e46048c3dbbc56818d845 path=/admin/token/info duration_ms=177.40 status_code=200 api_key_name=- quota_used=0
+2026-06-11 00:25:56,436 - aigc_detector - INFO - request_id=502ea4d3a1fe43a6a7596b7533576faa path=/ai/detector duration_ms=87.45 status_code=500 api_key_name=测试 quota_used=0
+2026-06-11 00:25:56,436 - aigc_detector - ERROR - 未知错误: HTTPSConnectionPool(host='xrz.cntcn.com', port=443): Max retries exceeded with url: /api/index/user/emailLogin (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022D6D761160>: Failed to resolve 'xrz.cntcn.com' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
+    return service.detect(api_key, request.text, request.language)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
+    return self._run_billable_operation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api_key=api_key,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        error_detail_template="AI检测服务返回错误: {message}",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
+    result = upstream_call()
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
+    upstream_call=lambda: self.upstream.detect_text(text, language),
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
+    return self._request_with_retry(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
+    token = self._get_token()
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
+    return self._login()
+           ~~~~~~~~~~~^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 161, in _login
+    response = requests.post(
+        f"{settings.AI_DETECTOR_BASE_URL}/api/index/user/emailLogin",
+    ...<2 lines>...
+        timeout=settings.LOGIN_TIMEOUT,
+    )
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xrz.cntcn.com', port=443): Max retries exceeded with url: /api/index/user/emailLogin (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022D6D761160>: Failed to resolve 'xrz.cntcn.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:27:48,216 - aigc_detector - INFO - Redis连接已关闭
+2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:27:50,732 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,732 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:27:50,734 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:27:50,734 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,735 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,736 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:27:50,736 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:27:50,736 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,738 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,738 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:27:50,738 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:27:50,738 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,747 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:50,747 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:27:50,747 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:27:50,747 - aigc_detector - INFO - ==================================================
+2026-06-11 00:27:56,973 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:27:57,445 - aigc_detector - INFO - request_id=0aa5a6a84c0d47be85f3e070a21ca578 path=/ai/detector duration_ms=619.12 status_code=500 api_key_name=测试 quota_used=0
+2026-06-11 00:27:57,445 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
+    return service.detect(api_key, request.text, request.language)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
+    return self._run_billable_operation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api_key=api_key,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        error_detail_template="AI检测服务返回错误: {message}",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
+    result = upstream_call()
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
+    upstream_call=lambda: self.upstream.detect_text(text, language),
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
+    return self._request_with_retry(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
+    token = self._get_token()
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
+    return self._login()
+           ~~~~~~~~~~~^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 168, in _login
+    print(response.json())
+          ~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:28,995 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:28,995 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:28,995 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:28:28,995 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:29,011 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:29,011 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:28:29,011 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:28:29,011 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:29,014 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:29,014 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:28:29,015 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:28:29,015 - aigc_detector - INFO - ==================================================
+2026-06-11 00:28:33,241 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:28:34,425 - aigc_detector - INFO - request_id=af4f5a3fa0674fa8a7157a45c2379423 path=/ai/detector duration_ms=1335.25 status_code=500 api_key_name=测试 quota_used=0
+2026-06-11 00:28:34,425 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
+    return service.detect(api_key, request.text, request.language)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
+    return self._run_billable_operation(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        api_key=api_key,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        error_detail_template="AI检测服务返回错误: {message}",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
+    result = upstream_call()
+  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
+    upstream_call=lambda: self.upstream.detect_text(text, language),
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
+    return self._request_with_retry(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<2 lines>...
+        timeout=settings.AI_DETECTOR_TIMEOUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
+    token = self._get_token()
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
+    return self._login()
+           ~~~~~~~~~~~^^
+  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 168, in _login
+    print(response.json())
+          ~~~~~~~~~~~~~^^
+  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-06-11 00:30:50,453 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,453 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:30:50,454 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:30:50,454 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,459 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,459 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:30:50,459 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:30:50,460 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,462 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,462 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:30:50,463 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:30:50,463 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,477 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:50,477 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:30:50,477 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:30:50,477 - aigc_detector - INFO - ==================================================
+2026-06-11 00:30:53,410 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:30:53,895 - aigc_detector - INFO - 上游登录响应: status=200 content_type=text/html body=<!DOCTYPE html> <html lang="zh-CN">   <head>     <meta charset="UTF-8" />     <link rel="icon" type="image/png" href="/1.png" />     <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <title>ä»äººææºè½æ¹å - è®ºæééãAIGCæ£æµãAIå®¡ç¨¿ãAI PPT</title>     <
+2026-06-11 00:30:53,895 - aigc_detector - INFO - 上游服务返回非 JSON 响应: status=200 content_type=text/html body=<!DOCTYPE html> <html lang="zh-CN">   <head>     <meta charset="UTF-8" />     <link rel="icon" type="image/png" href="/1.png" />     <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <title>ä»äººææºè½æ¹å - è®ºæééãAIGCæ£æµãAIå®¡ç¨¿ãAI PPT</title>     <
+2026-06-11 00:30:53,895 - aigc_detector - ERROR - Upstream Auth Expired: AI检测请求失败: 上游登录失败: 上游返回非 JSON 响应，状态码 200
+2026-06-11 00:30:53,895 - aigc_detector - INFO - request_id=581e39b9d7bd4c54a531e16c80a2d67a path=/ai/detector duration_ms=664.66 status_code=503 api_key_name=测试 quota_used=0
+2026-06-11 00:39:58,809 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:39:58,809 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:39:58,869 - aigc_detector - INFO - 正在关闭应用...
+2026-06-11 00:39:58,870 - aigc_detector - INFO - Redis连接已关闭
+2026-06-11 00:39:58,870 - aigc_detector - INFO - 应用已关闭
+2026-06-11 00:40:06,553 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,553 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:40:06,553 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:40:06,553 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,557 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,557 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,558 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:40:06,558 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,558 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,560 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:06,560 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-11 00:40:06,560 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-11 00:40:06,560 - aigc_detector - INFO - ==================================================
+2026-06-11 00:40:14,770 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:40:15,778 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'historyId': 54615, 'taskId': '287967f78e15432f97ff76bafcb731ce', 'status': 0, 'reportUrl': None, 'submitTime': '2026-06-11 00:39:32'}}
+2026-06-11 00:40:15,832 - aigc_detector - INFO - request_id=9032953b718e43a49459d0fbe1c7ca60 path=/ai/detector duration_ms=1226.65 status_code=200 api_key_name=测试 quota_used=89
+2026-06-11 00:40:22,612 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-11 00:40:25,635 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '大数据技术被应用到政府治理当中之后，政府治理变得更为精准高效，当各部门针对海量信息展开分析的时候，就能更快更好地回应公众需求并改良资源调配情况，在发生紧急公共事件时，依靠数据作出决策这种机制有着非常突出的优点，从而加强了应急处理能力。', 'originalCount': 94, 'resultCount': 117}}
+2026-06-11 00:40:25,700 - aigc_detector - INFO - request_id=8913778b14e84899a1def947cef5369c path=/ai/AIRewrite duration_ms=3275.83 status_code=200 api_key_name=测试 quota_used=94

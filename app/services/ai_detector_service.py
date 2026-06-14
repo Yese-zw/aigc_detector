@@ -77,7 +77,13 @@ class AIDetectorService:
                 "password": settings.UPSTREAM_PASSWORD
             }
             
-            response = requests.post(url, headers=headers, json=data, timeout=settings.LOGIN_TIMEOUT)
+            response = requests.post(
+                url,
+                headers=headers,
+                json=data,
+                timeout=max(settings.LOGIN_TIMEOUT, 120),
+                verify=settings.AI_DETECTOR_VERIFY_SSL,
+            )
             response.raise_for_status()
             res_json = response.json()
             
@@ -154,7 +160,12 @@ class AIDetectorService:
             if "content-length" in kwargs["headers"]:
                 del kwargs["headers"]["content-length"]
                 
-            response = requests.request(method, url, **kwargs)
+            response = requests.request(
+                method,
+                url,
+                verify=settings.AI_DETECTOR_VERIFY_SSL,
+                **kwargs,
+            )
             # 如果是 401/403，直接抛出 HTTPError 触发重试逻辑
             response.raise_for_status()
             

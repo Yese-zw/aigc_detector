@@ -231,7 +231,12 @@ async def proxy_wxlogin_start(request: Request):
     try:
         # 使用 POST 请求并携带 user-agent 等头信息
         # 注意：这里不发 body，因为抓包显示 content-length 为 0
-        response = requests.post(url, headers=headers, timeout=settings.AI_DETECTOR_TIMEOUT)
+        response = requests.post(
+            url,
+            headers=headers,
+            timeout=settings.AI_DETECTOR_TIMEOUT,
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
+        )
         return response.json()
     except Exception as e:
         logger.error(f"WxLogin start proxy failed: {e}")
@@ -261,7 +266,13 @@ async def proxy_wxlogin_status(request: Request, request_id: str):
     }
     
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=settings.AI_DETECTOR_TIMEOUT)
+        response = requests.get(
+            url,
+            headers=headers,
+            params=params,
+            timeout=settings.AI_DETECTOR_TIMEOUT,
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
+        )
         return response.json()
     except Exception as e:
         logger.error(f"WxLogin status proxy failed: {e}")

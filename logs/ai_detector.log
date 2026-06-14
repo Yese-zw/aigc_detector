@@ -92,3 +92,13 @@
 2026-06-14 21:31:21,328 - aigc_detector - INFO - request_id=c7cf2ef08ad842abb42c5913ae9b7c96 path=/admin/token/info duration_ms=181.74 status_code=200 api_key_name=- quota_used=0
 2026-06-14 21:31:28,419 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '自动驾驶汽车的研发目的在于大幅缩减因人为差错引发的交通事故，依靠复杂的激光雷达以及感知算法，汽车可以随时辨别路况，当技术日益成熟，法律法规渐次完备的时候，未来的出行将会越发自动化，安全又高效。', 'originalCount': 93, 'resultCount': 96}}
 2026-06-14 21:31:28,473 - aigc_detector - INFO - request_id=d52beb464c514997be57fc04034e74fd path=/ai/AIRewrite duration_ms=3919.01 status_code=200 api_key_name=测试 quota_used=93
+2026-06-14 21:49:49,422 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-14 21:49:49,425 - aigc_detector - INFO - request_id=18e528a1f5f343f09ed4988ae17a49d7 path=/admin/logs duration_ms=157.30 status_code=200 api_key_name=- quota_used=0
+2026-06-14 22:14:40,337 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 22:14:40,337 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 22:14:40,337 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 22:14:40,337 - aigc_detector - INFO - 应用已关闭
+2026-06-14 22:14:40,338 - aigc_detector - INFO - Redis连接已关闭
+2026-06-14 22:14:40,338 - aigc_detector - INFO - Redis连接已关闭
+2026-06-14 22:14:40,338 - aigc_detector - INFO - 应用已关闭
+2026-06-14 22:14:40,338 - aigc_detector - INFO - 应用已关闭

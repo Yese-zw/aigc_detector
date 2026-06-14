@@ -104,6 +104,7 @@ class UpstreamAIClient:
             f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/start",
             headers=self._browser_headers(content_type=True),
             timeout=settings.AI_DETECTOR_TIMEOUT,
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
         )
         return response.json()
 
@@ -113,6 +114,7 @@ class UpstreamAIClient:
             headers=self._browser_headers(),
             params={"request_id": request_id},
             timeout=settings.AI_DETECTOR_TIMEOUT,
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
         )
         return response.json()
 
@@ -140,6 +142,7 @@ class UpstreamAIClient:
             method,
             f"{settings.AI_DETECTOR_BASE_URL}{path}",
             headers=self._auth_headers(token, extra_headers),
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
             **kwargs,
         )
         response.raise_for_status()
@@ -161,6 +164,7 @@ class UpstreamAIClient:
             headers=self._browser_headers(content_type=True),
             json={"email": settings.UPSTREAM_EMAIL, "password": settings.UPSTREAM_PASSWORD},
             timeout=settings.LOGIN_TIMEOUT,
+            verify=settings.AI_DETECTOR_VERIFY_SSL,
         )
         response.raise_for_status()
         payload = response.json()

@@ -37,6 +37,7 @@ class Settings(BaseSettings):
 
     AI_DETECTOR_BASE_URL: str = "https://ai.lanbeike.online"
     AI_DETECTOR_TIMEOUT: int = 1500000
+    AI_DETECTOR_VERIFY_SSL: bool = False
     LOGIN_TIMEOUT: int = 120
 
     UPSTREAM_EMAIL: str = "1762389546@qq.com"

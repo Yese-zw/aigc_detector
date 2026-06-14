@@ -473,7 +473,7 @@ class AIDetectorService:
             # 缓存不存在，发起请求
             logger.info("📝 发起请求获取支持列表")
             url = "https://api.lanbeike.online/api/supported"
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=settings.AI_DETECTOR_TIMEOUT)
             response.raise_for_status()
             data = response.json()
             

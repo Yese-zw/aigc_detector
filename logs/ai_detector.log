@@ -1,576 +1,94 @@
-2026-06-11 00:21:50,106 - aigc_detector - INFO - ==================================================
-2026-06-11 00:21:50,107 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:21:50,107 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:21:50,107 - aigc_detector - INFO - ==================================================
-2026-06-11 00:21:50,308 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:21:50,308 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:21:50,308 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:21:50,309 - aigc_detector - INFO - ==================================================
-2026-06-11 00:21:55,028 - aigc_detector - INFO - request_id=8c4f5bb62f764b619c44f191e85bbe4b path=/ duration_ms=2.21 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:21:56,246 - aigc_detector - INFO - request_id=f57a06c1d7434807a9db0b2ee3cb5c94 path=/favicon.ico duration_ms=0.59 status_code=404 api_key_name=- quota_used=0
-2026-06-11 00:22:02,527 - aigc_detector - INFO - request_id=7da9913d5d6d41de92c5ba6b742a8748 path=/admin/dashboard duration_ms=1.18 status_code=302 api_key_name=- quota_used=0
-2026-06-11 00:22:02,532 - aigc_detector - INFO - request_id=ef5be48837a745efa4b50e77ea20b567 path=/admin/login duration_ms=1.24 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:22:04,506 - aigc_detector - INFO - request_id=4cdac1708e974efcad7e004aafd8c788 path=/admin/login duration_ms=0.87 status_code=302 api_key_name=- quota_used=0
-2026-06-11 00:22:04,513 - aigc_detector - INFO - request_id=3ed4956956284f87827722307ca68b95 path=/admin/dashboard duration_ms=1.10 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:22:04,730 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:22:04,756 - aigc_detector - INFO - request_id=8f347a9af8b348a5a7997f2e6808e286 path=/admin/token/info duration_ms=179.07 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:22:09,818 - aigc_detector - INFO - request_id=ae00a299696949dcb6b8118d71c79670 path=/ai/detector duration_ms=1445.93 status_code=500 api_key_name=测试 quota_used=0
-2026-06-11 00:22:09,818 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
-    return self.receive_nowait()
-           ~~~~~~~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
-    raise WouldBlock
-anyio.WouldBlock
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
-    message = await recv_stream.receive()
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
-    raise EndOfStream
-anyio.EndOfStream
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
-    response = await self.dispatch_func(request, call_next)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
-    response = await call_next(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
-    raise app_exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
-    await self.app(scope, receive_or_disconnect, send_no_error)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
-    await self.simple_response(scope, receive, send, request_headers=headers)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<3 lines>...
-    )
-    ^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
-    return service.detect(api_key, request.text, request.language)
-           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
-    return self._run_billable_operation(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        api_key=api_key,
-        ^^^^^^^^^^^^^^^^
-    ...<2 lines>...
-        error_detail_template="AI检测服务返回错误: {message}",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
-    result = upstream_call()
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
-    upstream_call=lambda: self.upstream.detect_text(text, language),
-                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
-    return self._request_with_retry(
-           ~~~~~~~~~~~~~~~~~~~~~~~~^
-        "POST",
-        ^^^^^^^
-    ...<2 lines>...
-        timeout=settings.AI_DETECTOR_TIMEOUT,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 121, in _request_with_retry
-    token = self._get_token()
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 156, in _get_token
-    return self._login()
-           ~~~~~~~~~~~^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 166, in _login
-    payload = response.json()
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-2026-06-11 00:25:37,779 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:25:37,780 - aigc_detector - INFO - Redis连接已关闭
-2026-06-11 00:25:37,780 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:25:37,826 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:25:37,827 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:25:37,843 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:25:37,843 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:25:50,659 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,667 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:25:50,668 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:25:50,670 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,686 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,687 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:25:50,687 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:25:50,688 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,689 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,689 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:25:50,689 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:25:50,690 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,690 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:50,691 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:25:50,699 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:25:50,700 - aigc_detector - INFO - ==================================================
-2026-06-11 00:25:54,310 - aigc_detector - INFO - request_id=8f851af50af240ebbc43ec780b0966a3 path=/admin/dashboard duration_ms=46.20 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:25:54,767 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:25:54,794 - aigc_detector - INFO - request_id=4ef4f391700e46048c3dbbc56818d845 path=/admin/token/info duration_ms=177.40 status_code=200 api_key_name=- quota_used=0
-2026-06-11 00:25:56,436 - aigc_detector - INFO - request_id=502ea4d3a1fe43a6a7596b7533576faa path=/ai/detector duration_ms=87.45 status_code=500 api_key_name=测试 quota_used=0
-2026-06-11 00:25:56,436 - aigc_detector - ERROR - 未知错误: HTTPSConnectionPool(host='xrz.cntcn.com', port=443): Max retries exceeded with url: /api/index/user/emailLogin (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022D6D761160>: Failed to resolve 'xrz.cntcn.com' ([Errno 11001] getaddrinfo failed)"))
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
-    return self.receive_nowait()
-           ~~~~~~~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
-    raise WouldBlock
-anyio.WouldBlock
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
-    message = await recv_stream.receive()
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
-    raise EndOfStream
-anyio.EndOfStream
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
-    response = await self.dispatch_func(request, call_next)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
-    response = await call_next(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
-    raise app_exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
-    await self.app(scope, receive_or_disconnect, send_no_error)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
-    await self.simple_response(scope, receive, send, request_headers=headers)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<3 lines>...
-    )
-    ^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
-    return service.detect(api_key, request.text, request.language)
-           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
-    return self._run_billable_operation(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        api_key=api_key,
-        ^^^^^^^^^^^^^^^^
-    ...<2 lines>...
-        error_detail_template="AI检测服务返回错误: {message}",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
-    result = upstream_call()
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
-    upstream_call=lambda: self.upstream.detect_text(text, language),
-                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
-    return self._request_with_retry(
-           ~~~~~~~~~~~~~~~~~~~~~~~~^
-        "POST",
-        ^^^^^^^
-    ...<2 lines>...
-        timeout=settings.AI_DETECTOR_TIMEOUT,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
-    token = self._get_token()
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
-    return self._login()
-           ~~~~~~~~~~~^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 161, in _login
-    response = requests.post(
-        f"{settings.AI_DETECTOR_BASE_URL}/api/index/user/emailLogin",
-    ...<2 lines>...
-        timeout=settings.LOGIN_TIMEOUT,
-    )
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xrz.cntcn.com', port=443): Max retries exceeded with url: /api/index/user/emailLogin (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000022D6D761160>: Failed to resolve 'xrz.cntcn.com' ([Errno 11001] getaddrinfo failed)"))
-2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:27:48,215 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:27:48,216 - aigc_detector - INFO - Redis连接已关闭
-2026-06-11 00:27:48,216 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:27:50,732 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,732 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:27:50,734 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:27:50,734 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,735 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,736 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:27:50,736 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:27:50,736 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,738 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,738 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:27:50,738 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:27:50,738 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,747 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:50,747 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:27:50,747 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:27:50,747 - aigc_detector - INFO - ==================================================
-2026-06-11 00:27:56,973 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:27:57,445 - aigc_detector - INFO - request_id=0aa5a6a84c0d47be85f3e070a21ca578 path=/ai/detector duration_ms=619.12 status_code=500 api_key_name=测试 quota_used=0
-2026-06-11 00:27:57,445 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
-    return self.receive_nowait()
-           ~~~~~~~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
-    raise WouldBlock
-anyio.WouldBlock
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
-    message = await recv_stream.receive()
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
-    raise EndOfStream
-anyio.EndOfStream
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
-    response = await self.dispatch_func(request, call_next)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
-    response = await call_next(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
-    raise app_exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
-    await self.app(scope, receive_or_disconnect, send_no_error)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
-    await self.simple_response(scope, receive, send, request_headers=headers)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<3 lines>...
-    )
-    ^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
-    return service.detect(api_key, request.text, request.language)
-           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
-    return self._run_billable_operation(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        api_key=api_key,
-        ^^^^^^^^^^^^^^^^
-    ...<2 lines>...
-        error_detail_template="AI检测服务返回错误: {message}",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
-    result = upstream_call()
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
-    upstream_call=lambda: self.upstream.detect_text(text, language),
-                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
-    return self._request_with_retry(
-           ~~~~~~~~~~~~~~~~~~~~~~~~^
-        "POST",
-        ^^^^^^^
-    ...<2 lines>...
-        timeout=settings.AI_DETECTOR_TIMEOUT,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
-    token = self._get_token()
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
-    return self._login()
-           ~~~~~~~~~~~^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 168, in _login
-    print(response.json())
-          ~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:28,995 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:28,995 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:28,995 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:28:28,995 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:28:28,995 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:29,011 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:29,011 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:28:29,011 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:28:29,011 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:29,014 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:29,014 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:28:29,015 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:28:29,015 - aigc_detector - INFO - ==================================================
-2026-06-11 00:28:33,241 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:28:34,425 - aigc_detector - INFO - request_id=af4f5a3fa0674fa8a7157a45c2379423 path=/ai/detector duration_ms=1335.25 status_code=500 api_key_name=测试 quota_used=0
-2026-06-11 00:28:34,425 - aigc_detector - ERROR - 未知错误: Expecting value: line 1 column 1 (char 0)
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 98, in receive
-    return self.receive_nowait()
-           ~~~~~~~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 93, in receive_nowait
-    raise WouldBlock
-anyio.WouldBlock
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
-    message = await recv_stream.receive()
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\anyio\streams\memory.py", line 118, in receive
-    raise EndOfStream
-anyio.EndOfStream
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
-    response = await self.dispatch_func(request, call_next)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\core\request_logging.py", line 28, in request_logging_middleware
-    response = await call_next(request)
-               ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
-    raise app_exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
-    await self.app(scope, receive_or_disconnect, send_no_error)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
-    await self.simple_response(scope, receive, send, request_headers=headers)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "D:\Software\Work\Python313\Lib\site-packages\starlette\routing.py", line 73, in app
-    response = await f(request)
-               ^^^^^^^^^^^^^^^^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<3 lines>...
-    )
-    ^
-  File "D:\Software\Work\Python313\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\api\routes\ai.py", line 30, in ai_detector
-    return service.detect(api_key, request.text, request.language)
-           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 30, in detect
-    return self._run_billable_operation(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        api_key=api_key,
-        ^^^^^^^^^^^^^^^^
-    ...<2 lines>...
-        error_detail_template="AI检测服务返回错误: {message}",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 99, in _run_billable_operation
-    result = upstream_call()
-  File "D:\data\Lingsi\aigc_detector\app\services\ai_service.py", line 33, in <lambda>
-    upstream_call=lambda: self.upstream.detect_text(text, language),
-                          ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 29, in detect_text
-    return self._request_with_retry(
-           ~~~~~~~~~~~~~~~~~~~~~~~~^
-        "POST",
-        ^^^^^^^
-    ...<2 lines>...
-        timeout=settings.AI_DETECTOR_TIMEOUT,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 123, in _request_with_retry
-    token = self._get_token()
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 158, in _get_token
-    return self._login()
-           ~~~~~~~~~~~^^
-  File "D:\data\Lingsi\aigc_detector\app\clients\upstream_ai.py", line 168, in _login
-    print(response.json())
-          ~~~~~~~~~~~~~^^
-  File "D:\Software\Work\Python313\Lib\site-packages\requests\models.py", line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-2026-06-11 00:30:50,453 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,453 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:30:50,454 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:30:50,454 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,459 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,459 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:30:50,459 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:30:50,460 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,462 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,462 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:30:50,463 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:30:50,463 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,477 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:50,477 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:30:50,477 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:30:50,477 - aigc_detector - INFO - ==================================================
-2026-06-11 00:30:53,410 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:30:53,895 - aigc_detector - INFO - 上游登录响应: status=200 content_type=text/html body=<!DOCTYPE html> <html lang="zh-CN">   <head>     <meta charset="UTF-8" />     <link rel="icon" type="image/png" href="/1.png" />     <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <title>ä»äººææºè½æ¹å - è®ºæééãAIGCæ£æµãAIå®¡ç¨¿ãAI PPT</title>     <
-2026-06-11 00:30:53,895 - aigc_detector - INFO - 上游服务返回非 JSON 响应: status=200 content_type=text/html body=<!DOCTYPE html> <html lang="zh-CN">   <head>     <meta charset="UTF-8" />     <link rel="icon" type="image/png" href="/1.png" />     <meta name="viewport" content="width=device-width, initial-scale=1.0" />     <title>ä»äººææºè½æ¹å - è®ºæééãAIGCæ£æµãAIå®¡ç¨¿ãAI PPT</title>     <
-2026-06-11 00:30:53,895 - aigc_detector - ERROR - Upstream Auth Expired: AI检测请求失败: 上游登录失败: 上游返回非 JSON 响应，状态码 200
-2026-06-11 00:30:53,895 - aigc_detector - INFO - request_id=581e39b9d7bd4c54a531e16c80a2d67a path=/ai/detector duration_ms=664.66 status_code=503 api_key_name=测试 quota_used=0
-2026-06-11 00:39:58,809 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:39:58,809 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:39:58,869 - aigc_detector - INFO - 正在关闭应用...
-2026-06-11 00:39:58,870 - aigc_detector - INFO - Redis连接已关闭
-2026-06-11 00:39:58,870 - aigc_detector - INFO - 应用已关闭
-2026-06-11 00:40:06,553 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,553 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:40:06,553 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:40:06,553 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,557 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,557 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,558 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:40:06,558 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,558 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:40:06,558 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,560 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:06,560 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
-2026-06-11 00:40:06,560 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
-2026-06-11 00:40:06,560 - aigc_detector - INFO - ==================================================
-2026-06-11 00:40:14,770 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:40:15,778 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'historyId': 54615, 'taskId': '287967f78e15432f97ff76bafcb731ce', 'status': 0, 'reportUrl': None, 'submitTime': '2026-06-11 00:39:32'}}
-2026-06-11 00:40:15,832 - aigc_detector - INFO - request_id=9032953b718e43a49459d0fbe1c7ca60 path=/ai/detector duration_ms=1226.65 status_code=200 api_key_name=测试 quota_used=89
-2026-06-11 00:40:22,612 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
-2026-06-11 00:40:25,635 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '大数据技术被应用到政府治理当中之后，政府治理变得更为精准高效，当各部门针对海量信息展开分析的时候，就能更快更好地回应公众需求并改良资源调配情况，在发生紧急公共事件时，依靠数据作出决策这种机制有着非常突出的优点，从而加强了应急处理能力。', 'originalCount': 94, 'resultCount': 117}}
-2026-06-11 00:40:25,700 - aigc_detector - INFO - request_id=8913778b14e84899a1def947cef5369c path=/ai/AIRewrite duration_ms=3275.83 status_code=200 api_key_name=测试 quota_used=94
+2026-06-14 14:17:57,595 - aigc_detector - INFO - ==================================================
+2026-06-14 14:17:57,596 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:17:57,596 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:17:57,596 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:17:57,596 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:17:57,596 - aigc_detector - INFO - ==================================================
+2026-06-14 14:17:57,596 - aigc_detector - INFO - ==================================================
+2026-06-14 14:17:57,754 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:17:57,754 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:17:57,754 - aigc_detector - INFO - ==================================================
+2026-06-14 14:17:57,754 - aigc_detector - INFO - ==================================================
+2026-06-14 14:18:03,678 - aigc_detector - INFO - ==================================================
+2026-06-14 14:18:03,678 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:18:03,679 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:18:03,679 - aigc_detector - INFO - ==================================================
+2026-06-14 14:18:09,363 - aigc_detector - INFO - request_id=e332097f89524530a6c87583bd7ce36d path=/ duration_ms=2.81 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:18:09,974 - aigc_detector - INFO - request_id=b6777e2816c047cda504746b5cad09bb path=/favicon.ico duration_ms=1.01 status_code=404 api_key_name=- quota_used=0
+2026-06-14 14:18:15,910 - aigc_detector - INFO - request_id=5067fb33591b472bbca0309ac4c02704 path=/admin/dashboard duration_ms=1.10 status_code=302 api_key_name=- quota_used=0
+2026-06-14 14:18:15,917 - aigc_detector - INFO - request_id=bad0fcd6632e4ef3b879780c1ac7ff8a path=/admin/login duration_ms=2.03 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:18:17,706 - aigc_detector - INFO - request_id=c43d30cc656640a4b4223c6eb9c84d56 path=/admin/login duration_ms=0.71 status_code=302 api_key_name=- quota_used=0
+2026-06-14 14:18:17,714 - aigc_detector - INFO - request_id=8d15815b3f4245a8aa0de25aeddc350e path=/admin/dashboard duration_ms=1.86 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:18:17,931 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-14 14:18:17,957 - aigc_detector - INFO - request_id=fa1570a0fa274594bcb62e2207c1992d path=/admin/token/info duration_ms=184.40 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:18:22,350 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '物联网不断发展，“万物互联”渐渐变为现实，无论是智能家居还是智慧交通，传感器把各种设备联系起来，做到数据自动收集并实施远程操控，如此高效的自动化必定会大幅改善能源利用率和生活品质，而且也需统一相关协议。', 'originalCount': 94, 'resultCount': 101}}
+2026-06-14 14:18:22,403 - aigc_detector - INFO - request_id=b0f96e977e9f46df95499b363ec76d64 path=/ai/AIRewrite duration_ms=2009.18 status_code=200 api_key_name=测试 quota_used=94
+2026-06-14 14:28:14,684 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:28:14,684 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:28:14,684 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:28:14,685 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:28:14,685 - aigc_detector - INFO - Redis连接已关闭
+2026-06-14 14:28:14,685 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:28:14,685 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:28:14,780 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:28:14,780 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:28:18,339 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,339 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:28:18,341 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:28:18,341 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,341 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,342 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:28:18,342 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:28:18,342 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,351 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,352 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:28:18,352 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:28:18,352 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,356 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:18,357 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 14:28:18,357 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 14:28:18,357 - aigc_detector - INFO - ==================================================
+2026-06-14 14:28:20,502 - aigc_detector - INFO - request_id=32c641213afb41a08fd783c37d384aee path=/admin/dashboard duration_ms=1.47 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:28:20,749 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-14 14:28:20,777 - aigc_detector - INFO - request_id=6cfc27c543744fa9b2797e761f1a0fda path=/admin/token/info duration_ms=189.96 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:28:23,629 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '数字化转型是企业加强竞争力的重要方面，采用大数据分析和云计算技术以后，企业可以更为精确地了解市场需求并改善业务流程，不过在当今这个数字时代，怎样保护用户的数据安全与隐私依旧是个关键所在。', 'originalCount': 91, 'resultCount': 93}}
+2026-06-14 14:28:23,683 - aigc_detector - INFO - request_id=87379653579d4100be5cc7716b5c2d07 path=/ai/AIRewrite duration_ms=1636.39 status_code=200 api_key_name=测试 quota_used=91
+2026-06-14 14:30:49,335 - aigc_detector - INFO - request_id=4751f6a2e47f4221b8e7f170ad66ef59 path=/admin/dashboard duration_ms=2.00 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:30:49,554 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-14 14:30:49,580 - aigc_detector - INFO - request_id=2ade0a3127664ee2a4f2b15cb67b95e2 path=/admin/token/info duration_ms=188.51 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:30:51,836 - aigc_detector - INFO - request_id=4040afd91cfb45fb8176b41f3fb304ce path=/admin/keys duration_ms=152.43 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:30:52,532 - aigc_detector - INFO - request_id=7181a15e329c42caa0551bbdff6382ea path=/admin/logs duration_ms=1.50 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:31:44,847 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '气候变化属于当前人类碰上的诸多严峻挑战之一，全球平均温度持续上升使得冰川渐渐消融，海平面慢慢抬高，而且极端天气现象变得越发频繁。要想守护好我们的地球母亲，各个国家就要携手合作，削减温室气体排放量，大力推动利用太阳能这类清洁能源。', 'originalCount': 90, 'resultCount': 114}}
+2026-06-14 14:31:44,900 - aigc_detector - INFO - request_id=db891f014bc94762b0b9baf73904de5f path=/ai/AIRewrite duration_ms=18110.63 status_code=200 api_key_name=测试 quota_used=90
+2026-06-14 14:31:47,522 - aigc_detector - INFO - request_id=e6c0ecf81aff4a9f8c1a667d0cc36a5d path=/admin/logs duration_ms=1.54 status_code=200 api_key_name=- quota_used=0
+2026-06-14 14:32:02,402 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:32:02,402 - aigc_detector - INFO - Redis连接已关闭
+2026-06-14 14:32:02,403 - aigc_detector - INFO - Redis连接已关闭
+2026-06-14 14:32:02,403 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:32:02,432 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:32:02,432 - aigc_detector - INFO - 应用已关闭
+2026-06-14 14:32:02,432 - aigc_detector - INFO - 正在关闭应用...
+2026-06-14 14:32:02,432 - aigc_detector - INFO - 应用已关闭
+2026-06-14 21:31:10,574 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,574 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 21:31:10,574 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 21:31:10,574 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,577 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,577 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,577 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 21:31:10,577 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 21:31:10,577 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 21:31:10,577 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 21:31:10,577 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,577 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,578 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:10,579 - aigc_detector - INFO - 正在启动 AIGC Detector API v1.0.0
+2026-06-14 21:31:10,579 - aigc_detector - INFO - 服务地址: http://0.0.0.0:8000
+2026-06-14 21:31:10,579 - aigc_detector - INFO - ==================================================
+2026-06-14 21:31:15,764 - aigc_detector - INFO - request_id=2a16a73377834a13ad6119c6220c6be6 path=/ duration_ms=3.83 status_code=200 api_key_name=- quota_used=0
+2026-06-14 21:31:17,065 - aigc_detector - INFO - request_id=841e463e0a8e445a8b38a95de56fa209 path=/favicon.ico duration_ms=0.52 status_code=404 api_key_name=- quota_used=0
+2026-06-14 21:31:21,069 - aigc_detector - INFO - request_id=d7c4f7b805de43179adebaccccb3a3da path=/admin/dashboard duration_ms=2.20 status_code=200 api_key_name=- quota_used=0
+2026-06-14 21:31:21,302 - aigc_detector - INFO - Redis连接成功: 43.142.181.147:6379
+2026-06-14 21:31:21,328 - aigc_detector - INFO - request_id=c7cf2ef08ad842abb42c5913ae9b7c96 path=/admin/token/info duration_ms=181.74 status_code=200 api_key_name=- quota_used=0
+2026-06-14 21:31:28,419 - aigc_detector - INFO - {'code': 200, 'msg': '成功', 'data': {'result': '自动驾驶汽车的研发目的在于大幅缩减因人为差错引发的交通事故，依靠复杂的激光雷达以及感知算法，汽车可以随时辨别路况，当技术日益成熟，法律法规渐次完备的时候，未来的出行将会越发自动化，安全又高效。', 'originalCount': 93, 'resultCount': 96}}
+2026-06-14 21:31:28,473 - aigc_detector - INFO - request_id=d52beb464c514997be57fc04034e74fd path=/ai/AIRewrite duration_ms=3919.01 status_code=200 api_key_name=测试 quota_used=93

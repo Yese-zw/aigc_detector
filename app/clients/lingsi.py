@@ -2,6 +2,8 @@
 
 import requests
 
+from app.core.config import settings
+
 
 class LingsiClient:
     base_url = "https://lingsiai.cn/api/v1"
@@ -12,6 +14,6 @@ class LingsiClient:
             f"{self.base_url}/analytics/dashboard-overview",
             headers={"X-API-Key": self.api_key, "Content-Type": "application/json"},
             params={"time_range": time_range},
-            timeout=10,
+            timeout=settings.AI_DETECTOR_TIMEOUT,
         )
         return response

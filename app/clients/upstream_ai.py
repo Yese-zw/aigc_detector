@@ -103,7 +103,7 @@ class UpstreamAIClient:
         response = requests.post(
             f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/start",
             headers=self._browser_headers(content_type=True),
-            timeout=10,
+            timeout=settings.AI_DETECTOR_TIMEOUT,
         )
         return response.json()
 
@@ -112,7 +112,7 @@ class UpstreamAIClient:
             f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/status",
             headers=self._browser_headers(),
             params={"request_id": request_id},
-            timeout=10,
+            timeout=settings.AI_DETECTOR_TIMEOUT,
         )
         return response.json()
 

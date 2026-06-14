@@ -4,6 +4,7 @@
  */
 const BASE_URL = 'https://api.lingsiai.cn/api/v1/ai'
 const STORAGE_KEY = 'user_api_key'
+const REQUEST_TIMEOUT = 120000
 
 /** 获取 API Key */
 function getApiKey() {
@@ -39,7 +40,7 @@ function request(options) {
       method: options.method || 'GET',
       data: options.data || {},
       header,
-      timeout: options.timeout || 30000,
+      timeout: options.timeout || REQUEST_TIMEOUT,
       success: (res) => {
         if (res.statusCode === 200) {
           resolve(res.data)
@@ -78,7 +79,7 @@ function uploadFile(filePath, formData) {
       name: 'file',
       formData,
       header,
-      timeout: 60000,
+      timeout: REQUEST_TIMEOUT,
       success: (res) => {
         if (res.statusCode === 200) {
           try {
@@ -108,5 +109,6 @@ module.exports = {
   getApiKey,
   setApiKey,
   removeApiKey,
+  REQUEST_TIMEOUT,
   BASE_URL
 }

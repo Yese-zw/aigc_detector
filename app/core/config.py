@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     APP_DESCRIPTION: str = "AI检测服务"
 
     HOST: str = "0.0.0.0"
-    PORT: int = 8000
+    PORT: int = 8001
     WORKERS: int = 4
     RELOAD: bool = False
 

@@ -2,6 +2,7 @@
 
 import json
 import time
+from urllib.parse import urlparse
 from typing import Any, Optional
 
 import requests
@@ -24,6 +25,7 @@ AUTH_ERROR_CODES = {401, 104, 1001, 1002, 1003}
 class UpstreamAIClient:
     def __init__(self):
         self.redis = get_redis_client()
+        self.session = requests.Session()
 
     def detect_text(self, text: str, language: str) -> dict[str, Any]:
         return self._request_with_retry(
@@ -100,7 +102,7 @@ class UpstreamAIClient:
         return cached_data
 
     def wxlogin_start(self) -> dict[str, Any]:
-        response = requests.post(
+        response = self.session.post(
             f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/start",
             headers=self._browser_headers(content_type=True),
             timeout=settings.AI_DETECTOR_TIMEOUT,
@@ -109,7 +111,7 @@ class UpstreamAIClient:
         return response.json()
 
     def wxlogin_status(self, request_id: str) -> dict[str, Any]:
-        response = requests.get(
+        response = self.session.get(
             f"{settings.AI_DETECTOR_BASE_URL}/wxlogin/status",
             headers=self._browser_headers(),
             params={"request_id": request_id},
@@ -138,7 +140,7 @@ class UpstreamAIClient:
         extra_headers: Optional[dict[str, str]] = None,
         **kwargs,
     ) -> dict[str, Any]:
-        response = requests.request(
+        response = self.session.request(
             method,
             f"{settings.AI_DETECTOR_BASE_URL}{path}",
             headers=self._auth_headers(token, extra_headers),
@@ -159,7 +161,7 @@ class UpstreamAIClient:
         return self._login()
 
     def _login(self) -> str:
-        response = requests.post(
+        response = self.session.post(
             f"{settings.AI_DETECTOR_BASE_URL}/api/index/user/emailLogin",
             headers=self._browser_headers(content_type=True),
             json={"email": settings.UPSTREAM_EMAIL, "password": settings.UPSTREAM_PASSWORD},
@@ -176,7 +178,7 @@ class UpstreamAIClient:
 
     def _upload_to_oss(self, policy_data: dict[str, Any], filename: str, file_content: bytes, content_type: str) -> None:
         form_data = policy_data.get("formData", {})
-        response = requests.post(
+        response = self.session.post(
             url=policy_data.get("host"),
             data={
                 "key": form_data.get("key"),
@@ -205,8 +207,9 @@ class UpstreamAIClient:
         return headers
 
     def _browser_headers(self, content_type: bool = False) -> dict[str, str]:
+        authority = urlparse(settings.AI_DETECTOR_BASE_URL).netloc
         headers = {
-            "authority": "https://ai.lanbeike.online",
+            "authority": authority,
             "accept": "application/json, text/plain, */*",
             "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             "origin": "https://ai.lanbeike.online",

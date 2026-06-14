@@ -5,6 +5,7 @@ AI检测服务核心业务逻辑
 import requests
 import json
 import time
+from urllib.parse import urlparse
 from typing import Optional, Dict, Any
 from app.core.config import settings
 from app.core.logger import logger
@@ -31,12 +32,14 @@ class AIDetectorService:
     def __init__(self):
         self.redis_key = settings.REDIS_AUTH_KEY
         self.redis_client = get_redis_client()
+        self.session = requests.Session()
         logger.info("AI检测服务初始化 (Key托管模式)")
     
     def _init_base_headers(self) -> Dict[str, str]:
         """初始化基础请求头"""
+        authority = urlparse(settings.AI_DETECTOR_BASE_URL).netloc
         return {
-            "authority": "xrzbk.lanbeike.online",
+            "authority": authority,
             "method": "POST",
             "scheme": "https",
             "accept": "application/json, text/plain, */*",
@@ -77,7 +80,7 @@ class AIDetectorService:
                 "password": settings.UPSTREAM_PASSWORD
             }
             
-            response = requests.post(
+            response = self.session.post(
                 url,
                 headers=headers,
                 json=data,
@@ -160,7 +163,7 @@ class AIDetectorService:
             if "content-length" in kwargs["headers"]:
                 del kwargs["headers"]["content-length"]
                 
-            response = requests.request(
+            response = self.session.request(
                 method,
                 url,
                 verify=settings.AI_DETECTOR_VERIFY_SSL,

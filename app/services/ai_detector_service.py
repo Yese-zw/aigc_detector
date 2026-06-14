@@ -63,7 +63,7 @@ class AIDetectorService:
         """从上游获取新的Token并存入Redis"""
         try:
             logger.info(f"🔄 正在尝试自动登录到上游服务: {settings.UPSTREAM_EMAIL}")
-            url = f"{settings.AI_DETECTOR_BASE_URL}/index/user/emailLogin"
+            url = f"{settings.AI_DETECTOR_BASE_URL}/api/index/user/emailLogin"
             
             headers = self._init_base_headers()
             headers.update({
@@ -237,7 +237,7 @@ class AIDetectorService:
     
     def _do_aigccheck_request(self, token: str, text: str, language: str) -> Dict[str, Any]:
         """使用封装的重试机制执行检测请求"""
-        detector_url = f"{settings.AI_DETECTOR_BASE_URL}/aigc/detect"
+        detector_url = f"{settings.AI_DETECTOR_BASE_URL}/api/aigc/detect"
         json_data = {"content": text, "language": language}
         
         # 注意：这里不再直接用 token 参数，因为 _request_with_retry 会自己打理
@@ -273,7 +273,7 @@ class AIDetectorService:
 
     def _do_aigcrewrite_request(self, token: str, text: str, combination_id: str) -> Dict[str, Any]:
         """使用封装的重试机制执行改写请求"""
-        detector_url = f"{settings.AI_DETECTOR_BASE_URL}/text/rewrite"
+        detector_url = f"{settings.AI_DETECTOR_BASE_URL}/api/text/rewrite"
         json_data = {"text": text, "combinationId": combination_id, "saveHistory": False}
         
         extra_headers = {
@@ -339,7 +339,7 @@ class AIDetectorService:
                     raise ValueError(f"{param_name}必须传数字字符串！当前值：{param_value}")
 
             # 1. 获取上传 policy
-            policy_url = f"{settings.AI_DETECTOR_BASE_URL}/document/direct-upload/policy"
+            policy_url = f"{settings.AI_DETECTOR_BASE_URL}/api/document/direct-upload/policy"
             
             file_suffix = filename.split('.')[-1].lower() if '.' in filename else ''
             file_type = FILE_CONTENT_TYPE_MAP.get(file_suffix, 'application/octet-stream')
@@ -399,7 +399,7 @@ class AIDetectorService:
             logger.info(f"OSS上传成功，状态码: {oss_response.status_code}")
 
             # 3. 提交上传 commit
-            commit_url = f"{settings.AI_DETECTOR_BASE_URL}/document/direct-upload/commit"
+            commit_url = f"{settings.AI_DETECTOR_BASE_URL}/api/document/direct-upload/commit"
             commit_request_data = {
                 "uuid": remote_uuid,
                 "objectKey": object_key,
@@ -458,7 +458,7 @@ class AIDetectorService:
 
     def _do_upload_status_request(self, token: str, uuid: str) -> Dict[str, Any]:
         """使用封装的重试机制执行文件状态查询请求"""
-        upload_url = f"{settings.AI_DETECTOR_BASE_URL}/document/status/{uuid}"
+        upload_url = f"{settings.AI_DETECTOR_BASE_URL}/api/document/status/{uuid}"
         
         extra_headers = {
             'page-timestamp': str(int(time.time() * 1000))
